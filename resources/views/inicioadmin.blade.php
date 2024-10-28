@@ -8,6 +8,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/inicioadmin.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
 
 </head>
 
@@ -113,9 +116,39 @@
     {{-- fin menu superior --}}
     <div class="ContenedorGrande">
 
+        <table id="miTabla" class="table table-striped">
+            <thead>
+            <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Ciudad</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>1</td>
+            <td>Juan</td>
+            <td>28</td>
+            <td>Madrid</td>
+            </tr>
+            <tr>
+            <td>2</td>
+            <td>Ana</td>
+            <td>22</td>
+            <td>Barcelona</td>
+            </tr>
+            <tr>
+            <td>3</td>
+            <td>Pedro</td>
+            <td>35</td>
+            <td>Valencia</td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
 
-
-        <table>
+        {{-- <table id="Tablass">
     <tr>
         <th>Foto</th>
         <th>Código</th>
@@ -133,7 +166,7 @@
     <td> <a href="informacionactiv"><button>Mas informacion</button></td></a>
 
     </tr>
-    </div>
+    </div> --}}
 
 
     <!-- inicio modal registro de un nuevo usuasrio -->
@@ -179,6 +212,16 @@
     <!-- final de modal de registro de administrador -->
 
     <script src="/assets/js/inicioadm.js"></script>
+
+    <script src ="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function()
+    {
+         $('#miTabla').DataTable();
+        });
+     </script>
 </body>
 
 </html>
