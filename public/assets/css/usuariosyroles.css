@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+
+    box-sizing: border-box;
+
+  }
+  /* menu de inicio estatico */
+  body {
+    height: 100vh;
+    display: flex; /* Añadido para centrar contenido verticalmente si es necesario */
+  }
+  /* mover texto arriba de los botones */
+  .muv{
+  position: relative;
+  left: 1100px;
+
+  }
+  .Ladm {
+    font-family: "Newsreader", serif;
+    color: rgb(22, 87, 22);
+    width: 35%;
+    position: relative;
+    top: 10px;
+  }
+
+  .Opciones {
+
+    text-align: center;
+    height: 1000px;
+    width: 350px;
+    border: 3px solid rgba(0, 0, 0, 0.336);
+    position: relative;
+    top: 0%;
+    left: 0%;
+
+  }
+
+  /* Diseño botones menu */
+
+  button {
+    font-size: 17px;
+    padding: 1em 2.7em;
+    font-weight: 500;
+    background: #1f2937;
+    color: rgb(255, 255, 255);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.6em;
+    cursor: pointer;
+    margin-top: 25px;
+    width: 230px;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    color: green;
+    background-color: white;
+  }
+  /* final de menu inicio estatico */
+  /* inicio de la creacion de la tabla */
+
+  /* final de la creacion de la tabla */
