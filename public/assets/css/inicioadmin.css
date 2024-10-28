@@ -1,0 +1,561 @@
+* {
+    margin: 0;
+
+    box-sizing: border-box;
+
+  }
+
+  body {
+    height: 100vh;
+    display: flex; /* Añadido para centrar contenido verticalmente si es necesario */
+    background: linear-gradient(to bottom, #11076b, #313131, #11076b);
+}
+
+  .Ladm {
+    font-family: 'Newsreader', serif;
+    color: rgb(255, 255, 255);
+    width: 35%;
+    position: relative;
+    top: 10px ;
+  }
+  /* menuarriba */
+
+  .navegacion{
+  position: relative;
+  left: 1200px;
+ top: -28px;
+  width: 100%;
+z-index: 1;
+  height: 50px;
+  margin: 30px auto ;
+  background: #adaed1;
+  border: 1px solid rgb(194, 192, 192);
+border-radius: 6px;
+}
+  .navegacion ul{
+    list-style: none;
+
+}
+  .menu > li{
+    position: relative;
+    display:inline-block;
+
+  }
+  .menu > li > a{
+  display: block;
+  padding:  15px 20px;
+  color: #353535;
+  font-family: 'sans-serif';
+  text-decoration: none;
+  text-align: left;
+
+  }
+  .menu  li  a:hover{
+    color: #28923f;
+    transition: all .3s;
+
+  }
+  /* submenu */
+  .submenu{
+    position:absolute;
+  background: #d1d1cf;
+  width: 120%;
+  display: none;
+  text-align: left;
+z-index: 2;
+  }
+
+  .submenu li a{
+    display: block;
+
+    padding: 11px;
+    color: #000000 ;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+z-index: 2;
+  }
+  .menu li:hover .submenu{
+    display:block;
+    z-index: 1;
+
+  }
+
+  /* fin menu */
+  /* buscar por codigo */
+
+  /* From Uiverse.io by alexruix */
+  .group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+   }
+
+   .input {
+    width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+
+}
+
+   .input::placeholder {
+    color: #9e9ea7;
+   }
+
+   .input:focus, input:hover {
+    outline: none;
+    border-color: rgba(234,76,137,0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+   }
+
+   .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #a39797;
+    width: 1rem;
+    height: 1rem;
+   }
+/* inicio menu lateral */
+
+.menu_lateral{
+    position: relative;
+    right: 20px;
+z-index: 50;
+}
+  :root{
+    --main-color:#fff;
+  }
+
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body{
+    font-family:'Roboto' , 'sans-serif';
+    overflow:hidden;
+  }
+
+  .main-header{
+    background: #4FB391;
+    width: 100%;
+    height:50px;
+  }
+
+  nav{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 300px;
+    top:50px;
+    height:calc(100vh - 50px);
+    background:#adaed1;
+    transform:translateX(-100%);
+    transition:.4s ease;
+
+}
+
+
+  .navigation li{
+    list-style:none;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.5);
+  }
+
+  .navigation a{
+    color:var(--main-color);
+    display: block;
+    line-height:3.5;
+    padding: 0 10px;
+    text-decoration:none;
+    transition:.4s ease;
+  }
+
+  .navigation a:hover{
+    transform:translateX(10%);
+  }
+
+  #btn-nav{
+    display: none;
+  }
+
+  #btn-nav:checked ~ nav{
+    transform:translateX(0);
+  }
+
+  .btn-nav{
+    color:var(--main-color);
+    font-size:30px;
+    position: absolute;
+    left:0;
+    top:-11px;
+    cursor:pointer;
+    padding:6.5px 15px;
+    transition:.2s ease;
+    background:rgba(0,0,0,.1);
+    height: 70px;
+    width: 200px;
+    background-image: url("/assets/Recursos/descarga.png");
+    background-position: center;
+    background-size: 210px;
+
+}
+.imageusuarios{
+    position: relative;
+    top:10px;
+}
+.registactivo{
+    position: relative;
+    top: 25px;
+}
+.cre_cat{
+    position: relative;
+    top: 10px;
+}
+
+  /* fin codigo menu lateral */
+  button:hover{
+    color :rgb(255, 255, 255);
+    background-color: #d8e709;
+  border:-11px solid black;
+  }
+
+  .ContenedorGrande{
+    position: absolute;
+    top:60px;
+    left: 70px;
+    width: 100%;
+    height: 1700px;
+  }
+
+  /* tablas de informacion del enser */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+img {
+    max-width: 100px; /* ajusta el tamaño de la imagen */
+    height: auto;
+}
+  /* fin codigo de las tablas de informacion del enser */
+
+  /* imagen modal */
+  .Modal__img{
+  width: 50px;
+  height: auto;
+  position: relative;
+  right: 220px;
+  top: -30px;
+  }
+  /* apartado de modal  */
+  .modal{
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: color #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+z-index: 50;
+}
+
+
+  .modal--show {
+  opacity: 1;
+  pointer-events: auto;
+  background-color:rgba(0, 0, 0,.55);
+  }
+  /* text diseño modal */
+  .input {
+    max-width: 190px;
+    background-color: #f5f5f5;
+    color: #242424;
+    padding: .15rem .5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+  }
+  .Descripcion__activo{
+  height: 10%;
+  width: 70%;
+
+  }
+
+  input:focus {
+    border-bottom: 2px solid #5b5fc7;
+    border-radius: 4px 4px 2px 2px;
+  }
+
+  input:hover {
+    outline: 1px solid lightgrey;
+  }
+  /* fin text  diseño modal */
+  .modal__container{
+    position: fixed;
+    top: 30px;
+    width: 40%;
+    left: 35%;
+    height: 100%;
+    max-width: 600px;
+    max-height: 90%;
+    border:3px solid rgb(255, 255, 255);
+    padding: 3em 2.5em ;
+    background-color: rgb(224, 231, 231);
+    display: grid;
+    gap:  1em;
+    place-items: center;
+    grid-auto-columns:100% ;
+
+  }
+
+  .letra__modal{
+    font-family: 'sans-serif', serif;
+
+  }
+  /* decoracion imputs */
+  .Cod__Categoria{
+  border-radius: 3%;
+  }
+  .Nombre__Categoria{
+  border-radius: 3%;
+  margin-bottom: 20px;
+  }
+  .btn__Registrar{
+    text-decoration: none;
+    color:white ;
+    background-color:green;
+    padding: 1px 1px;
+    border:1px solid green;
+    border-radius:  6px;
+    transition : background-color .3s;
+    font-weight: 300;
+  margin: -4px;
+  }
+  .btn__Registrar:hover{
+    color :rgb(0, 0, 128);
+    background-color: white;
+
+  }
+  .mr{
+    width: 900px;
+    height: 80px;
+    border: 1px solid firebrick;
+
+    background-color: yellowgreen;
+
+
+  }
+  /* inicio modal de registro de administrador*/
+
+  .registroadminmod {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000bd;
+    display: flex;
+     opacity: 0;
+    pointer-events: none;
+
+  }
+
+  .imp-mod{
+    opacity: 1;
+    pointer-events: auto;
+z-index: 100;
+  }
+
+  .contai {
+    width:  600px;
+    height: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border: 1px solid #007bff;
+    outline: none;
+}
+
+button {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+  /* final de modal de registro de administrador */
+     .ok{
+      position:relative;
+      left:700px;
+     }
+     /* nuevo modal de registrar categoria */
+     .container {
+        width: 500px;
+        height: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        z-index: 50;
+
+
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        font-weight: normal;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+        border: 1px solid #007bff;
+        outline: none;
+    }
+
+    button {
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+.btn_salir_mod{
+    position: relative;
+    top: 100px;
+left:40%;
+z-index: 101;
+height: 30px;
+}
+.btn_salir_mo{
+    position: relative;
+    top: 100px;
+left:38%;
+z-index: 101;
+height: 30px;
+
+}
