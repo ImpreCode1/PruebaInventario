@@ -12,7 +12,7 @@ body {
 }
 .menu_lateral{
     position: relative;
-    right: 20px;
+    right: 10px;
 z-index: 50;
 }
   :root{
