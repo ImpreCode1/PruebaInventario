@@ -8,4 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Activo extends Model
 {
     use HasFactory;
+
+    //datos de la tabla 
+    protected $fillable = ['Nombre','Descripción','Codigo','Categoria','Estado','Lugar','FechaIngreso','Facturacompra','FechaSalida','FechaMantenimiento','CostoMantenimiento','FotoURL'];
+
+      
+    // Relaciones
+    // Relación con la tabla Categorias (asumiendo que el modelo es Categoria)
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class, 'Categoria', 'ID_Codigo');
+    }
+
+
+    // belongsTo
+    // Esta relación se usa cuando un modelo "pertenece a" otro modelo. Es una relación de muchos a uno
+
+
+    //     hasMany
+    // La relación hasMany se usa cuando un modelo "tiene muchos" registros en otro modelo. Es una relación de uno a muchos
+
+    // belongsToMany
+    // belongsToMany se usa para una relación de muchos a muchos 
 }
