@@ -9,15 +9,17 @@ class Activo extends Model
 {
     use HasFactory;
 
-    //datos de la tabla 
-    protected $fillable = ['Nombre','Descripción','Codigo','Categoria','Estado','Lugar','FechaIngreso','Facturacompra','FechaSalida','FechaMantenimiento','CostoMantenimiento','FotoURL'];
+    //datos de la tabla
+    protected $fillable = ['nombre','descripcion','codigo','categoria','estado','lugar','fechaingreso','facturacompra','fechasalida','fechamantenimiento','costomantenimiento','Fotourl'];
 
-      
+// $hidden para proteger los datos en usuarios
+
+
     // Relaciones
     // Relación con la tabla Categorias (asumiendo que el modelo es Categoria)
     public function categoria()
     {
-        return $this->belongsTo(Categoria::class, 'Categoria', 'ID_Codigo');
+        return $this->belongsTo(categoria::class, 'categoria', 'id_codigo');
     }
 
 
@@ -29,5 +31,5 @@ class Activo extends Model
     // La relación hasMany se usa cuando un modelo "tiene muchos" registros en otro modelo. Es una relación de uno a muchos
 
     // belongsToMany
-    // belongsToMany se usa para una relación de muchos a muchos 
+    // belongsToMany se usa para una relación de muchos a muchos
 }
