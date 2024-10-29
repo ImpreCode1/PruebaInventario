@@ -14,7 +14,7 @@ class Categoria extends Model
 
 public function activo()
     {
-        return $this->hasMany(activo::class, 'activo', 'categoria');
+        return $this->hasMany(Activo::class, 'activo', 'categoria');
     }
 
 }

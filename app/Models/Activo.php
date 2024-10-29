@@ -19,7 +19,7 @@ class Activo extends Model
     // Relación con la tabla Categorias (asumiendo que el modelo es Categoria)
     public function categoria()
     {
-        return $this->belongsTo(categoria::class, 'categoria', 'id_codigo');
+        return $this->belongsTo(Categoria::class, 'categoria', 'id_codigo');
     }
 
 

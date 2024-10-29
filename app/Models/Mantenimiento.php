@@ -13,7 +13,7 @@ protected $fillable = ['id_activo','fechamantenimiento','descripcion'];
 
 public function activo()
     {
-        return $this->belongsTo(activo::class, 'activo', 'ID');
+        return $this->belongsTo(Activo::class, 'activo', 'ID');
     }
 
 }
