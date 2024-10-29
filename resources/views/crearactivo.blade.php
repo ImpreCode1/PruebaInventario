@@ -15,9 +15,8 @@
 
         <nav>
             <ul class="navigation">
-                <li><a href="" class="Crear__Categoria" > crear categoria  <img src="/assets/Recursos/crearactivo.png" alt="registro activo" class="cre_cat" width="13%"> </a> </li>
-                <li><a href="crearactivo">registro activo <img src="/assets/Recursos/registrar_activo-removebg-preview.png" alt="registro activo" class="registactivo" width="20%"></a></li>
-                <li><a href="" class="Registrador_Usuarios">registrar administrador <img src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario" width="20% "class  ="imageusuarios" ></a></li>
+                <li><a href="inicioadmin" class="crear_activo" >inicio<img src="/assets/Recursos/inicio.png" alt="registro activo" class="cre_act" width="18%"> </a> </li>
+
 
             </ul>
         </nav>

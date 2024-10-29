@@ -118,31 +118,23 @@
 
         <table id="miTabla" class="table table-striped">
             <thead>
-            <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Edad</th>
-            <th>Ciudad</th>
-            </tr>
+                <tr>
+                    <th>Foto</th>
+                    <th>Código</th>
+                    <th>Nombre del Activo</th>
+                    <th>Lugar</th>
+                    <th>Estado</th>
+                    <th>Mas información</th>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-            <td>1</td>
-            <td>Juan</td>
-            <td>28</td>
-            <td>Madrid</td>
-            </tr>
-            <tr>
-            <td>2</td>
-            <td>Ana</td>
-            <td>22</td>
-            <td>Barcelona</td>
-            </tr>
-            <tr>
-            <td>3</td>
-            <td>Pedro</td>
-            <td>35</td>
-            <td>Valencia</td>
+                <tr>
+                <td><img src="/assets/Recursos/logoimpre.png" alt="Foto del activo"></td>
+                <td>M20-0001</td>
+                <td>Mesa</td>
+                <td>Impresistem</td>
+                <td>En mantenimiento</td>
+            <td> <a href="informacionactiv"><button>Mas informacion</button></td></a>
             </tr>
             </tbody>
             </table>

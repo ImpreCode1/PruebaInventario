@@ -18,7 +18,7 @@
 <div class="titulologin">
                     <h1 for="chk" aria-hidden="true">Gestion de activos</h1>
                 </div>
-                    <input type="text" name="txt" placeholder="User name" required="">
+                    <input type="text" name="nombre" placeholder="User name" required="">
 					<input type="email" name="email" placeholder="Email" required="">
 
 					<input type="password" name="pswd" placeholder="Password" required="">
