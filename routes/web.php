@@ -1,8 +1,10 @@
 <?php
-
+use App\Http\Controllers\ActivoController;
 use App\Http\Controllers\CategoriaController;
+use App\Models\Activo;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UsuarioController;
 //rutas de vistas
 Route::view('/','login')->name('login');
 Route::view('/crearactivo','crearactivo')->name('crearactivo');
@@ -23,8 +25,11 @@ Route::view('/inicioadmin','inicioadmin')->name('inicioadmin');
 // });
 
 
-// Peticiones de logica 
-
+// Peticiones de logica
+//categoria
 Route::post('/categoria/store', [CategoriaController::class, 'store'])->name('categoria.store');
 // Rutas
-
+Route::post('/activo/register', [ActivoController::class, 'register'])->name('activo.register');
+//activo
+// usuarios
+Route::post('/usuarios/us', [UsuarioController::class, 'us'])->name('usuarios.us');

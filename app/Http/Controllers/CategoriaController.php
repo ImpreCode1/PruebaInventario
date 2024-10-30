@@ -22,4 +22,6 @@ class CategoriaController extends Controller
         return redirect()->route('inicioadmin');
 
     }
+
 }
+
