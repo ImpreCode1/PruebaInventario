@@ -1,21 +1,30 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/crearactivo', function () {
-    return view('crearactivo');
-});
+//rutas de vistas
+Route::view('/','login')->name('login');
+Route::view('/crearactivo','crearactivo')->name('crearactivo');
+Route::view('/informacionactiv','informacionactiv')->name('informacionactiv');
+Route::view('/inicioadmin','inicioadmin')->name('inicioadmin');
+
+// Route::get('/crearactivo', function () {
+//     return view('crearactivo');
+// });
+// Route::get('/informacionactiv', function () {
+//     return view('informacionactiv');
+// });
+// Route::get('/inicioadmin', function () {
+//     return view('inicioadmin');
+// });
+// Route::get('/', function () {
+//     return view('login');
+// });
 
 
+// Peticiones de logica 
 
-Route::get('/informacionactiv', function () {
-    return view('informacionactiv');
-});
-Route::get('/inicioadmin', function () {
-    return view('inicioadmin');
-});
-Route::get('/login', function () {
-    return view('login');
-});
-
+Route::post('/categoria/store', [CategoriaController::class, 'store'])->name('categoria.store');
+// Rutas
 

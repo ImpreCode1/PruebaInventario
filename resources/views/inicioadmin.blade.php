@@ -19,24 +19,30 @@
 
 
 
-{{-- menu lateral --}}
+    {{-- menu lateral --}}
     <div class="menu_lateral">
         <label for="btn-nav" class="btn-nav"><i class="fas fa-bars">></i></label>
         <input type="checkbox" id="btn-nav">
 
         <nav>
             <ul class="navigation">
-                <li><a href="" class="Crear__Categoria" > crear categoria  <img src="/assets/Recursos/crearactivo.png" alt="registro activo" class="cre_cat" width="13%"> </a> </li>
-                <li><a href="crearactivo">registro activo <img src="/assets/Recursos/registrar_activo-removebg-preview.png" alt="registro activo" class="registactivo" width="20%"></a></li>
-                <li><a href="" class="Registrador_Usuarios">registrar administrador <img src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario" width="20% "class  ="imageusuarios" ></a></li>
+                <li><a href="" class="Crear__Categoria"> crear categoria <img
+                            src="/assets/Recursos/crearactivo.png" alt="registro activo" class="cre_cat" width="13%">
+                    </a> </li>
+                <li><a href="crearactivo">registro activo <img
+                            src="/assets/Recursos/registrar_activo-removebg-preview.png" alt="registro activo"
+                            class="registactivo" width="20%"></a></li>
+                <li><a href="" class="Registrador_Usuarios">registrar administrador <img
+                            src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario"
+                            width="20% "class="imageusuarios"></a></li>
 
             </ul>
         </nav>
     </div>
-{{-- fin menu lateral --}}
+    {{-- fin menu lateral --}}
     {{-- </header> --}}
 
-{{-- menu superior --}}
+    {{-- menu superior --}}
     <div>
 
         <header>
@@ -90,29 +96,36 @@
 
     </div>
 
-<!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
-<section class="modal">
-    <div class="btn_salir_mo">
-        <a href="inicioadmin"  ><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm" width="40%"> </a>
-    </div>
+    <!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
+    <!-- Formulario -->
+    <form method="POST" action="{{ route('categoria.store') }}">
+        @csrf <!-- Incluir el token CSRF -->
+        <section class="modal">
+            <div class="btn_salir_mo">
+                <a href="inicioadmin"><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm"
+                        width="40%"></a>
+            </div>
 
-    <div class="container">
-    <h1>impresistem</h1>
-    <h2>agrega nueva categoría</h2>
-    <form class="formulario">
-        <div class="input-group">
-            <label for="codigo">Código categoría:</label>
-            <input type="text" id="codigo" name="codigo" placeholder="nuevo código" required>
-        </div>
-        <div class="input-group">
-            <label for="nombre">Nombre categoría:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre categoría" required>
-        </div>
-        <button btn__Registrar_Cat type="submit">Registrar categoría</button>
+            <div class="container">
+                <h1>impresistem</h1>
+                <h2>Agrega nueva categoría</h2>
+                <div class="formulario">
+                    <div class="input-group">
+                        <label for="codigo">Código categoría:</label>
+                        <input type="text" id="id_codigo" name="id_codigo" placeholder="nuevo código" max="5" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="nombre">Nombre categoría:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre categoría" required>
+                    </div>
+                    <button type="submit">Registrar categoría</button> <!-- Corrección en el botón -->
+                </div>
+            </div>
+        </section>
     </form>
-</div>
-</section>
-<!-- final modal de crear categoria -->
+
+
+    <!-- final modal de crear categoria -->
     {{-- fin menu superior --}}
     <div class="ContenedorGrande">
 
@@ -129,18 +142,18 @@
             </thead>
             <tbody>
                 <tr>
-                <td><img src="/assets/Recursos/logoimpre.png" alt="Foto del activo"></td>
-                <td>M20-0001</td>
-                <td>Mesa</td>
-                <td>Impresistem</td>
-                <td>En mantenimiento</td>
-            <td> <a href="informacionactiv"><button>Mas informacion</button></td></a>
-            </tr>
+                    <td><img src="/assets/Recursos/logoimpre.png" alt="Foto del activo"></td>
+                    <td>M20-0001</td>
+                    <td>Mesa</td>
+                    <td>Impresistem</td>
+                    <td>En mantenimiento</td>
+                    <td> <a href="informacionactiv"><button>Mas informacion</button></td></a>
+                </tr>
             </tbody>
-            </table>
-            </div>
+        </table>
+    </div>
 
-        {{-- <table id="Tablass">
+    {{-- <table id="Tablass">
     <tr>
         <th>Foto</th>
         <th>Código</th>
@@ -167,53 +180,53 @@
 
     <section class="registroadminmod">
         <div class="btn_salir_mod">
-            <a href="inicioadmin"  ><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm" width="40%"> </a>
+            <a href="inicioadmin"><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm"
+                    width="40%"> </a>
         </div>
 
         <div class="contai">
 
             <h1>impresistem</h1>
-        <h2>Registro de Usuario</h2>
-        <form class="formulario">
-            <div class="input-group">
-                <label for="usuario">Nombre de usuario:</label>
-                <input type="text" id="usuario" name="usuario" placeholder="nombre" required>
-            </div>
-            <div class="input-group">
-                <label for="correo">Correo:</label>
-                <input type="email" id="correo" name="correo" placeholder="correo" required>
-            </div>
-            <div class="input-group">
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-            </div>
-            <div class="input-group">
-                <label for="cargo">Cargo:</label>
-                <select id="cargo" name="cargo" required>
-                    <option value="Admin">Admin</option>
-                    <option value="Superadmin">Superadmin</option>
+            <h2>Registro de Usuario</h2>
+            <form class="formulario">
+                <div class="input-group">
+                    <label for="usuario">Nombre de usuario:</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="nombre" required>
+                </div>
+                <div class="input-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" placeholder="correo" required>
+                </div>
+                <div class="input-group">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+                </div>
+                <div class="input-group">
+                    <label for="cargo">Cargo:</label>
+                    <select id="cargo" name="cargo" required>
+                        <option value="Admin">Admin</option>
+                        <option value="Superadmin">Superadmin</option>
 
-                </select>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-</section>
+                    </select>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
 
 
     <!-- final de modal de registro de administrador -->
 
     <script src="/assets/js/inicioadm.js"></script>
 
-    <script src ="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
     <script>
-    $(document).ready(function()
-    {
-         $('#miTabla').DataTable();
+        $(document).ready(function() {
+            $('#miTabla').DataTable();
         });
-     </script>
+    </script>
 </body>
 
 </html>
