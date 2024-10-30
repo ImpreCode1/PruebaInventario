@@ -8,12 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
     use HasFactory;
+
+    protected $table = 'usuarios';
+    protected $primaryKey = 'ID';
+    public $timestamps = false;
+    
     protected $fillable = ['nombre', 'email', 'rol'];
 
     protected $hidden = ['contrasena'];
 
     public function activo()
     {
-        return $this->belongsTo(Activo::class, 'activo', 'ID');
+        return $this->belongsTo(Activo::class, 'ID', 'ID');
     }
 }

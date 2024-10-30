@@ -8,12 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Mantenimiento extends Model
 {
     use HasFactory;
-protected $fillable = ['id_activo','fechamantenimiento','descripcion'];
+
+    protected $table = 'mantenimientos';
+    protected $primaryKey = 'ID';
+    public $timestamps = false;
 
 
-public function activo()
+    protected $fillable = ['id_activo','fechamantenimiento','descripcion'];
+
+
+    public function activo()
     {
-        return $this->belongsTo(Activo::class, 'activo', 'ID');
+        return $this->belongsTo(Activo::class, 'id_activo', 'ID');
     }
 
 }

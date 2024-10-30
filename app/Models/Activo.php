@@ -9,6 +9,10 @@ class Activo extends Model
 {
     use HasFactory;
 
+    protected $table = 'activos';
+    protected $primaryKey = 'ID';
+    public $timestamps = false;
+
     //datos de la tabla
     protected $fillable = ['nombre','descripcion','codigo','categoria','estado','lugar','fechaingreso','facturacompra','fechasalida','fechamantenimiento','costomantenimiento','Fotourl'];
 
@@ -19,9 +23,19 @@ class Activo extends Model
     // Relación con la tabla Categorias (asumiendo que el modelo es Categoria)
     public function categoria()
     {
-        return $this->belongsTo(Categoria::class, 'categoria', 'id_codigo');
+       return $this->belongsTo(Categoria::class, 'categoria', 'id_codigo');
     }
 
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class, 'ID', 'ID');
+    }
+
+    public function mantenimientos()
+    {
+        return $this->hasMany(Mantenimiento::class, 'id_activo', 'ID');
+    }
 
     // belongsTo
     // Esta relación se usa cuando un modelo "pertenece a" otro modelo. Es una relación de muchos a uno
