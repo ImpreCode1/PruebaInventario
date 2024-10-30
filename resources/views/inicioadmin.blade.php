@@ -89,7 +89,7 @@
     <!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
     <!-- Formulario -->
     <form method="POST" action="{{ route('categoria.store') }}">
-        @csrf <!-- Incluir el token CSRF -->
+        @csrf
         <section class="modal">
             <div class="btn_salir_mo">
                 <a href="inicioadmin"><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm"
@@ -185,14 +185,15 @@
 
             <h1>impresistem</h1>
             <h2>Registro de Usuario</h2>
-            <form class="formulario">
+            <form method="POST" action="{{ route('usuarios.us') }}"">
+                @csrf
                 <div class="input-group">
                     <label for="usuario">Nombre de usuario:</label>
-                    <input type="text" id="usuario" name="usuario" placeholder="nombre" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="nombre" required>
                 </div>
                 <div class="input-group">
                     <label for="correo">Correo:</label>
-                    <input type="email" id="correo" name="correo" placeholder="correo" required>
+                    <input type="email" id="email" name="email" placeholder="correo" required>
                 </div>
                 <div class="input-group">
                     <label for="contrasena">Contraseña:</label>
@@ -200,10 +201,10 @@
                 </div>
                 <div class="input-group">
                     <label for="cargo">Cargo:</label>
-                    <select id="cargo" name="cargo" required>
-                        <option value="Admin">Admin</option>
-                        <option value="Superadmin">Superadmin</option>
-
+                    <select id="role" name="role" required>
+                        <option disabled >Seleccione rol</option>
+                        <option value="administrador">Admin</option>
+                        <option value="superadmin">Superadmin</option>
                     </select>
                 </div>
                 <button type="submit">Enviar</button>

@@ -35,54 +35,55 @@
         <body>
             <div class="containe">
                 <h1>Registro de Artículo</h1>
-                <form class="formulario">
+                <form method="POST" action="{{ route('activo.register') }}" >
+                    @csrf
                     <div class="input-group">
                         <label for="imagen">Subir Imagen:</label>
-                        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                        <input type="file" id="fotourl" name="fotourl" accept="image/*" >
                     </div>
                     <div class="input-group">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ejemplo Nombre" required>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ejemplo Nombre" >
                     </div>
                     <div class="input-group">
                         <label for="descripcion">Descripción:</label>
-                        <textarea id="descripcion" name="descripcion" placeholder="Ejemplo Descripción" required></textarea>
+                        <textarea id="descripcion" name="descripcion" placeholder="Ejemplo Descripción" ></textarea>
                     </div>
                     <div class="input-group">
                         <label for="codigo">Código:</label>
-                        <input type="text" id="codigo" name="codigo" placeholder="Ejemplo Código" required>
+                        <input type="text" id="codigo" name="codigo" placeholder="Ejemplo Código" >
                     </div>
                     <div class="input-group">
                         <label for="categoria">Categoría:</label>
-                        <input type="text" id="categoria" name="categoria" placeholder="Ejemplo Categoría" required>
+                        <input type="text" id="categoria" name="categoria" placeholder="Ejemplo Categoría" >
                     </div>
                     <div class="input-group">
                         <label for="estado">Estado:</label>
-                        <input type="text" id="estado" name="estado" placeholder="Ejemplo Estado" required>
+                        <input type="text" id="estado" name="estado" placeholder="Ejemplo Estado" >
                     </div>
                     <div class="input-group">
                         <label for="lugar">Lugar:</label>
-                        <input type="text" id="lugar" name="lugar" placeholder="Ejemplo Lugar" required>
+                        <input type="text" id="lugar" name="lugar" placeholder="Ejemplo Lugar" >
                     </div>
                     <div class="input-group">
                         <label for="fechaIngreso">Fecha de Ingreso:</label>
-                        <input type="date" id="fechaIngreso" name="fechaIngreso" required>
+                        <input type="date" id="fechaingreso" name="fechaingreso" >
                     </div>
                     <div class="input-group">
                         <label for="factura">Factura de Compra:</label>
-                        <input type="text" id="factura" name="factura" placeholder="Ejemplo Factura" required>
+                        <input type="text" id="facturacompra" name="facturacompra" placeholder="Ejemplo Factura" >
                     </div>
                     <div class="input-group">
                         <label for="fechaSalida">Fecha de Salida:</label>
-                        <input type="date" id="fechaSalida" name="fechaSalida" required>
+                        <input type="date" id="fechasalida" name="fechasalida" required>
                     </div>
                     <div class="input-group">
                         <label for="fechaMantenimiento">Fecha de Mantenimiento:</label>
-                        <input type="date" id="fechaMantenimiento" name="fechaMantenimiento" required>
+                        <input type="date" id="fechamantenimiento" name="fechamantenimiento" >
                     </div>
                     <div class="input-group">
                         <label for="costoMantenimiento">Costo de Mantenimiento:</label>
-                        <input type="number" id="costoMantenimiento" name="costoMantenimiento" placeholder="Ejemplo Costo" required>
+                        <input type="number" id="costomantenimiento" name="costomantenimiento" placeholder="Ejemplo Costo" >
                     </div>
                     <button type="submit">Registrar Artículo</button>
                 </form>
