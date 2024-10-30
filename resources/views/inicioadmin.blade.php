@@ -102,7 +102,8 @@
                 <div class="formulario">
                     <div class="input-group">
                         <label for="codigo">Código categoría:</label>
-                        <input type="text" id="id_codigo" name="id_codigo" placeholder="nuevo código" max="5" required>
+                        <input type="text" id="id_codigo" name="id_codigo" placeholder="nuevo código" max="5"
+                            required>
                     </div>
                     <div class="input-group">
                         <label for="nombre">Nombre categoría:</label>
@@ -118,26 +119,32 @@
     <!-- final modal de crear categoria -->
     {{-- fin menu superior --}}
     <div class="ContenedorGrande">
-
         <table id="miTabla" class="table table-striped">
             <thead>
                 <tr>
                     <th>Foto</th>
                     <th>Código</th>
-                    <th>Nombre del Activo</th>
-                    <th>Lugar</th>
-                    <th>Estado</th>
-                    <th>Mas información</th>
+                    <th><strong>Nombre del Activo</strong></th>
+                    <th><strong>Lugar</strong></th>
+                    <th><strong>Estado</strong></th>
+                    <th><strong>Mas información</strong></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><img src="/assets/Recursos/logoimpre.png" alt="Foto del activo"></td>
                     <td>M20-0001</td>
-                    <td>Mesa</td>
-                    <td>Impresistem</td>
-                    <td>En mantenimiento</td>
-                    <td> <a href="informacionactiv"><button>Mas informacion</button></td></a>
+                    <td><strong>Mesa</strong></td>
+                    <td><strong>Impresistem</strong></td>
+                    <td><strong>En mantenimiento</strong></td>
+                    <td><a href="informacionactiv">
+                        <div tabindex="0" class="plusButton">
+                          <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                            <g mask="url(#mask0_21_345)">
+                              <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+                            </g>
+                          </svg>
+                        </div></a></td>
                 </tr>
             </tbody>
         </table>

@@ -9,6 +9,8 @@
     height: 100vh;
     display: flex; /* Añadido para centrar contenido verticalmente si es necesario */
     background: linear-gradient(to bottom, #11076b, #313131, #11076b);
+    font-family:'Roboto' , 'sans-serif';
+    overflow:hidden;
 }
 
   .Ladm {
@@ -92,17 +94,13 @@ z-index: 50;
   :root{
     --main-color:#fff;
   }
-
+/* 
   *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+  } */
 
-  body{
-    font-family:'Roboto' , 'sans-serif';
-    overflow:hidden;
-  }
 
   .main-header{
     background: #4FB391;
@@ -188,9 +186,9 @@ z-index: 50;
   border:-11px solid black;
   }
 
-  .ContenedorGrande{
+  .ContenedorGrande {
     position: absolute;
-    top:60px;
+    top: 60px;
     left: 20px;
     width: 90%;
     height: 1700px;
@@ -209,7 +207,7 @@ table {
     margin: 20px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    top:70px;
+    top: 70px;
     left: 60px;
 }
 
@@ -218,23 +216,28 @@ th, td {
     text-align: left;
 }
 
+/* td{
+  background-color: hsl(0, 0%, 53%);
+} */
 th {
-    background-color: #007BFF;
-    color: white;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: hwb(0 33% 66%);
 }
 
 tr:hover {
-    background-color: #f1f1f1;
+    background-color: hsl(0, 1%, 26%);
 }
 
 img {
     max-width: 100px; /* ajusta el tamaño de la imagen */
     height: auto;
 }
+
+
   /* fin codigo de las tablas de informacion del enser */
 
   /* imagen modal */
@@ -487,7 +490,7 @@ button:hover {
     }
 
     input[type="text"]:focus {
-        border: 1px solid #007bff;
+        border: 1px solid #b4f89f;
         outline: none;
     }
 
@@ -521,24 +524,112 @@ height: 30px;
 }
 
 /* buscar por codigo tabla de activos  */
-#miTabla_length.datatables_length{
-    position: relative;
-    top: 70px;
-    left: 60px;
-z-index: 0;
-border-radius: 5px;
-}
-#miTabla_filter.datatables_filter{
-position: relative;
-top: 100px;
-z-index: 0;
-right: 80px;
-
-
-
-}
-label{
-    background: #0056b3;
-border-radius: 7px;
+#miTabla_length.dataTables_length {
+  position: relative;
+  top: 70px;
+  left: 60px;
+  z-index: 0;
+  border-radius: 5px;
+  padding: 2px 5px;
+  background-color: hsl(0, 0%, 100%);
+  color: #333;
 }
 
+#miTabla_filter.dataTables_filter {
+  position: relative;
+  top: 70px;
+  z-index: 0;
+  right: 80px;
+  left: 60;
+}
+
+
+label {
+  background: hsl(210, 83%, 98%);
+  border-radius: 7px;
+  padding: 5px 10px;
+  color: hwb(0 19% 80%);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input[type="text"],
+select {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+#miTabla_length.dataTables_length,
+#miTabla_filter.dataTables_filter {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+.plusButton {
+  --plus_sideLength: 2.5rem;
+  --plus_topRightTriangleSideLength: 0.9rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: var(--plus_sideLength);
+  height: var(--plus_sideLength);
+  background-color: #aed1fc;
+  overflow: hidden;
+
+  margin: 0 auto;
+}
+
+.plusButton::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.plusButton:hover {
+  cursor: pointer;
+}
+
+.plusButton:hover::before {
+  --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton:focus-visible::before {
+  --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton>.plusIcon {
+  fill: white;
+  width: calc(var(--plus_sideLength) * 0.7);
+  height: calc(var(--plus_sideLength) * 0.7);
+  z-index: 1;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.plusButton:hover>.plusIcon {
+  fill: black;
+  transform: rotate(180deg);
+}
+
+.plusButton:focus-visible>.plusIcon {
+  fill: black;
+  transform: rotate(180deg);
+}
