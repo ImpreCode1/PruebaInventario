@@ -48,11 +48,13 @@
         <header>
             <nav class="navegacion">
                 <ul class="menu">
+
                     <li><a href="">Filtrar por categoria</a>
                         <ul class="submenu">
-                            <li><a href="">categoria 1</a>
-                            <li><a href="">Categoria 2</a>
-                            <li><a href="">Categoria 3</a>
+                            @foreach ( $categoria as $filter )
+                                <li><a>{{$filter->nombre}}</a></li>
+                            @endforeach
+
                         </ul>
                     </li>
                     <li><a href="">Filtrar por area</a>
@@ -66,10 +68,13 @@
                         </ul>
                     <li><a href="">Filtrar por estado</a>
                         <ul class="submenu">
-                            <li><a href="">buen estado</a>
-                            <li><a href="">mal estado</a>
-                            <li><a href="">mantenimiento</a>
-                        </ul>
+
+                            @foreach ( $activo as $filtro )
+                            <li><a>{{$filtro->estado}}</a></li>
+                        @endforeach
+
+
+                            </ul>
                     </li>
                     <li>
 
@@ -131,50 +136,31 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><img src="/assets/Recursos/logoimpre.png" alt="Foto del activo"></td>
-                    <td>M20-0001</td>
-                    <td><strong>Mesa</strong></td>
-                    <td><strong>Impresistem</strong></td>
-                    <td><strong>En mantenimiento</strong></td>
-                    <td><a href="informacionactiv">
-                        <div tabindex="0" class="plusButton">
-                          <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                            <g mask="url(#mask0_21_345)">
-                              <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
-                            </g>
-                          </svg>
-                        </div></a></td>
-                </tr>
+                @foreach ($activo as $item)
+                    <tr>
+                        <td> <img>{{ $item->fotourl }}</td>
+                        <td>{{ $item->codigo }}</td>
+                        <td><strong>{{ $item->nombre }}</strong></td>
+                        <td><strong>{{ $item->lugar }}</strong></td>
+                        <td>{{ $item->estado }}</td>
+                        <td><a href="informacionactiv">
+
+
+                                <div tabindex="0" class="plusButton">
+                                    <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                                        <g mask="url(#mask0_21_345)">
+                                            <path
+                                                d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </a></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
-
-    {{-- <table id="Tablass">
-    <tr>
-        <th>Foto</th>
-        <th>Código</th>
-        <th>Nombre del Activo</th>
-        <th>Lugar</th>
-        <th>Estado</th>
-        <th>Mas información</th>
-    </tr>
-    <tr>
-        <td><img src="/assets/Recursos/logoimpre.png" alt="Foto del activo"></td>
-        <td>M20-0001</td>
-        <td>Mesa</td>
-        <td>Impresistem</td>
-        <td>En mantenimiento</td>
-    <td> <a href="informacionactiv"><button>Mas informacion</button></td></a>
-
-    </tr>
-    </div> --}}
-
-
-    <!-- inicio modal registro de un nuevo usuasrio -->
-
-    <!-- inicio modal de registro de administrador -->
-
     <section class="registroadminmod">
         <div class="btn_salir_mod">
             <a href="inicioadmin"><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm"
@@ -202,7 +188,7 @@
                 <div class="input-group">
                     <label for="cargo">Cargo:</label>
                     <select id="role" name="role" required>
-                        <option disabled >Seleccione rol</option>
+                        <option disabled>Seleccione rol</option>
                         <option value="administrador">Admin</option>
                         <option value="superadmin">Superadmin</option>
                     </select>

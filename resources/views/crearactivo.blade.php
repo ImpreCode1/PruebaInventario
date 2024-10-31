@@ -55,11 +55,19 @@
                     </div>
                     <div class="input-group">
                         <label for="categoria">Categoría:</label>
-                        <input type="text" id="categoria" name="categoria" placeholder="Ejemplo Categoría" >
+                        <select type="submit" id="categoria" name="categoria">
+                            <option>M10</option>
+                        </select>
                     </div>
                     <div class="input-group">
                         <label for="estado">Estado:</label>
-                        <input type="text" id="estado" name="estado" placeholder="Ejemplo Estado" >
+                        <select type="text" id="estado" name="estado" placeholder="Ejemplo Estado" >
+                            <option>seleccione estado</option>
+                            <option>Buen estado</option>
+                            <option>Mal estado</option>
+                            <option>En mantenimiento</option>
+                        </select>
+
                     </div>
                     <div class="input-group">
                         <label for="lugar">Lugar:</label>
