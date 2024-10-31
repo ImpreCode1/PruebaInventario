@@ -33,3 +33,8 @@ Route::post('/activo/register', [ActivoController::class, 'register'])->name('ac
 //activo
 // usuarios
 Route::post('/usuarios/us', [UsuarioController::class, 'us'])->name('usuarios.us');
+// metodo get activos inicio admin
+
+
+Route::get('/inicioadmin', [ActivoController::class, 'index'])->name('inicioadmin');
+// Route::get('/inicioadmin/categorias', [CategoriaController::class, 'index'])->name('categorias.index');

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,10 +29,10 @@ class Activo extends Model
     }
 
 
-    public function usuario()
-    {
-        return $this->belongsTo(Usuario::class, 'ID', 'ID');
-    }
+    // public function usuario()
+    // {
+    //     return $this->belongsTo(Usuario::class, 'ID', 'ID');
+    // }
 
     public function mantenimientos()
     {
@@ -46,4 +48,7 @@ class Activo extends Model
 
     // belongsToMany
     // belongsToMany se usa para una relación de muchos a muchos
+// filtros
+
+
 }
