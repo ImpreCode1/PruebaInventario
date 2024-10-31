@@ -8,26 +8,33 @@ use App\Models\Categoria;
 use App\Models\Estado;
 
 class ActivoController extends Controller
-
 {
-    public function index(){
+    public function index()
+    {
         $activo = Activo::all();
         $categoria = Categoria::all();
 
         return view('inicioadmin', compact('activo', 'categoria'));
-
-
     }
 
+    public function register(Request $request)
+    {
+        // Validar los datos del request aquí si es necesario
 
+        $Activo = new Activo();
 
+        // Manejar la subida de imagen
+        if ($request->hasFile('fotourl')) {
+            $archivo = $request->file('fotourl');
+            $filename = time() . '_' . $archivo->getClientOriginalName();
+            $archivo->move(public_path('uploads'), $filename);
+            $Activo->fotourl = 'uploads/' . $filename;
+        } else {
+            // Asignar imagen por defecto
+            $Activo->fotourl = 'uploads/ejemplo.png';
+        }
 
-
-
-    public function register(Request $request){
-        // dd($request);
-        $Activo = new Activo;
-        $Activo->fotourl = $request->fotourl;
+        // Asignar el resto de campos
         $Activo->nombre = $request->nombre;
         $Activo->descripcion = $request->descripcion;
         $Activo->codigo = $request->codigo;
@@ -39,14 +46,9 @@ class ActivoController extends Controller
         $Activo->fechasalida = $request->fechasalida;
         $Activo->fechamantenimiento = $request->fechamantenimiento;
         $Activo->costomantenimiento = $request->costomantenimiento;
+
+        // Guardar el activo
         $Activo->save();
-
-
-
-
         return redirect()->route('inicioadmin');
-
     }
-//  filtros
-
 }

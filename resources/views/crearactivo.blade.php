@@ -35,7 +35,7 @@
         <body>
             <div class="containe">
                 <h1>Registro de Artículo</h1>
-                <form method="POST" action="{{ route('activo.register') }}" >
+                <form method="POST" action="{{ route('activo.register') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group">
                         <label for="imagen">Subir Imagen:</label>

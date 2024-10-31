@@ -132,35 +132,34 @@
                     <th><strong>Nombre del Activo</strong></th>
                     <th><strong>Lugar</strong></th>
                     <th><strong>Estado</strong></th>
-                    <th><strong>Mas información</strong></th>
+                    <th><strong>Más Información</strong></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($activo as $item)
                     <tr>
-                        <td> <img>{{ $item->fotourl }}</td>
+                        <td><img src="{{ $item->fotourl }}" alt="Imagen Activo" class="tabla-imagen"></td>
                         <td>{{ $item->codigo }}</td>
                         <td><strong>{{ $item->nombre }}</strong></td>
                         <td><strong>{{ $item->lugar }}</strong></td>
                         <td>{{ $item->estado }}</td>
-                        <td><a href="informacionactiv">
-
-
+                        <td>
+                            <a href="informacionactiv">
                                 <div tabindex="0" class="plusButton">
                                     <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                                         <g mask="url(#mask0_21_345)">
-                                            <path
-                                                d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
-                                            </path>
+                                            <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
                                         </g>
                                     </svg>
                                 </div>
-                            </a></td>
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    
     <section class="registroadminmod">
         <div class="btn_salir_mod">
             <a href="inicioadmin"><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm"
