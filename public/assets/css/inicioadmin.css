@@ -10,7 +10,8 @@
     display: flex; /* Añadido para centrar contenido verticalmente si es necesario */
     background: linear-gradient(to bottom, #11076b, #313131, #11076b);
     font-family:'Roboto' , 'sans-serif';
-    overflow:hidden;
+    overflow:scroll;
+
 }
 
   .Ladm {
@@ -94,7 +95,7 @@ z-index: 50;
   :root{
     --main-color:#fff;
   }
-/* 
+/*
   *{
     padding: 0;
     margin: 0;
@@ -632,4 +633,7 @@ select {
 .plusButton:focus-visible>.plusIcon {
   fill: black;
   transform: rotate(180deg);
+}
+.botoninfactivo{
+    background-color: #ffffff;
 }

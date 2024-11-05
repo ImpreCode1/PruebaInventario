@@ -1,6 +1,6 @@
 body{
 	background: linear-gradient(to bottom, #11076b, #313131, #11076b);
-
+ overflow: scroll;
 }
 h1{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
@@ -171,4 +171,11 @@ body {
 .info-btn:hover {
     background-color: #0056b3; /* Color al pasar el mouse */
 
+}
+.card-content{
+    text-align: left;
+}
+
+td{
+    border:1px solid black;
 }
