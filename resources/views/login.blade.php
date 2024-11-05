@@ -14,7 +14,7 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 		<div class="signup">
-            <form method="post" action="{{ route('inicioadminlogin') }}">
+            <form method="POST" action="{{ route('inicioadmin.login') }}">
                 @csrf
                 <div class="titulologin">
                     <h1 for="chk" aria-hidden="true">Gestión de Activos</h1>
