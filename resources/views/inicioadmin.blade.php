@@ -127,7 +127,7 @@
         <table id="miTabla" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Foto</th>
+                    {{-- <th>Foto</th> --}}
                     <th>Código</th>
                     <th><strong>Nombre del Activo</strong></th>
                     <th><strong>Lugar</strong></th>
@@ -138,13 +138,13 @@
             <tbody>
                 @foreach ($activo as $item)
                     <tr>
-                        <td><img src="{{ $item->fotourl }}" alt="Imagen Activo" class="tabla-imagen"></td>
+                        {{-- <td><img src="{{ $item->fotourl }}" alt="Imagen Activo" class="tabla-imagen" ></td> --}}
                         <td>{{ $item->codigo }}</td>
                         <td><strong>{{ $item->nombre }}</strong></td>
                         <td><strong>{{ $item->lugar }}</strong></td>
                         <td>{{ $item->estado }}</td>
                         <td>
-                            <a href="informacionactiv">
+                           <button class="botoninfactivo"> <a href="informacionactiv">
                                 <div tabindex="0" class="plusButton">
                                     <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                                         <g mask="url(#mask0_21_345)">
@@ -153,13 +153,14 @@
                                     </svg>
                                 </div>
                             </a>
+                        </button>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    
+
     <section class="registroadminmod">
         <div class="btn_salir_mod">
             <a href="inicioadmin"><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm"
