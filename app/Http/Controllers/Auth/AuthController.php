@@ -23,10 +23,18 @@ class AuthController extends Controller
 
         $user->nombre=$request->nombre;
         $user->email=$request->email;
+
         $user->contrasena=Hash::make($request->contrasena);
         $user->role=$request->role;
+
         $user->save();
+
+      session()->success('success', 'El usuario se ha creado correctamente');
+
+        return redirect ()->route('inicioadmin');
+
         Auth::login($user);
+
 
         return redirect()->route('inicioadmin');
     }
@@ -55,10 +63,14 @@ class AuthController extends Controller
         // Comprobar la contraseña
         if (!Hash::check($contrasena, $usuario->contrasena)) {
             // La contraseña es incorrecta
+
             return redirect()->back()
-                             ->withErrors(['Contraseña incorrecta.'])
-                             ->withInput(); // Mantener los datos de entrada
-        }
+
+            ->withErrors(['Contraseña incorrecta.'])
+
+            ->withInput(); // Mantener los datos de entrada
+
+                            }
 
         // La contraseña es correcta, iniciar sesión
         // Auth::login($usuario);

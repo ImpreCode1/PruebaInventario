@@ -12,6 +12,7 @@ class CategoriaController extends Controller
 
     public function store(Request $request){
 
+
         $categoria = $request->only('id_codigo','nombre');
         Categoria::create($categoria);
 

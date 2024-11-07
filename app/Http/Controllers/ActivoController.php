@@ -2,22 +2,50 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Activo;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Estado;
+use Illuminate\Support\Facades\DB;
 
 class ActivoController extends Controller
 {
+// inicio ID
+public function show(){
+
+}
+// fin ID
     public function index()
     {
         $activo = Activo::all();
         $categoria = Categoria::all();
 
         return view('inicioadmin', compact('activo', 'categoria'));
-    }
+
+            {
+                // Obtener el valor del filtro desde la solicitud GET
+                $filter = $request->get('filter');
+
+                // Usar Query Builder para consultar la tabla 'activos'
+                $activos = DB::table('activos')
+                    ->when($filter, function($query, $filter) {
+                        return $query->where('estado', $filter);
+                    })
+                    ->paginate(10); // Paginación de 10 elementos por página
+
+                // Pasar los resultados y el filtro a la vista
+                return view('activos.index', compact('activos', 'filter'));
+            }
+            {
+
+            }
+        }
+
+
 
     public function register(Request $request)
+
     {
         // Validar los datos del request aquí si es necesario
 
@@ -35,6 +63,7 @@ class ActivoController extends Controller
         }
 
         // Asignar el resto de campos
+        $Activo->ID=$request->id;
         $Activo->nombre = $request->nombre;
         $Activo->descripcion = $request->descripcion;
         $Activo->codigo = $request->codigo;
