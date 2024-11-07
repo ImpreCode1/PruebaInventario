@@ -7,25 +7,13 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 //rutas de vistas
-Route::view('/login','login')->name('login');
+Route::view('/','login');
 Route::view('/crearactivo','crearactivo')->name('crearactivo');
 Route::view('/informacionactiv','informacionactiv')->name('informacionactiv');
 Route::view('/inicioadmin','inicioadmin')->name('inicioadmin');
 Route::view('/mantenimiento','mantenimiento')->name('mantenimiento');
 
 
-// Route::get('/crearactivo', function () {
-//     return view('crearactivo');
-// });
-// Route::get('/informacionactiv', function () {
-//     return view('informacionactiv');
-// });
-// Route::get('/inicioadmin', function () {
-//     return view('inicioadmin');
-// });
-// Route::get('/', function () {
-//     return view('login');
-// });
 
 
 // Peticiones de logica
@@ -43,3 +31,6 @@ Route::get('/inicioadmin', [ActivoController::class, 'index'])->name('inicioadmi
 // Route::get('/inicioadmin/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
 
 Route::post('/inicioadmin/login', [AuthController::class, 'login'])->name('inicioadmin.login');
+
+// Route::get('/informacionactiv/{activo}', [ActivoController::class, 'show'])->name('informacionactiv.activ');
+// Route::get('/activos', [ActivoController::class, 'index'])->name('activos.index');

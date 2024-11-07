@@ -41,20 +41,26 @@
 <div class="card">
     <img src="/assets/Recursos/logoimpre.png" alt="Imagen del activo" class="card-image" width="50%" height="50%">
     <div class="card-content">
-        <p><strong>Nombre:</strong> <span id="nombre">Ejemplo Nombre</span></p>
-        <p><strong>Descripción:</strong> <span id="descripcion">Ejemplo Descripción</span></p>
-        <p><strong>Código:</strong> <span id="codigo">Ejemplo Código</span></p>
-        <p><strong>Categoría:</strong> <span id="categoria">Ejemplo Categoría</span></p>
-        <p><strong>Estado:</strong> <span id="estado">Ejemplo Estado</span></p>
-        <p><strong>Lugar:</strong> <span id="lugar">Ejemplo Lugar</span></p>
-        <p><strong>Fecha de Ingreso:</strong> <span id="fechalingreso">Ejemplo Fecha Ingreso</span></p>
-        <p><strong>Factura de Compra:</strong> <span id="facturacompra">Ejemplo Factura</span></p>
-        <p><strong>Fecha de Salida:</strong> <span id="fechasalida">Ejemplo Fecha Salida</span></p>
-        <p><strong>Fecha de Mantenimiento:</strong> <span id="fechamantenimiento">Ejemplo Fecha Mantenimiento</span></p>
-        <p><strong>Costo de Mantenimiento:</strong> <span id="costomantenimiento">Ejemplo Costo</span></p>
+
+
+
+        <p><strong>Nombre:</strong> <span id="nombre"></span></p>
+        <p><strong>Descripción:</strong> <span id="descripcion"></span></p>
+        <p><strong>Código:</strong> <span id="codigo"></span></p>
+        <p><strong>Categoría:</strong> <span id="categoria"></span></p>
+        <p><strong>Estado:</strong> <span id="estado"></span></p>
+        <p><strong>Lugar:</strong> <span id="lugar"></span></p>
+        <p><strong>Fecha de Ingreso:</strong> <span id="fechalingreso"></span></p>
+        <p><strong>Factura de Compra:</strong> <span id="facturacompra"></span></p>
+        <p><strong>Fecha de Salida:</strong> <span id="fechasalida"></span></p>
+        {{-- <p><strong>Fecha de Mantenimiento:</strong> <span id="fechamantenimiento">Ejemplo Fecha Mantenimiento</span></p> --}}
+        {{-- <p><strong>Costo de Mantenimiento:</strong> <span id="costomantenimiento">Ejemplo Costo</span></p> --}}
+
     </div>
-    <a href="informacionactiv"><button class="info-btn">informacion de mantenimientos</button></a>  <a href="informacionactiv"><button class="info-btn">Editar</button></a><a href="informacionactiv"><button class="info-btn">eliminar</button></a>
+    <a href="informacionactiv"><button class="info-btn" >informacion de mantenimientos</button></a>  <a href="informacionactiv"><button class="info-btn">Editar</button></a><a href="informacionactiv"><button class="info-btn">eliminar</button></a>
+
 </div>
+
 {{-- fin fragmento de codigo de informacion del enser --}}
 
 </body>

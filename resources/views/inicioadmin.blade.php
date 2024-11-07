@@ -10,20 +10,25 @@
     <link rel="stylesheet" href="/assets/css/inicioadmin.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel" />
 
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        </style>
 
 </head>
 
 <body>
-
-
-
-
     {{-- menu lateral --}}
     <div class="menu_lateral">
         <label for="btn-nav" class="btn-nav"><i class="fas fa-bars">></i></label>
         <input type="checkbox" id="btn-nav">
-
         <nav>
             <ul class="navigation">
                 <li><a href="" class="Crear__Categoria"> crear categoria <img
@@ -35,7 +40,6 @@
                 <li><a href="" class="Registrador_Usuarios">registrar administrador <img
                             src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario"
                             width="20% "class="imageusuarios"></a></li>
-
             </ul>
         </nav>
     </div>
@@ -44,17 +48,14 @@
 
     {{-- menu superior --}}
     <div>
-
         <header>
             <nav class="navegacion">
                 <ul class="menu">
-
                     <li><a href="">Filtrar por categoria</a>
                         <ul class="submenu">
-                            @foreach ( $categoria as $filter )
-                                <li><a>{{$filter->nombre}}</a></li>
+                            @foreach ($categoria as $filter)
+                                <li><a>{{ $filter->nombre }}</a></li>
                             @endforeach
-
                         </ul>
                     </li>
                     <li><a href="">Filtrar por area</a>
@@ -68,27 +69,16 @@
                         </ul>
                     <li><a href="">Filtrar por estado</a>
                         <ul class="submenu">
-
-                            @foreach ( $activo as $filtro )
-                            <li><a>{{$filtro->estado}}</a></li>
-                        @endforeach
-
-
-                            </ul>
+                            <li><a></a></li>
+                        </ul>
                     </li>
                     <li>
-
                 </ul>
                 </li>
-
             </nav>
         </header>
         <br>
         <br>
-
-
-
-
     </div>
 
     <!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
@@ -97,10 +87,12 @@
         @csrf
         <section class="modal">
             <div class="btn_salir_mo">
-                <a href="inicioadmin"><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm"
-                        width="40%"></a>
-            </div>
 
+        <a href="" id="cerrar_boton" type="submint"><span class="material-symbols-outlined" >
+                    cancel
+                    </span> </a>
+
+            </div>
             <div class="container">
                 <h1>impresistem</h1>
                 <h2>Agrega nueva categoría</h2>
@@ -119,8 +111,6 @@
             </div>
         </section>
     </form>
-
-
     <!-- final modal de crear categoria -->
     {{-- fin menu superior --}}
     <div class="ContenedorGrande">
@@ -144,16 +134,17 @@
                         <td><strong>{{ $item->lugar }}</strong></td>
                         <td>{{ $item->estado }}</td>
                         <td>
-                           <button class="botoninfactivo"> <a href="informacionactiv">
+                            <button class="botoninfactivo" data-id="{{ $item->id }}">
                                 <div tabindex="0" class="plusButton">
                                     <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                                         <g mask="url(#mask0_21_345)">
-                                            <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+                                            <path
+                                                d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
+                                            </path>
                                         </g>
                                     </svg>
                                 </div>
-                            </a>
-                        </button>
+                            </button>
                         </td>
                     </tr>
                 @endforeach
@@ -161,24 +152,33 @@
         </table>
     </div>
 
+    <script>
+        document.getElementById('miTabla').addEventListener('click', function(event) {
+            if (event.target.closest('.botoninfactivo')) {
+                const button = event.target.closest('.botoninfactivo');
+                const id = button.getAttribute('data-id');
+                window.location.href = `informacionactiv?id=${id}`;
+            }
+        });
+    </script>
+
     <section class="registroadminmod">
         <div class="btn_salir_mod">
-            <a href="inicioadmin"><img src="/assets/Recursos/devolverse.png" alt="registro activo" class="inicioadm"
-                    width="40%"> </a>
+            <a href="" id="cerrar_boton" type="submint"><span class="material-symbols-outlined" >
+                cancel
+                </span> </a>
         </div>
-
         <div class="contai">
-
             <h1>impresistem</h1>
             <h2>Registro de Usuario</h2>
-            <form method="POST" action="{{ route('usuarios.us') }}"">
+            <form id="Crear_usuario" method="POST" action="{{ route('usuarios.us') }}">
                 @csrf
                 <div class="input-group">
-                    <label for="usuario">Nombre de usuario:</label>
+                    <label for="nombre">Nombre de usuario:</label>
                     <input type="text" id="nombre" name="nombre" placeholder="nombre" required>
                 </div>
                 <div class="input-group">
-                    <label for="correo">Correo:</label>
+                    <label for="email">Correo:</label>
                     <input type="email" id="email" name="email" placeholder="correo" required>
                 </div>
                 <div class="input-group">
@@ -186,9 +186,9 @@
                     <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
                 </div>
                 <div class="input-group">
-                    <label for="cargo">Cargo:</label>
+                    <label for="role">Cargo:</label>
                     <select id="role" name="role" required>
-                        <option disabled>Seleccione rol</option>
+                        <option disabled selected>Seleccione rol</option>
                         <option value="administrador">Admin</option>
                         <option value="superadmin">Superadmin</option>
                     </select>
@@ -197,12 +197,8 @@
             </form>
         </div>
     </section>
-
-
     <!-- final de modal de registro de administrador -->
-
     <script src="/assets/js/inicioadm.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
@@ -211,6 +207,8 @@
             $('#miTabla').DataTable();
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>

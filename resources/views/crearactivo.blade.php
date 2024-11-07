@@ -79,20 +79,20 @@
                     </div>
                     <div class="input-group">
                         <label for="factura">Factura de Compra:</label>
-                        <input type="text" id="facturacompra" name="facturacompra" placeholder="Ejemplo Factura" >
+                        <input type="file" id="facturacompra" name="facturacompra" placeholder="Ejemplo Factura" >
                     </div>
                     <div class="input-group">
                         <label for="fechaSalida">Fecha de Salida:</label>
                         <input type="date" id="fechasalida" name="fechasalida" required>
                     </div>
-                    <div class="input-group">
+                    {{-- <div class="input-group">
                         <label for="fechaMantenimiento">Fecha de Mantenimiento:</label>
                         <input type="date" id="fechamantenimiento" name="fechamantenimiento" >
                     </div>
                     <div class="input-group">
                         <label for="costoMantenimiento">Costo de Mantenimiento:</label>
                         <input type="number" id="costomantenimiento" name="costomantenimiento" placeholder="Ejemplo Costo" >
-                    </div>
+                    </div> --}}
                     <button type="submit">Registrar Artículo</button>
                 </form>
             </div>

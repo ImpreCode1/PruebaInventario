@@ -1,22 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Aquí irían los datos que vendrían de la base de datos
-    const activo = {
-        codigo: "S20-00001",
-        nombre: "Silla",
-        area: "Ti - Infraestructura",
-        estado: "Asignado",
-        imagen: "imagen"  // Este sería el enlace a la imagen
-    };
 
-    // Insertamos los valores en los elementos HTML
-    document.getElementById('codigo').textContent = activo.codigo;
-    document.getElementById('nombre').textContent = activo.nombre;
-    document.getElementById('area').textContent = activo.area;
-    document.getElementById('estado').textContent = activo.estado;
-
-    // Cambiamos la imagen si es necesario
-    document.querySelector('.card-image').url = activo.imagen;
-});
 const openModal = document.querySelector('.Crear__Categoria');
 const modal = document.querySelector('.modal');
 
@@ -26,12 +8,7 @@ openModal.addEventListener('click', (e) => {
     modal.classList.add('modal--show');
 });
 
-// Cerrar la modal al hacer clic en la "X" mirarlo mas adelante al momento de comenzar a insertar usuarios,
-//por que si lo aplico no me deja abrir la modal de registrar administrador.
-// const closeButton = modal.querySelector('.close-button');
-// closeButton.addEventListener('click', () => {
-//     modal.classList.remove('modal--show');
-// });
+
 
 
 
@@ -48,6 +25,63 @@ openModall.addEventListener('click', (e) => {
 });
 
 // Cerrar modal  mirar mas adelante para poder aplicaro
-       closeModalButton.addEventListener('click', () => {
-       registroadminmod.classList.remove('imp-mod');
+closeModalButton.addEventListener('click', () => {
+       registroadminmod.classList.remove('.cerrar_boton');
  });
+ document.getElementById('miTabla').addEventListener('click', function(event) {
+    if (event.target.closest('.botoninfactivo')) {
+        const button = event.target.closest('.botoninfactivo');
+        const id = button.getAttribute('data-id');
+        console.log(id); // Añade esta línea para depurar
+        window.location.href = `informacionactiv?id=${id}`;
+    }
+});
+// window.Swal = require ('sweetalert2');
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('Crear_usuario');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar el envío normal del formulario
+        Swal.fire({
+            title: '¿Crear un nuevo usuario?',
+            text: '¿Estás seguro de que deseas crear un nuevo usuario?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#e67e22',
+            cancelButtonColor: '#c0392b',
+            confirmButtonText: 'Sí, crear usuario',
+            cancelButtonText: 'Cancelar',
+            backdrop: `
+                rgba(52,58,64,0.8)
+                url("https://images.unsplash.com/photo-1599837575449-
+                4d9aefc33ec3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGV
+                ufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+                center
+                no-repeat
+            `
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); // Enviar el formulario si el usuario confirma
+            }
+        });
+    });
+
+    // Simulación de manejo de sesión para mostrar alerta de éxito
+    const successMessage = "{{ session('success') }}"; // Asegúrate de que esto es correcto en tu backend
+    if (successMessage) {
+        Swal.fire({
+            icon: 'success',
+            title: '¡Usuario creado!',
+            text: successMessage,
+            confirmButtonColor: '#27ae60',
+            confirmButtonText: 'Continuar',
+            backdrop: `
+                rgba(39,174,96,0.8)
+                url("https://images.unsplash.com/photo-1609629010859-037ae866b7be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+                center
+                no-repeat
+            `
+        });
+    }
+});
