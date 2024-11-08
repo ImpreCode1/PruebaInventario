@@ -83,16 +83,15 @@
 
     <!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
     <!-- Formulario -->
-    <form method="POST" action="{{ route('categoria.store') }}">
+    <form id="Crear_Categoria" method="POST" action="{{ route('categoria.store') }}">
         @csrf
         <section class="modal">
             <div class="btn_salir_mo">
 
-        <a href="" id="cerrar_boton" type="submint"><span class="material-symbols-outlined" >
-                    cancel
-                    </span> </a>
+                <a href="" class="cerrar_boton"><img src="assets/Recursos/cerrar.png" width="20%"><span class="material-symbols-outlined">
 
-            </div>
+                    </span> </a>
+                </div>
             <div class="container">
                 <h1>impresistem</h1>
                 <h2>Agrega nueva categoría</h2>
@@ -163,11 +162,12 @@
     </script>
 
     <section class="registroadminmod">
-        <div class="btn_salir_mod">
-            <a href="" id="cerrar_boton" type="submint"><span class="material-symbols-outlined" >
-                cancel
+        <div class="btn_salir_mo">
+
+            <a href="" class="cerrar_boton"><img src="assets/Recursos/cerrar.png" width="20%"><span class="material-symbols-outlined">
+
                 </span> </a>
-        </div>
+            </div>
         <div class="contai">
             <h1>impresistem</h1>
             <h2>Registro de Usuario</h2>
@@ -188,7 +188,7 @@
                 <div class="input-group">
                     <label for="role">Cargo:</label>
                     <select id="role" name="role" required>
-                        <option disabled selected>Seleccione rol</option>
+                        <option disabled selected>Seleccione rol</option> y
                         <option value="administrador">Admin</option>
                         <option value="superadmin">Superadmin</option>
                     </select>

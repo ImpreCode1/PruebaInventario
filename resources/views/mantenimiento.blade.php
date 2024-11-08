@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="menu_lateral">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars">></i></label>
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
         <input type="checkbox" id="btn-nav">
 
         <nav>

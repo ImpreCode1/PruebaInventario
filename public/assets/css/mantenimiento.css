@@ -1,28 +1,26 @@
 * {
-    margin: 0;
+
 
     box-sizing: border-box;
-}
 
-body {
-    height: 100%;
-    display: flex;
+  }
+
+  body {
+    height: 100vh;
+    display: flex; /* Añadido para centrar contenido verticalmente si es necesario */
     background: linear-gradient(to bottom, #11076b, #313131, #11076b);
-    overflow-y: auto;
+    font-family:'Roboto' , 'sans-serif';
+    overflow:scroll;
+
 }
 .menu_lateral{
     position: relative;
-    right: 10px;
-z-index: 50;
+    left: -30px;
+ z-index: 50;
+
 }
   :root{
     --main-color:#fff;
-  }
-
-  *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
   }
 
 
@@ -103,73 +101,24 @@ z-index: 50;
     position: relative;
     top: 10px;
 }
+.tablas{
+position: relative;
+left: 400px;
+}
+.dt-paging{
+    height: 50px;
+}
 
-/* inicio peticiones para crear un activo */
+table {
 
+    height: 100px;
 
-.containe{
-    width: 70%;
-    height: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+label{
+    position: relative;
+    top: 70px;
+    z-index: 100;
+    left: 60px;
 
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="date"],
-input[type="number"],
-textarea,
-input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="date"]:focus,
-input[type="number"]:focus,
-textarea:focus,
-input[type="file"]:focus {
-    border: 1px solid #007bff;
-    outline: none;
-}
-
-textarea {
-    resize: vertical;
-}
-
-button {
-    padding: 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #0056b3;
-}
