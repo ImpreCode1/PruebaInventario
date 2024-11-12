@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Activo;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
@@ -11,11 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ActivoController extends Controller
 {
-// inicio ID
-public function show(){
-
-}
-// fin ID
+    // fin ID
     public function index()
     {
         $activo = Activo::all();
@@ -23,29 +18,21 @@ public function show(){
 
         return view('inicioadmin', compact('activo', 'categoria'));
 
-            {
-                // Obtener el valor del filtro desde la solicitud GET
-                $filter = $request->get('filter');
+        // Obtener el valor del filtro desde la solicitud GET
+        $filter = $request->get('filter');
 
-                // Usar Query Builder para consultar la tabla 'activos'
-                $activos = DB::table('activos')
-                    ->when($filter, function($query, $filter) {
-                        return $query->where('estado', $filter);
-                    })
-                    ->paginate(10); // Paginación de 10 elementos por página
+        // Usar Query Builder para consultar la tabla 'activos'
+        $activos = DB::table('activos')
+            ->when($filter, function ($query, $filter) {
+                return $query->where('estado', $filter);
+            })
+            ->paginate(10); // Paginación de 10 elementos por página
 
-                // Pasar los resultados y el filtro a la vista
-                return view('activos.index', compact('activos', 'filter'));
-            }
-            {
-
-            }
-        }
-
-
+        // Pasar los resultados y el filtro a la vista
+        return view('activos.index', compact('activos', 'filter'));
+    }
 
     public function register(Request $request)
-
     {
         // Validar los datos del request aquí si es necesario
 
@@ -63,7 +50,7 @@ public function show(){
         }
 
         // Asignar el resto de campos
-        $Activo->ID=$request->id;
+        $Activo->ID = $request->id;
         $Activo->nombre = $request->nombre;
         $Activo->descripcion = $request->descripcion;
         $Activo->codigo = $request->codigo;
@@ -79,5 +66,11 @@ public function show(){
         // Guardar el activo
         $Activo->save();
         return redirect()->route('inicioadmin');
+    }
+
+    public function verInfoActivo(Request $request, $id)
+    {
+        $activo = Activo::findOrFail($id);
+        return view('informacionactiv', compact('activo'));
     }
 }

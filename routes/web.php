@@ -34,3 +34,9 @@ Route::post('/inicioadmin/login', [AuthController::class, 'login'])->name('inici
 
 // Route::get('/informacionactiv/{activo}', [ActivoController::class, 'show'])->name('informacionactiv.activ');
 // Route::get('/activos', [ActivoController::class, 'index'])->name('activos.index');
+
+
+//traer enser por id
+// Route::get('/informacionactiv/{id}', 'ActivoController@verInfoActivo')->name('informacionactiv');
+// Route::get('/informacionactiv/{id}', 'ActivoController@verInfoActivo')->name('informacionactiv');
+Route::get('/activo/{ID}', [ActivoController::class, 'verInfoActivo'])->name('ver.activo');

@@ -10,17 +10,18 @@
     <link rel="stylesheet" href="/assets/css/inicioadmin.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel" />
-
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .material-symbols-outlined {
-          font-variation-settings:
-          'FILL' 0,
-          'wght' 400,
-          'GRAD' 0,
-          'opsz' 24
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
         }
-        </style>
+    </style>
 
 </head>
 
@@ -47,39 +48,81 @@
     {{-- </header> --}}
 
     {{-- menu superior --}}
-    <div>
+ 
+       <div>
         <header>
-            <nav class="navegacion">
-                <ul class="menu">
-                    <li><a href="">Filtrar por categoria</a>
-                        <ul class="submenu">
-                            @foreach ($categoria as $filter)
-                                <li><a>{{ $filter->nombre }}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    <li><a href="">Filtrar por area</a>
-                        <ul class="submenu">
-                            <li><a href="">Unidad de Desarrollo y Crecimiento</a>
-                            <li><a href="">Financiero</a>
-                            <li><a href="">Recursos Humanos</a>
-                            <li><a href="">Innovación y Movilidad</a>
-                            <li><a href="">Ventas Inteligentes</a>
-                            <li><a href="">Soluciones Especializadas</a>
-                        </ul>
-                    <li><a href="">Filtrar por estado</a>
-                        <ul class="submenu">
-                            <li><a></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                </ul>
-                </li>
-            </nav>
+            <div class="containers">
+                <nav class="navegacion">
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-tag"></i>
+                                Filtrar por categoria
+                            </a>
+                            <ul class="submenu">
+                                @foreach ($categoria as $filter)
+                                    <li>
+                                        <a href="#" class="filtro" data-tipo="categoria"
+                                            data-valor="{{ $filter->nombre }}">
+                                            {{ $filter->nombre }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-building"></i>
+                                Filtrar por area
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#" class="filtro" data-tipo="area"
+                                        data-valor="Unidad de Desarrollo y Crecimiento">Unidad de Desarrollo y
+                                        Crecimiento</a></li>
+                                <li><a href="#" class="filtro" data-tipo="area" data-valor="Financiero">Financiero</a>
+                                </li>
+                                <li><a href="#" class="filtro" data-tipo="area" data-valor="Recursos Humanos">Recursos
+                                        Humanos</a></li>
+                                <li><a href="#" class="filtro" data-tipo="area"
+                                        data-valor="Innovación y Movilidad">Innovación y Movilidad</a></li>
+                                <li><a href="#" class="filtro" data-tipo="area"
+                                        data-valor="Ventas Inteligentes">Ventas Inteligentes</a></li>
+                                <li><a href="#" class="filtro" data-tipo="area"
+                                        data-valor="Soluciones Especializadas">Soluciones Especializadas</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-check-circle"></i>
+                                Filtrar por estado
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#" class="filtro" data-tipo="estado" data-valor="buen estado">Buen
+                                        estado</a></li>
+                                <li><a href="#" class="filtro" data-tipo="estado" data-valor="mal estado">Mal
+                                        estado</a></li>
+                                <li><a href="#" class="filtro" data-tipo="estado" data-valor="En Mantenimiento">En
+                                        Mantenimiento</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" id="limpiarFiltros">
+                                <i class="fas fa-times"></i>
+                                Limpiar Filtros
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+             
+        
+         
         </header>
         <br>
         <br>
-    </div>
+
+       </div>
+       
 
     <!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
     <!-- Formulario -->
@@ -88,7 +131,13 @@
         <section class="modal">
             <div class="btn_salir_mo">
 
+<<<<<<< HEAD
                 <a href="" class="cerrar_boton"><img src="assets/Recursos/cerrar.png" width="20%"><span class="material-symbols-outlined">
+=======
+                <a href="" id="cerrar_boton" type="submint"><span class="material-symbols-outlined">
+                        cancel
+                    </span> </a>
+>>>>>>> b89fcdb2b5913845de35f883590f0bd8cfcc0047
 
                     </span> </a>
                 </div>
@@ -98,8 +147,8 @@
                 <div class="formulario">
                     <div class="input-group">
                         <label for="codigo">Código categoría:</label>
-                        <input type="text" id="id_codigo" name="id_codigo" placeholder="nuevo código" max="5"
-                            required>
+                        <input type="text" id="id_codigo" name="id_codigo" placeholder="nuevo código"
+                            max="5" required>
                     </div>
                     <div class="input-group">
                         <label for="nombre">Nombre categoría:</label>
@@ -112,38 +161,36 @@
     </form>
     <!-- final modal de crear categoria -->
     {{-- fin menu superior --}}
+
     <div class="ContenedorGrande">
-        <table id="miTabla" class="table table-striped">
+        <div id="filtrosActivos"></div>
+        <table id="miTabla">
             <thead>
                 <tr>
-                    {{-- <th>Foto</th> --}}
                     <th>Código</th>
-                    <th><strong>Nombre del Activo</strong></th>
-                    <th><strong>Lugar</strong></th>
-                    <th><strong>Estado</strong></th>
-                    <th><strong>Más Información</strong></th>
+                    <th>Nombre del Activo</th>
+                    <th>Lugar</th>
+                    <th>Estado</th>
+                    <th>Información</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($activo as $item)
-                    <tr>
-                        {{-- <td><img src="{{ $item->fotourl }}" alt="Imagen Activo" class="tabla-imagen" ></td> --}}
+                    <tr data-categoria="{{ $item->categoria }}">
                         <td>{{ $item->codigo }}</td>
                         <td><strong>{{ $item->nombre }}</strong></td>
                         <td><strong>{{ $item->lugar }}</strong></td>
                         <td>{{ $item->estado }}</td>
                         <td>
-                            <button class="botoninfactivo" data-id="{{ $item->id }}">
-                                <div tabindex="0" class="plusButton">
+                            <a href="{{ route('ver.activo', $item->ID) }}" class="botoninfactivo">
+                                <div class="plusButton">
                                     <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                                         <g mask="url(#mask0_21_345)">
-                                            <path
-                                                d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
-                                            </path>
+                                            <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
                                         </g>
                                     </svg>
                                 </div>
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 @endforeach
@@ -151,21 +198,18 @@
         </table>
     </div>
 
-    <script>
-        document.getElementById('miTabla').addEventListener('click', function(event) {
-            if (event.target.closest('.botoninfactivo')) {
-                const button = event.target.closest('.botoninfactivo');
-                const id = button.getAttribute('data-id');
-                window.location.href = `informacionactiv?id=${id}`;
-            }
-        });
-    </script>
 
     <section class="registroadminmod">
+<<<<<<< HEAD
         <div class="btn_salir_mo">
 
             <a href="" class="cerrar_boton"><img src="assets/Recursos/cerrar.png" width="20%"><span class="material-symbols-outlined">
 
+=======
+        <div class="btn_salir_mod">
+            <a href="" id="cerrar_boton" type="submint"><span class="material-symbols-outlined">
+                    cancel
+>>>>>>> b89fcdb2b5913845de35f883590f0bd8cfcc0047
                 </span> </a>
             </div>
         <div class="contai">
@@ -200,14 +244,135 @@
     <!-- final de modal de registro de administrador -->
     <script src="/assets/js/inicioadm.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    {{-- <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> --}}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <!-- jQuery --> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#miTabla').DataTable();
+            $('#miTabla').DataTable({
+                responsive: true,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json'
+                },
+                order: [
+                    [1, 'asc']
+                ],
+                pageLength: 10,
+                dom: '<"top"lBf>rt<"bottom"ip><"clear">',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                columnDefs: [{
+                    targets: -1, // Última columna (botón de información)
+                    orderable: false,
+                    searchable: false
+                }],
+                initComplete: function() {
+                    // Personalizar el diseño después de que la tabla se inicialice
+                    $('.dataTables_length select').addClass('form-select form-select-sm');
+                    $('.dataTables_filter input').addClass('form-control form-control-sm');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Objeto(se usa para almacenar diferentes filtros :))
+            let filtrosActivos = {
+                categoria: null,
+                area: null,
+                estado: null
+            };
+
+            // Función para aplicar los filtros
+            function aplicarFiltros() {
+                const tabla = document.getElementById('miTabla');
+                const filas = tabla.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+                for (let fila of filas) {
+                    let mostrarFila = true;
+                    const categoria = fila.getAttribute('data-categoria');
+                    const area = fila.querySelector('td:nth-child(3)').textContent; // lugar
+                    const estado = fila.querySelector('td:nth-child(4)').textContent;
+
+                    // Verificar cada filtro activo
+                    if (filtrosActivos.categoria && categoria !== filtrosActivos.categoria) {
+                        mostrarFila = false;
+                    }
+                    if (filtrosActivos.area && area !== filtrosActivos.area) {
+                        mostrarFila = false;
+                    }
+                    if (filtrosActivos.estado && estado !== filtrosActivos.estado) {
+                        mostrarFila = false;
+                    }
+
+                    // Mostrar u ocultar la fila según el resultado
+                    fila.style.display = mostrarFila ? '' : 'none';
+                }
+
+
+                actualizarFiltrosActivos();
+            }
+
+            // peticiones a los filtros 
+            document.querySelectorAll('.filtro').forEach(enlace => {
+                enlace.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tipo = this.dataset.tipo;
+                    const valor = this.dataset.valor;
+
+                    // Toggle del filtro
+                    if (filtrosActivos[tipo] === valor) {
+                        filtrosActivos[tipo] = null;
+                        this.classList.remove('activo');
+                    } else {
+                        filtrosActivos[tipo] = valor;
+                        // Remover activo de otros del mismo tipo
+                        document.querySelectorAll(`.filtro[data-tipo="${tipo}"]`)
+                            .forEach(el => el.classList.remove('activo'));
+                        this.classList.add('activo');
+                    }
+
+                    aplicarFiltros();
+                });
+            });
+
+            // Limpiar todos los filtros
+            document.getElementById('limpiarFiltros').addEventListener('click', function(e) {
+                e.preventDefault();
+                filtrosActivos = {
+                    categoria: null,
+                    area: null,
+                    estado: null
+                };
+                document.querySelectorAll('.filtro').forEach(el => el.classList.remove('activo'));
+                aplicarFiltros();
+            });
+
+            // Función para mostrar filtros activos
+            function actualizarFiltrosActivos() {
+                const contenedorFiltros = document.getElementById('filtrosActivos');
+                if (!contenedorFiltros) return;
+
+                let html = 'Filtros activos: ';
+                for (let tipo in filtrosActivos) {
+                    if (filtrosActivos[tipo]) {
+                        html += `<span class="filtro-tag">${tipo}: ${filtrosActivos[tipo]}</span>`;
+                    }
+                }
+                contenedorFiltros.innerHTML = html;
+            }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 
