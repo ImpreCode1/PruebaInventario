@@ -17,19 +17,16 @@
 
     <nav>
         <ul class="navigation">
-            <li><a href="inicioadmin"  > Inicio  <img src="/assets/Recursos/inicio.png" alt="registro activo" class="inicioadm" width="20%"> </a> </li>
-
-
+            <li><a href="/inicioadmin"> Inicio <img src="/assets/Recursos/inicio.png" alt="registro activo"
+                        class="inicioadm" width="20%"> </a> </li>
         </ul>
-
     </nav>
-
 </div>
 <div>
     <nav class="navegation">
 
         <h1>INFORMACION COMPLETA DEL ACTIVO</h1>
-                </nav>
+    </nav>
 </div>
 {{-- fin menu lateral --}}
 {{-- </header> --}}
@@ -40,7 +37,7 @@
 {{-- informacion del enser  --}}
 
 <div class="card">
-    <img src="{{ asset($activo->fotourl)}}" alt="Imagen del activo" class="card-image" width="10%" height="10%">
+    <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" width="10%" height="10%">
     <div class="card-content">
         <p><strong>Nombre:</strong> <span>{{ $activo->nombre }}</span></p>
         <p><strong>Código:</strong> <span>{{ $activo->codigo }}</span></p>
@@ -53,13 +50,12 @@
     </div>
     <button class="info-btn">Información de mantenimientos</button>
     <button class="info-btn">Editar</button>
-   
+
     <button type="submit" class="info-btn">Eliminar</button>
 </div>
 
 
 {{-- fin fragmento de codigo de informacion del enser --}}
-
 </body>
 
 </html>

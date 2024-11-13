@@ -7,118 +7,89 @@
 
   body {
     height: 100vh;
-    display: flex; /* Añadido para centrar contenido verticalmente si es necesario */
+    display: flex;
     background: linear-gradient(to bottom, #11076b, #313131, #11076b);
     font-family:'Roboto' , 'sans-serif';
     overflow:scroll;
 
 }
-.menu_lateral{
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cerrar_boton {
     position: relative;
-    left: -30px;
- z-index: 50;
-
-}
-  :root{
-    --main-color:#fff;
-  }
-
-
-
-  .main-header{
-    background: #4FB391;
-    width: 100%;
-    height:50px;
-  }
-
-  nav{
-    position: absolute;
-    left:0;
-    top:0;
-    width: 300px;
-    top:50px;
-    height:calc(100vh - 50px);
-    background:#adaed1;
-    transform:translateX(-100%);
-    transition:.4s ease;
-
+    top: 100px;
+    right: 200px;
+    cursor: pointer;
 }
 
+h1, h2 {
+    text-align: center;
+}
 
-  .navigation li{
-    list-style:none;
-    width: 100%;
-    border-bottom: 1px solid rgba(255,255,255,.5);
-  }
+.formulario {
+    margin-top: 20px;
+}
 
-  .navigation a{
-    color:var(--main-color);
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
     display: block;
-    line-height:3.5;
-    padding: 0 10px;
-    text-decoration:none;
-    transition:.4s ease;
-  }
-
-  .navigation a:hover{
-    transform:translateX(10%);
-  }
-
-  #btn-nav{
-    display: none;
-  }
-
-  #btn-nav:checked ~ nav{
-    transform:translateX(0);
-  }
-
-  .btn-nav{
-    color:var(--main-color);
-    font-size:30px;
-    position: absolute;
-    left:0;
-    top:-11px;
-    cursor:pointer;
-    padding:6.5px 15px;
-    transition:.2s ease;
-    background:rgba(0,0,0,.1);
-    height: 70px;
-    width: 200px;
-    background-image: url("/assets/Recursos/descarga.png");
-    background-position: center;
-    background-size: 210px;
-
-}
-.imageusuarios{
-    position: relative;
-    top:10px;
-}
-.registactivo{
-    position: relative;
-    top: 25px;
-}
-.cre_cat{
-    position: relative;
-    top: 10px;
-}
-.tablas{
-position: relative;
-left: 400px;
-}
-.dt-paging{
-    height: 50px;
+    font-weight: bold;
 }
 
-table {
-
-    height: 100px;
-
+.input-group input[type="text"],
+.input-group input[type="date"],
+.input-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
 }
-label{
-    position: relative;
-    top: 70px;
-    z-index: 100;
-    left: 60px;
 
+button[type="submit"] {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
 }
+
+button[type="submit"]:hover {
+    background: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
 

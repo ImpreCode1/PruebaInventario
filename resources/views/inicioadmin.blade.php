@@ -28,7 +28,7 @@
 <body>
     {{-- menu lateral --}}
     <div class="menu_lateral">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars">></i></label>
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
         <input type="checkbox" id="btn-nav">
         <nav>
             <ul class="navigation">
@@ -48,7 +48,7 @@
     {{-- </header> --}}
 
     {{-- menu superior --}}
- 
+
        <div>
         <header>
             <div class="containers">
@@ -114,34 +114,25 @@
                     </ul>
                 </nav>
             </div>
-             
-        
-         
-        </header>
+</header>
         <br>
         <br>
 
        </div>
-       
+
 
     <!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
     <!-- Formulario -->
     <form id="Crear_Categoria" method="POST" action="{{ route('categoria.store') }}">
         @csrf
         <section class="modal">
-            <div class="btn_salir_mo">
 
-<<<<<<< HEAD
-                <a href="" class="cerrar_boton"><img src="assets/Recursos/cerrar.png" width="20%"><span class="material-symbols-outlined">
-=======
-                <a href="" id="cerrar_boton" type="submint"><span class="material-symbols-outlined">
-                        cancel
-                    </span> </a>
->>>>>>> b89fcdb2b5913845de35f883590f0bd8cfcc0047
-
-                    </span> </a>
-                </div>
             <div class="container">
+                <div class="0">
+                    <span> <a>
+                       <a href="" id="cerrar_boton" class="cerrar_boton"><img src="assets/Recursos/cerrar.png" width="10%"><span class="material-symbols-outlined">
+                   </span> </a>
+                       </div>
                 <h1>impresistem</h1>
                 <h2>Agrega nueva categoría</h2>
                 <div class="formulario">
@@ -200,19 +191,12 @@
 
 
     <section class="registroadminmod">
-<<<<<<< HEAD
-        <div class="btn_salir_mo">
-
-            <a href="" class="cerrar_boton"><img src="assets/Recursos/cerrar.png" width="20%"><span class="material-symbols-outlined">
-
-=======
-        <div class="btn_salir_mod">
-            <a href="" id="cerrar_boton" type="submint"><span class="material-symbols-outlined">
-                    cancel
->>>>>>> b89fcdb2b5913845de35f883590f0bd8cfcc0047
-                </span> </a>
-            </div>
         <div class="contai">
+            <div class="btn_salir_mo">
+                <span> <a>
+                   <a href="" id="cerrar_boton" class="close_user"><img src="assets/Recursos/cerrar.png" width="10%"><span class="material-symbols-outlined">
+               </span> </a>
+                   </div>
             <h1>impresistem</h1>
             <h2>Registro de Usuario</h2>
             <form id="Crear_usuario" method="POST" action="{{ route('usuarios.us') }}">
@@ -251,7 +235,7 @@
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
-    <!-- jQuery --> 
+    <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <!-- DataTables JS -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
@@ -323,7 +307,7 @@
                 actualizarFiltrosActivos();
             }
 
-            // peticiones a los filtros 
+            // peticiones a los filtros
             document.querySelectorAll('.filtro').forEach(enlace => {
                 enlace.addEventListener('click', function(e) {
                     e.preventDefault();

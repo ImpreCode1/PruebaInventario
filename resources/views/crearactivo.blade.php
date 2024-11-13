@@ -79,7 +79,7 @@
                     </div>
                     <div class="input-group">
                         <label for="factura">Factura de Compra:</label>
-                        <input type="file" id="facturacompra" name="facturacompra" placeholder="Ejemplo Factura" >
+                        <input type="text" id="facturacompra" name="facturacompra" placeholder="Ejemplo Factura" >
                     </div>
                     <div class="input-group">
                         <label for="fechaSalida">Fecha de Salida:</label>
