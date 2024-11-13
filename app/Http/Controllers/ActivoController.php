@@ -18,18 +18,6 @@ class ActivoController extends Controller
 
         return view('inicioadmin', compact('activo', 'categoria'));
 
-        // Obtener el valor del filtro desde la solicitud GET
-        $filter = $request->get('filter');
-
-        // Usar Query Builder para consultar la tabla 'activos'
-        $activos = DB::table('activos')
-            ->when($filter, function ($query, $filter) {
-                return $query->where('estado', $filter);
-            })
-            ->paginate(10); // Paginación de 10 elementos por página
-
-        // Pasar los resultados y el filtro a la vista
-        return view('activos.index', compact('activos', 'filter'));
     }
 
     public function register(Request $request)

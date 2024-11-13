@@ -48,7 +48,11 @@
         <p><strong>Factura de Compra:</strong> <span>{{ $activo->facturacompra }}</span></p>
         <p><strong>Fecha de Salida:</strong> <span>{{ $activo->fechasalida }}</span></p>
     </div>
-    <button class="info-btn">Información de mantenimientos</button>
+
+
+    <a href="{{route('ver.mantenimiento', $activo->ID)}}" class="info-btn">
+       Información de mantenimientos
+    </a>
     <button class="info-btn">Editar</button>
 
     <button type="submit" class="info-btn">Eliminar</button>

@@ -2,6 +2,7 @@
 use App\Http\Controllers\ActivoController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\MantenimientoController;
 use App\Models\Activo;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
@@ -40,3 +41,12 @@ Route::post('/inicioadmin/login', [AuthController::class, 'login'])->name('inici
 // Route::get('/informacionactiv/{id}', 'ActivoController@verInfoActivo')->name('informacionactiv');
 // Route::get('/informacionactiv/{id}', 'ActivoController@verInfoActivo')->name('informacionactiv');
 Route::get('/activo/{ID}', [ActivoController::class, 'verInfoActivo'])->name('ver.activo');
+
+//obtener mantenimiento por id
+Route::get('/mantenimiento/{ID}', [MantenimientoController::class, 'verMantenimiento'])->name('ver.mantenimiento');
+
+//crear mantenimiento
+Route::post('/mantenimiento/{activo}/store', [MantenimientoController::class, 'store'])->name('mantenimiento.store');
+Route::put('/mantenimiento/{id}/terminar', [MantenimientoController::class, 'terminarMantenimiento'])->name('mantenimiento.terminar');
+//listar mantenimientos de cada activo
+// Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento.index');
