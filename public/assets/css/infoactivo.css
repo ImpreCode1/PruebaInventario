@@ -1,6 +1,7 @@
+
 body{
 	background: linear-gradient(to bottom, #11076b, #313131, #11076b);
- overflow: scroll;
+
 }
 h1{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
@@ -18,12 +19,13 @@ z-index: 50;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+/* overflow: scroll; */
+}
 
-  body{
+  /* body{
     font-family:'Roboto' , 'sans-serif';
     overflow:hidden;
-  }
+  } */
 
   .main-header{
     background: #4FB391;

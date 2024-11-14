@@ -38,7 +38,7 @@
 
 <div class="card">
     <div>
-        <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" width="500px" height="auto">
+        <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" width="300px" height="auto">
         <input id="" type="file" name="foto" accept="image/*" disabled/>
 
     </div>    <div class="card-content">

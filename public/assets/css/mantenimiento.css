@@ -38,24 +38,7 @@ h1, h2 {
     margin-top: 20px;
 }
 
-/* .input-group {
-    margin-bottom: 15px;
-} */
 
-/* .input-group label {
-    display: block;
-    font-weight: bold;
-} */
-
-/* .input-group input[type="text"],
-.input-group input[type="date"],
-.input-group input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 5px;
-} */
 
 button[type="submit"] {
     background: #007bff;
