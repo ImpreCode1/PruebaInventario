@@ -45,6 +45,8 @@
             display: block;
             text-align: right;
             margin-bottom: 10px;
+            position: relative;
+            left: 15px;
         }
 
         .cerrar_boton img {
@@ -79,7 +81,7 @@
         <input type="checkbox" id="btn-nav">
         <nav>
             <ul class="navigation">
-                <li><a href="inicioadmin"> Inicio <img src="/assets/Recursos/inicio.png" alt="registro activo"
+                <li><a href="/inicioadmin"> Inicio <img src="/assets/Recursos/inicio.png" alt="registro activo"
                             class="inicioadm" width="20%"> </a> </li>
                 <div class="btn_mantenimientoagregar">
 

@@ -37,16 +37,20 @@
 {{-- informacion del enser  --}}
 
 <div class="card">
-    <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" width="10%" height="10%">
-    <div class="card-content">
-        <p><strong>Nombre:</strong> <span>{{ $activo->nombre }}</span></p>
-        <p><strong>Código:</strong> <span>{{ $activo->codigo }}</span></p>
-        <p><strong>Categoría:</strong> <span>{{ $activo->categoria }}</span></p>
+    <div>
+        <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" width="500px" height="auto">
+        <input id="" type="file" name="foto" accept="image/*" disabled/>
+
+    </div>    <div class="card-content">
+        <p><strong>Nombre:</strong> <span><input type="text" disabled value="{{ $activo->nombre }}" />  </span></p>
+        <p><strong>Código:</strong> <span><input type="text" disabled value="{{ $activo->codigo }}" />  </span></p>
+        <p><strong>Descripcion:</strong> <span><input type="text" disabled value="{{ $activo->descripcion }}" />  </span></p>
+        <p><strong>Categoría:</strong> <span>{{ $activo->categoria }}"</selecT></SElect></span></p>
         <p><strong>Estado:</strong> <span>{{ $activo->estado }}</span></p>
-        <p><strong>Lugar:</strong> <span>{{ $activo->lugar }}</span></p>
-        <p><strong>Fecha de Ingreso:</strong> <span>{{ $activo->fechalingreso }}</span></p>
+        <p><strong>Lugar:</strong> <span><input type="text" disabled value="{{ $activo->lugar }}" /></span></p>
+        <p><strong>Fecha de Ingreso:</strong> <span><input type="date" disabled value="{{ $activo->fecharingreso }}" /></span></p>
         <p><strong>Factura de Compra:</strong> <span>{{ $activo->facturacompra }}</span></p>
-        <p><strong>Fecha de Salida:</strong> <span>{{ $activo->fechasalida }}</span></p>
+        <p><strong>Fecha de Salida:</strong> <span><input type="date"  disabled value="{{ $activo->fechasalida }}" /></span></p>
     </div>
 
 
