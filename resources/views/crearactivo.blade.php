@@ -54,9 +54,12 @@
                         <input type="text" id="codigo" name="codigo" placeholder="Ejemplo Código" >
                     </div>
                     <div class="input-group">
-                        <label for="categoria">Categoría:</label>
-                        <select type="submit" id="categoria" name="categoria">
-                            <option>M10</option>
+                        <label for="categoria">Categoría:</label> 
+                        <select name="categoria" id="categoria" required="">
+                            <option value="" disabled selected>Seleccionar categoría</option>
+                                @foreach ($categoria as $category)
+                                    <option value="{{ $category->id_codigo }}">{{ $category->nombre }}</option>
+                                @endforeach
                         </select>
                     </div>
                     <div class="input-group">

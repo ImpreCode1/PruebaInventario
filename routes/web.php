@@ -51,3 +51,5 @@ Route::put('/mantenimiento/{id}/terminar', [MantenimientoController::class, 'ter
 //listar mantenimientos de cada activo
 // Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento.index');
 Route::delete('activo/{activo}', [ActivoController::class, 'delete'])->name('activo.delete');
+
+Route::get('/crearactivo', [ActivoController::class, 'filtercategory'])->name('crearactivo');

@@ -20,6 +20,13 @@ class ActivoController extends Controller
 
     }
 
+    public function filtercategory()
+    {
+        $categoria = Categoria::all();
+        return view('crearactivo', compact('categoria'));
+
+    }
+
     public function register(Request $request)
     {
         // Validar los datos del request aquí si es necesario
