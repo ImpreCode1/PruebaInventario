@@ -55,7 +55,11 @@
     </a>
     <button class="info-btn">Editar</button>
 
-    <button type="submit" class="info-btn">Eliminar</button>
+    <form method="POST" action="{{ route('activo.delete', $activo->ID) }}" class="btn-eliminar">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="info-btn">Eliminar</button>
+    </form>
 </div>
 
 

@@ -6,9 +6,12 @@ use GuzzleHttp\Psr7\Request;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Activo extends Model
 {
+    use SoftDeletes;
     use HasFactory;
 
     protected $table = 'activos';

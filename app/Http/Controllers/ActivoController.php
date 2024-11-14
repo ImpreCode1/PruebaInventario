@@ -61,4 +61,10 @@ class ActivoController extends Controller
         $activo = Activo::findOrFail($id);
         return view('informacionactiv', compact('activo'));
     }
+
+    public function delete(Activo $activo)
+    {
+        $activo->delete();
+        return redirect()->route('inicioadmin');
+    }
 }

@@ -50,3 +50,4 @@ Route::post('/mantenimiento/{activo}/store', [MantenimientoController::class, 's
 Route::put('/mantenimiento/{id}/terminar', [MantenimientoController::class, 'terminarMantenimiento'])->name('mantenimiento.terminar');
 //listar mantenimientos de cada activo
 // Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento.index');
+Route::delete('activo/{activo}', [ActivoController::class, 'delete'])->name('activo.delete');
