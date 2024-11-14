@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Estado;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ActivoController extends Controller
 {
@@ -17,14 +18,12 @@ class ActivoController extends Controller
         $categoria = Categoria::all();
 
         return view('inicioadmin', compact('activo', 'categoria'));
-
     }
 
     public function filtercategory()
     {
         $categoria = Categoria::all();
         return view('crearactivo', compact('categoria'));
-
     }
 
     public function register(Request $request)
@@ -72,6 +71,36 @@ class ActivoController extends Controller
     public function delete(Activo $activo)
     {
         $activo->delete();
+        return redirect()->route('inicioadmin');
+    }
+
+    public function update(Request $request, Activo $activo)
+    {
+    
+        if ($request->hasFile('fotourl')) {
+            if ($activo->fotourl != 'uploads/ejemplo.png') {
+                Storage::delete(str_replace('uploads/', '', $activo->fotourl));
+            }
+            $archivo = $request->file('fotourl');
+            $filename = time() . '_' . $archivo->getClientOriginalName();
+            $archivo->move(public_path('uploads'), $filename);
+            $activo->fotourl = 'uploads/' . $filename;
+        }
+
+      
+        $activo->nombre = $request->nombre;
+        $activo->descripcion = $request->descripcion;
+        $activo->codigo = $request->codigo;
+        $activo->lugar = $request->lugar;
+        $activo->fechaingreso = $request->fechaingreso;
+        $activo->facturacompra = $request->facturacompra;
+        $activo->fechasalida = $request->fechasalida;
+
+        
+
+     
+        $activo->save();
+
         return redirect()->route('inicioadmin');
     }
 }

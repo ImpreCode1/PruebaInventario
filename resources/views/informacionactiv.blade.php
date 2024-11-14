@@ -32,32 +32,64 @@
 {{-- </header> --}}
 
 
-
-
-{{-- informacion del enser  --}}
-
 <div class="card">
-    <div>
-        <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" width="500px" height="auto">
-        <input id="" type="file" name="foto" accept="image/*" disabled/>
+    {{-- informacion del enser  --}}
+    <form method="POST" action="{{ route('activo.update', $activo->ID) }}" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
 
-    </div>    <div class="card-content">
-        <p><strong>Nombre:</strong> <span><input type="text" disabled value="{{ $activo->nombre }}" />  </span></p>
-        <p><strong>Código:</strong> <span><input type="text" disabled value="{{ $activo->codigo }}" />  </span></p>
-        <p><strong>Descripcion:</strong> <span><input type="text" disabled value="{{ $activo->descripcion }}" />  </span></p>
-        <p><strong>Categoría:</strong> <span>{{ $activo->categoria }}"</selecT></SElect></span></p>
-        <p><strong>Estado:</strong> <span>{{ $activo->estado }}</span></p>
-        <p><strong>Lugar:</strong> <span><input type="text" disabled value="{{ $activo->lugar }}" /></span></p>
-        <p><strong>Fecha de Ingreso:</strong> <span><input type="date" disabled value="{{ $activo->fecharingreso }}" /></span></p>
-        <p><strong>Factura de Compra:</strong> <span>{{ $activo->facturacompra }}</span></p>
-        <p><strong>Fecha de Salida:</strong> <span><input type="date"  disabled value="{{ $activo->fechasalida }}" /></span></p>
-    </div>
+        <div>
+            <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" width="500px"
+                height="auto">
+            <input type="file" name="fotourl" accept="image/*" />
+        </div>
+        <div class="card-content">
+            <p>
+                <strong>Nombre:</strong>
+                <span><input type="text" name="nombre" value="{{ $activo->nombre }}" /></span>
+            </p>
+            <p>
+                <strong>Código:</strong>
+                <span><input type="text" name="codigo" value="{{ $activo->codigo }}" /></span>
+            </p>
+            <p>
+                <strong>Descripcion:</strong>
+                <span><input type="text" name="descripcion" value="{{ $activo->descripcion }}" /></span>
+            </p>
+            <p>
+                <strong>Categoría:</strong> <span>{{ $activo->categoria }}"</span>
+            </p>
+            <p>
+                <strong>Estado:</strong> <span>{{ $activo->estado }}</span>
+
+            </p>
+            <p>
+                <strong>Lugar:</strong>
+                <span><input type="text" name="lugar" value="{{ $activo->lugar }}" /></span>
+            </p>
+            <p>
+                <strong>Fecha de Ingreso:</strong>
+                <span><input type="date" name="fechaingreso" value="{{ $activo->fechaingreso }}" /></span>
+            </p>
+            <p>
+                <strong>Factura de Compra:</strong>
+                <span><input type="text" name="facturacompra" value="{{ $activo->facturacompra }}" /></span>
+            </p>
+            <p>
+                <strong>Fecha de Salida:</strong>
+                <span><input type="date" name="fechasalida" value="{{ $activo->fechasalida }}" /></span>
+            </p>
 
 
-    <a href="{{route('ver.mantenimiento', $activo->ID)}}" class="info-btn">
-       Información de mantenimientos
+
+        </div>
+
+        <button type="submit" class="info-btn">Guardar Cambios</button>
+    </form>
+
+    <a href="{{ route('ver.mantenimiento', $activo->ID) }}" class="info-btn">
+        Información de mantenimientos
     </a>
-    <button class="info-btn">Editar</button>
 
     <form method="POST" action="{{ route('activo.delete', $activo->ID) }}" class="btn-eliminar">
         @csrf
@@ -65,6 +97,9 @@
         <button type="submit" class="info-btn">Eliminar</button>
     </form>
 </div>
+
+
+
 
 
 {{-- fin fragmento de codigo de informacion del enser --}}

@@ -114,7 +114,7 @@
                     </ul>
                 </nav>
             </div>
-</header>
+        </header>
         <br>
         <br>
 
@@ -168,7 +168,7 @@
             <tbody>
                 @foreach ($activo as $item)
                     <tr data-categoria="{{ $item->categoria }}">
-                        <td>{{ $item->codigo }}</td>
+                        <td>{{$item->categoria}}-{{ $item->codigo }}</td>
                         <td><strong>{{ $item->nombre }}</strong></td>
                         <td><strong>{{ $item->lugar }}</strong></td>
                         <td>{{ $item->estado }}</td>

@@ -53,3 +53,7 @@ Route::put('/mantenimiento/{id}/terminar', [MantenimientoController::class, 'ter
 Route::delete('activo/{activo}', [ActivoController::class, 'delete'])->name('activo.delete');
 
 Route::get('/crearactivo', [ActivoController::class, 'filtercategory'])->name('crearactivo');
+
+
+// editar activo 
+Route::put('/activo/update/{activo}', [ActivoController::class, 'update'])->name('activo.update');
