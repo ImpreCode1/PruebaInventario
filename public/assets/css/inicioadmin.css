@@ -15,16 +15,18 @@ body {
 .navegacion {
   position: relative;
   left: 1200px;
-  width: 60%;
+  width: 65%;
   z-index: 1;
   height: 50px;
-  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  background:  #adaed1;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.navegacion ul { list-style: none; }
-.menu > li { position: relative; display: inline-block;      }
+.navegacion ul { list-style: none;
+ }
+.menu > li { position: relative; display: inline-block;
+}
 .menu > li > a {
   display: block;
   padding: 15px 20px;
@@ -60,13 +62,14 @@ width: 1200px;
 nav {
   position: absolute;
   left: 0;
-  top: 0;
-  width: 300px;
-  top: 50px;
+
+  width: 279px;
+  top: 70px;
   height: calc(100vh - 50px);
   background: #adaed1;
   transform: translateX(-100%);
   transition: .4s ease;
+  border-radius: 6px;
 }
 .navigation li {
   list-style: none;

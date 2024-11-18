@@ -9,7 +9,9 @@ h1{
 .menu_lateral{
     position: relative;
     right: 30px;
-z-index: 50;
+bottom: 10px;
+    z-index: 50;
+
 }
   :root{
     --main-color:#fff;
@@ -108,76 +110,98 @@ z-index: 50;
     top: 5px;
 }
 /* titulo inf activo */
-.navegation{
-height: 50px;
-width: 600px;
-background-color: rgb(255, 253, 253);
-position: relative;
-left: 60%;
-right: 40%;
-top: 1%;
-border:1px solid black;
-border-radius: 6px;
-font-size: large;
-}
-/* estilo de informacion de el activo,tabla */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef;
     margin: 0;
     padding: 20px;
 }
 
 .card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
     margin: 20px auto;
-    padding: 20px;
-    width: 80%; /* Ocupa el 80% del ancho de la página */
-    max-width: 800px; /* Un ancho máximo para pantallas grandes */
-    position: relative;
-    top:5%;
+    max-width: 700px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .card-image {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 15px;
+    width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-}
-
-.card-content {
-    margin-top: 15px;
+    border: 2px solid #f8f9fa;
 }
 
 .card-content p {
-    margin: 10px 0;
-    color: #555;
-    font-size: 1.1em; /* Aumentar ligeramente el tamaño de la fuente */
+    margin: 15px 0;
+}
+
+.card-content strong {
+    color: #495057;
+    display: inline-block;
+    width: 150px;
+}
+
+.input-text, input[type="date"] {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    width: calc(100% - 22px);
+    margin-top: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-text:disabled {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+.input-text:focus {
+    border-color: #198754;
+    box-shadow: 0 0 5px rgba(25, 135, 84, 0.3);
+    outline: none;
 }
 
 .info-btn {
-    background-color: #007BFF;
+    display: inline-block;
+    margin: 15px 5px;
+    padding: 12px 24px;
+    background-color: #007bff;
     color: white;
+    text-align: center;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    margin-top: 15px;
+    border-radius: 8px;
     text-decoration: none;
-    display: inline-block; /* Para que el botón sea visto como un bloque */
-    margin-left: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .info-btn:hover {
-    background-color: #0056b3; /* Color al pasar el mouse */
-
-}
-.card-content{
-    text-align: left;
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
-td{
-    border:1px solid black;
+.btn-eliminar button {
+    background-color: #dc3545;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-eliminar button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
 }

@@ -10,7 +10,7 @@
 <body>
     {{-- inicio menu --}}
     <div class="menu_lateral">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars">></i></label>
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
         <input type="checkbox" id="btn-nav">
 
         <nav>
@@ -54,7 +54,7 @@
                         <input type="text" id="codigo" name="codigo" placeholder="Ejemplo Código" >
                     </div>
                     <div class="input-group">
-                        <label for="categoria">Categoría:</label> 
+                        <label for="categoria">Categoría:</label>
                         <select name="categoria" id="categoria" required="">
                             <option value="" disabled selected>Seleccionar categoría</option>
                                 @foreach ($categoria as $category)

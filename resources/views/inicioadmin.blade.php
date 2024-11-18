@@ -28,7 +28,7 @@
 <body>
     {{-- menu lateral --}}
     <div class="menu_lateral">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
+        <label for="btn-nav" class="btn-nav"></label>
         <input type="checkbox" id="btn-nav">
         <nav>
             <ul class="navigation">
@@ -57,13 +57,13 @@
                         <li>
                             <a href="#">
                                 <i class="fas fa-tag"></i>
-                                Filtrar por categoria
+                         <strong> Filtrar por categoria</strong>
                             </a>
                             <ul class="submenu">
                                 @foreach ($categoria as $filter)
                                     <li>
                                         <a href="#" class="filtro" data-tipo="categoria"
-                                            data-valor="{{ $filter->nombre }}">
+                                            data-valor="{{ $filter->id_codigo }}">
                                             {{ $filter->nombre }}
                                         </a>
                                     </li>
@@ -71,30 +71,30 @@
                             </ul>
                         </li>
                         <li>
+
+
+
                             <a href="#">
                                 <i class="fas fa-building"></i>
-                                Filtrar por area
+                               <strong>  Filtrar por lugar</strong>
                             </a>
                             <ul class="submenu">
-                                <li><a href="#" class="filtro" data-tipo="area"
-                                        data-valor="Unidad de Desarrollo y Crecimiento">Unidad de Desarrollo y
-                                        Crecimiento</a></li>
-                                <li><a href="#" class="filtro" data-tipo="area" data-valor="Financiero">Financiero</a>
+                                @foreach ( $activo as $lugar )
+                                <li>
+                                    <a href="#" class="filtro" data-tipo="lugar"
+                                    data-valor="{{ $lugar->lugar }}">
+                                    {{ $lugar->lugar }}
+                                </a>
+
+
                                 </li>
-                                <li><a href="#" class="filtro" data-tipo="area" data-valor="Recursos Humanos">Recursos
-                                        Humanos</a></li>
-                                <li><a href="#" class="filtro" data-tipo="area"
-                                        data-valor="Innovación y Movilidad">Innovación y Movilidad</a></li>
-                                <li><a href="#" class="filtro" data-tipo="area"
-                                        data-valor="Ventas Inteligentes">Ventas Inteligentes</a></li>
-                                <li><a href="#" class="filtro" data-tipo="area"
-                                        data-valor="Soluciones Especializadas">Soluciones Especializadas</a></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="fas fa-check-circle"></i>
-                                Filtrar por estado
+                               <strong> Filtrar por estado </strong>
                             </a>
                             <ul class="submenu">
                                 <li><a href="#" class="filtro" data-tipo="estado" data-valor="buen estado">Buen
@@ -108,13 +108,13 @@
                         <li>
                             <a href="#" id="limpiarFiltros">
                                 <i class="fas fa-times"></i>
-                                Limpiar Filtros
+                               <strong> Limpiar Filtros </strong>
                             </a>
                         </li>
                     </ul>
                 </nav>
             </div>
-</header>
+        </header>
         <br>
         <br>
 
@@ -168,7 +168,7 @@
             <tbody>
                 @foreach ($activo as $item)
                     <tr data-categoria="{{ $item->categoria }}">
-                        <td>{{ $item->codigo }}</td>
+                        <td>{{$item->categoria}}-{{ $item->codigo }}</td>
                         <td><strong>{{ $item->nombre }}</strong></td>
                         <td><strong>{{ $item->lugar }}</strong></td>
                         <td>{{ $item->estado }}</td>
@@ -273,7 +273,7 @@
             // Objeto(se usa para almacenar diferentes filtros :))
             let filtrosActivos = {
                 categoria: null,
-                area: null,
+                lugar: null,
                 estado: null
             };
 
@@ -285,14 +285,14 @@
                 for (let fila of filas) {
                     let mostrarFila = true;
                     const categoria = fila.getAttribute('data-categoria');
-                    const area = fila.querySelector('td:nth-child(3)').textContent; // lugar
+                    const lugar = fila.querySelector('td:nth-child(3)').textContent; // lugar
                     const estado = fila.querySelector('td:nth-child(4)').textContent;
 
                     // Verificar cada filtro activo
                     if (filtrosActivos.categoria && categoria !== filtrosActivos.categoria) {
                         mostrarFila = false;
                     }
-                    if (filtrosActivos.area && area !== filtrosActivos.area) {
+                    if (filtrosActivos.lugar && lugar !== filtrosActivos.lugar) {
                         mostrarFila = false;
                     }
                     if (filtrosActivos.estado && estado !== filtrosActivos.estado) {
@@ -335,7 +335,7 @@
                 e.preventDefault();
                 filtrosActivos = {
                     categoria: null,
-                    area: null,
+                    lugar: null,
                     estado: null
                 };
                 document.querySelectorAll('.filtro').forEach(el => el.classList.remove('activo'));

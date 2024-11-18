@@ -32,32 +32,32 @@
 {{-- </header> --}}
 
 
-
-
-{{-- informacion del enser  --}}
-
 <div class="card">
     <div>
-        <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" width="300px" height="auto">
-        <input id="" type="file" name="foto" accept="image/*" disabled/>
+        {{-- <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image"> --}}
+        <div class="image-container" style="display: flex; justify-content: center;">
+            <img src="{{ asset($activo->fotourl) }}" alt="Imagen del activo" class="card-image" style="width: 200px; height: auto;">
+        </div>
+        <input id="" type="file" name="foto" accept="image/*" disabled  />
 
     </div>    <div class="card-content">
-        <p><strong>Nombre:</strong> <span><input type="text" disabled value="{{ $activo->nombre }}" />  </span></p>
-        <p><strong>Código:</strong> <span><input type="text" disabled value="{{ $activo->codigo }}" />  </span></p>
-        <p><strong>Descripcion:</strong> <span><input type="text" disabled value="{{ $activo->descripcion }}" />  </span></p>
+        <p><strong>Nombre:</strong> <span><input type="text"  value="{{ $activo->nombre }}" />  </span></p>
+        <p><strong>Código:</strong> <span><input type="text"  value="{{ $activo->codigo }}" />  </span></p>
+        <p><strong>Descripcion:</strong> <span><input type="text"  value="{{ $activo->descripcion }}" />  </span></p>
         <p><strong>Categoría:</strong> <span>{{ $activo->categoria }}"</selecT></SElect></span></p>
         <p><strong>Estado:</strong> <span>{{ $activo->estado }}</span></p>
-        <p><strong>Lugar:</strong> <span><input type="text" disabled value="{{ $activo->lugar }}" /></span></p>
-        <p><strong>Fecha de Ingreso:</strong> <span><input type="date" disabled value="{{ $activo->fecharingreso }}" /></span></p>
+        <p><strong>Lugar:</strong> <span><input type="text"  value="{{ $activo->lugar }}" /></span></p>
+        <p><strong>Fecha de Ingreso:</strong> <span><input type="date"  value="{{ $activo->fecharingreso }}" /></span></p>
         <p><strong>Factura de Compra:</strong> <span>{{ $activo->facturacompra }}</span></p>
-        <p><strong>Fecha de Salida:</strong> <span><input type="date"  disabled value="{{ $activo->fechasalida }}" /></span></p>
+        <p><strong>Fecha de Salida:</strong> <span><input type="date"   value="{{ $activo->fechasalida }}" /></span></p>
     </div>
 
+        <button type="submit" class="info-btn">Guardar Cambios</button>
+    </form>
 
-    <a href="{{route('ver.mantenimiento', $activo->ID)}}" class="info-btn">
-       Información de mantenimientos
+    <a href="{{ route('ver.mantenimiento', $activo->ID) }}" class="info-btn">
+        Información de mantenimientos
     </a>
-    <button class="info-btn">Editar</button>
 
     <form method="POST" action="{{ route('activo.delete', $activo->ID) }}" class="btn-eliminar">
         @csrf
@@ -65,6 +65,9 @@
         <button type="submit" class="info-btn">Eliminar</button>
     </form>
 </div>
+
+
+
 
 
 {{-- fin fragmento de codigo de informacion del enser --}}

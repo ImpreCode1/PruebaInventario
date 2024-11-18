@@ -13,7 +13,8 @@ body {
 .menu_lateral{
     position: relative;
     right: 10px;
-z-index: 50;
+top: 11px;
+    z-index: 50;
 }
   :root{
     --main-color:#fff;
