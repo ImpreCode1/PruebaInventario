@@ -55,5 +55,6 @@ Route::delete('activo/{activo}', [ActivoController::class, 'delete'])->name('act
 Route::get('/crearactivo', [ActivoController::class, 'filtercategory'])->name('crearactivo');
 
 
-// editar activo 
-Route::put('/activo/update/{activo}', [ActivoController::class, 'update'])->name('activo.update');
+// editar activo
+//Route::put('/activo/update/{activo}', [ActivoController::class, 'update'])->name('activo.update');
+Route::post('/activo/update', [ActivoController::class, 'update'])->name('activo.update');

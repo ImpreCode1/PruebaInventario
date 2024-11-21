@@ -17,7 +17,7 @@ class Mantenimiento extends Model
     public $timestamps = false;
 
 
-    protected $fillable = ['id_activo','factura','fechamantenimiento','descripcion','fechafinmantenimiento'];
+    protected $fillable = ['id_activo','factura','fechamantenimiento','descripcion','fechafinmantenimiento','fechaingreso','estado'];
 
 
     public function activo()

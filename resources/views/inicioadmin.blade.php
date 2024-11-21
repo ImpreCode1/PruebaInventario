@@ -55,9 +55,9 @@
                 <nav class="navegacion">
                     <ul class="menu">
                         <li>
-                            <a href="#">
+                            <a href="#" style="vertical-align: inherit;">
                                 <i class="fas fa-tag"></i>
-                         <strong> Filtrar por categoria</strong>
+                          Filtrar por categoria
                             </a>
                             <ul class="submenu">
                                 @foreach ($categoria as $filter)
@@ -74,9 +74,9 @@
 
 
 
-                            <a href="#">
+                            <a href="#" style="vertical-align: inherit;">
                                 <i class="fas fa-building"></i>
-                               <strong>  Filtrar por lugar</strong>
+                                 Filtrar por lugar
                             </a>
                             <ul class="submenu">
                                 @foreach ( $activo as $lugar )
@@ -92,9 +92,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-check-circle"></i>
-                               <strong> Filtrar por estado </strong>
+                            <a href="#" style="vertical-align: inherit;">
+                                <i class="fas fa-check-circle" ></i>
+                                Filtrar por estado
                             </a>
                             <ul class="submenu">
                                 <li><a href="#" class="filtro" data-tipo="estado" data-valor="buen estado">Buen
@@ -106,9 +106,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" id="limpiarFiltros">
+                            <a href="#" id="limpiarFiltros" style="vertical-align: inherit;">
                                 <i class="fas fa-times"></i>
-                               <strong> Limpiar Filtros </strong>
+                                Limpiar Filtros
                             </a>
                         </li>
                     </ul>
@@ -162,16 +162,18 @@
                     <th>Nombre del Activo</th>
                     <th>Lugar</th>
                     <th>Estado</th>
+                    <th>Fecha de salida</th>
                     <th>Información</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($activo as $item)
                     <tr data-categoria="{{ $item->categoria }}">
-                        <td>{{$item->categoria}}-{{ $item->codigo }}</td>
-                        <td><strong>{{ $item->nombre }}</strong></td>
-                        <td><strong>{{ $item->lugar }}</strong></td>
-                        <td>{{ $item->estado }}</td>
+                        <td style="vertical-align: inherit;">{{$item->categoria}}-{{ $item->codigo }}</td>
+                        <td style="vertical-align: inherit;"><strong>{{ $item->nombre }}</strong></td>
+                        <td style="vertical-align: inherit;"><strong>{{ $item->lugar }}</strong></td>
+                        <td style="vertical-align: inherit;">{{ $item->estado }}</td>
+                        <td style="vertical-align: inherit;">{{$item->fechasalida}}</td>
                         <td>
                             <a href="{{ route('ver.activo', $item->ID) }}" class="botoninfactivo">
                                 <div class="plusButton">

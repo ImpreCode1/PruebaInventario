@@ -19,7 +19,7 @@ class Activo extends Model
     public $timestamps = false;
 
     //datos de la tabla
-    protected $fillable = ['nombre','descripcion','codigo','categoria','estado','lugar','fechaingreso','facturacompra','fechasalida','fechamantenimiento','costomantenimiento','fotourl'];
+    protected $fillable = ['nombre','descripcion','codigo','categoria','estado','lugar','fechaingreso','facturacompra','fechasalida','fechamantenimiento','fechadestruccion','costomantenimiento','fotourl'];
 
 // $hidden para proteger los datos en usuarios
 

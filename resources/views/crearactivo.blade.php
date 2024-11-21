@@ -69,6 +69,7 @@
                             <option>Buen estado</option>
                             <option>Mal estado</option>
                             <option>En mantenimiento</option>
+                            <option>Destruccion</option>
                         </select>
 
                     </div>

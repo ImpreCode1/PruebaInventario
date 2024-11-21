@@ -112,7 +112,11 @@
             <tbody>
                 @forelse ($activo->mantenimientos as $mantenimiento)
                     <tr>
-                        <td><img src="{{ asset($mantenimiento->factura) }}" alt="Imagen del activo" class="card-image" width="15%" height="15%"></td>
+                        <td> @if($mantenimiento->factura) <img src="{{ asset($mantenimiento->factura) }}" alt="Imagen del activo" class="card-image" width="15%" height="15%">
+                            @else <input type="file" class="btn btn-primary">
+                            <button type="button" class="btn btn-danger">Guardar</button>
+                            @endif </td>
+
                         <td>{{ $mantenimiento->descripcion }}</td>
                         <td>{{ $mantenimiento->fechamantenimiento }}</td>
                         <td>{{ $mantenimiento->fechafinmantenimiento ?? 'En proceso' }}</td>
@@ -158,7 +162,7 @@
                     </a>
                     <div class="input-group">
                         <label for="codigo">Factura:</label>
-                        <input type="file" id="factura" name="factura" required>
+                        <input type="file" id="factura" name="factura" >
                     </div>
                     <div class="input-group">
                         <label for="nombre">inicio mantenimiento</label>

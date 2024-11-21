@@ -17,7 +17,6 @@ class ActivoController extends Controller
         $activo = Activo::all();
         $categoria = Categoria::all();
 
-
         return view('inicioadmin', compact('activo', 'categoria'));
     }
 
@@ -75,8 +74,9 @@ class ActivoController extends Controller
         return redirect()->route('inicioadmin');
     }
 
-    public function update(Request $request, Activo $activo)
+    public function update(Request $request)
     {
+        $activo = Activo::findOrFail($request->id);
 
         if ($request->hasFile('fotourl')) {
             if ($activo->fotourl != 'uploads/ejemplo.png') {
@@ -96,7 +96,10 @@ class ActivoController extends Controller
         $activo->fechaingreso = $request->fechaingreso;
         $activo->facturacompra = $request->facturacompra;
         $activo->fechasalida = $request->fechasalida;
-
+        $activo->estado = $request->estado;
+        // if ($request->estado != "seleccione estado") {
+        //     $activo->estado = $request->estado;
+        // }
 
 
 
