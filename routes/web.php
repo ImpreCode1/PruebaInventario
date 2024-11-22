@@ -7,6 +7,7 @@ use App\Models\Activo;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+
 //rutas de vistas
 Route::view('/','login');
 Route::view('/crearactivo','crearactivo')->name('crearactivo');
@@ -58,3 +59,6 @@ Route::get('/crearactivo', [ActivoController::class, 'filtercategory'])->name('c
 // editar activo
 //Route::put('/activo/update/{activo}', [ActivoController::class, 'update'])->name('activo.update');
 Route::post('/activo/update', [ActivoController::class, 'update'])->name('activo.update');
+
+
+

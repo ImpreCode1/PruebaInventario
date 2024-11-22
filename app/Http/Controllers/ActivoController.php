@@ -96,10 +96,10 @@ class ActivoController extends Controller
         $activo->fechaingreso = $request->fechaingreso;
         $activo->facturacompra = $request->facturacompra;
         $activo->fechasalida = $request->fechasalida;
-        $activo->estado = $request->estado;
-        // if ($request->estado != "seleccione estado") {
-        //     $activo->estado = $request->estado;
-        // }
+        // $activo->estado = $request->estado;
+         if ($request->estado != "seleccione estado") {
+            $activo->estado = $request->estado;
+         }
 
 
 

@@ -1,91 +1,93 @@
-
-body{
-	background: linear-gradient(to bottom, #11076b, #313131, #11076b);
+body {
+    background: linear-gradient(to bottom, #11076b, #313131, #11076b);
 
 }
-h1{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.menu_lateral{
+
+.menu_lateral {
     position: relative;
     right: 30px;
-bottom: 10px;
+    bottom: 10px;
     z-index: 50;
 
 }
-  :root{
-    --main-color:#fff;
-  }
 
-  *{
+:root {
+    --main-color: #fff;
+}
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-/* overflow: scroll; */
+    /* overflow: scroll; */
 }
 
-  /* body{
+/* body{
     font-family:'Roboto' , 'sans-serif';
     overflow:hidden;
   } */
 
-  .main-header{
+.main-header {
     background: #4FB391;
     width: 100%;
-    height:50px;
-  }
+    height: 50px;
+}
 
-  nav{
+nav {
     position: absolute;
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
     width: 300px;
-    top:50px;
-    height:calc(100vh - 50px);
-    background:#adaed1;
-    transform:translateX(-100%);
-    transition:.4s ease;
+    top: 50px;
+    height: calc(100vh - 50px);
+    background: #adaed1;
+    transform: translateX(-100%);
+    transition: .4s ease;
 
 }
 
 
-  .navigation li{
-    list-style:none;
+.navigation li {
+    list-style: none;
     width: 100%;
-    border-bottom: 1px solid rgba(255,255,255,.5);
-  }
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
 
-  .navigation a{
-    color:var(--main-color);
+.navigation a {
+    color: var(--main-color);
     display: block;
-    line-height:3.5;
+    line-height: 3.5;
     padding: 0 10px;
-    text-decoration:none;
-    transition:.4s ease;
-  }
+    text-decoration: none;
+    transition: .4s ease;
+}
 
-  .navigation a:hover{
-    transform:translateX(10%);
-  }
+.navigation a:hover {
+    transform: translateX(10%);
+}
 
-  #btn-nav{
+#btn-nav {
     display: none;
-  }
+}
 
-  #btn-nav:checked ~ nav{
-    transform:translateX(0);
-  }
+#btn-nav:checked~nav {
+    transform: translateX(0);
+}
 
-  .btn-nav{
-    color:var(--main-color);
-    font-size:30px;
+.btn-nav {
+    color: var(--main-color);
+    font-size: 30px;
     position: absolute;
-    left:0;
-    top:-11px;
-    cursor:pointer;
-    padding:6.5px 15px;
-    transition:.2s ease;
-    background:rgba(0,0,0,.1);
+    left: 0;
+    top: -11px;
+    cursor: pointer;
+    padding: 6.5px 15px;
+    transition: .2s ease;
+    background: rgba(0, 0, 0, .1);
     height: 70px;
     width: 200px;
     background-image: url("/assets/Recursos/descarga.png");
@@ -93,22 +95,27 @@ bottom: 10px;
     background-size: 210px;
 
 }
-.imageusuarios{
-    position: relative;
-    top:10px;
-}
-.registactivo{
-    position: relative;
-    top: 25px;
-}
-.cre_cat{
+
+.imageusuarios {
     position: relative;
     top: 10px;
 }
-.inicioadm{
+
+.registactivo {
+    position: relative;
+    top: 25px;
+}
+
+.cre_cat {
+    position: relative;
+    top: 10px;
+}
+
+.inicioadm {
     position: relative;
     top: 5px;
 }
+
 /* titulo inf activo */
 body {
     font-family: 'Arial', sans-serif;
@@ -151,7 +158,8 @@ body {
     width: 150px;
 }
 
-.input-text, input[type="date"] {
+.input-text,
+input[type="date"] {
     border: 1px solid #ced4da;
     border-radius: 8px;
     padding: 10px;
@@ -205,5 +213,42 @@ body {
     background-color: #c82333;
     transform: translateY(-2px);
 }
+
 /* diseño inputs */
-.diseño_input { width: 100%; padding: 10px; border: 2px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 16px; outline: none; transition: border-color 0.3s ease, box-shadow 0.3s ease; } .diseño_input:focus { border-color: #007BFF; box-shadow: 0 2px 5px rgba(0,123,255,0.3); } p { font-family: Arial, sans-serif; font-size: 14px; color: #333; margin-bottom: 15px; } strong { font-weight: bold; } span { display: inline-block; width: 100%; }
+.diseño_input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diseño_input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+span {
+    display: inline-block;
+    width: 100%;
+}
+/* fin diseñoinput */
+.descargar_pdf{
+    position: relative;
+    left: 200px;
+    bottom: 150px;
+}

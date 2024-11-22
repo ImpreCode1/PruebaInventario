@@ -62,10 +62,13 @@
                                 @endforeach
                         </select>
                     </div>
-                    <div class="input-group">
+                     <div class="input-group">
                         <label for="estado">Estado:</label>
+
+
+
                         <select type="text" id="estado" name="estado" placeholder="Ejemplo Estado" >
-                            <option>seleccione estado</option>
+                             {{-- <option>{{$activo->estado}}</option> --}}
                             <option>Buen estado</option>
                             <option>Mal estado</option>
                             <option>En mantenimiento</option>
@@ -87,16 +90,9 @@
                     </div>
                     <div class="input-group">
                         <label for="fechaSalida">Fecha de Salida:</label>
-                        <input type="date" id="fechasalida" name="fechasalida" required>
+                        <input type="date" id="fechasalida" name="fechasalida" >
                     </div>
-                    {{-- <div class="input-group">
-                        <label for="fechaMantenimiento">Fecha de Mantenimiento:</label>
-                        <input type="date" id="fechamantenimiento" name="fechamantenimiento" >
-                    </div>
-                    <div class="input-group">
-                        <label for="costoMantenimiento">Costo de Mantenimiento:</label>
-                        <input type="number" id="costomantenimiento" name="costomantenimiento" placeholder="Ejemplo Costo" >
-                    </div> --}}
+
                     <button type="submit">Registrar Artículo</button>
                 </form>
             </div>
