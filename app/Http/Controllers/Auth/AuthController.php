@@ -21,7 +21,7 @@ class AuthController extends Controller
        //dd($request);
         $user = new ModelsUsuario();
 
-        $user->nombre=$request->nombre;
+        $user->email=$request->email;
         $user->email=$request->email;
 
         $user->contrasena=Hash::make($request->contrasena);
@@ -44,12 +44,12 @@ class AuthController extends Controller
 
     public function login(Request $request) {
         // Obtener valores de nombre y email desde el request
-        $nombre = $request->input('nombre');
+        $email = $request->input('email');
         $email = $request->input('email');
         $contrasena = $request->input('contrasena');
 
         // Busca el usuario por su nombre y correo electrónico
-        $usuario = ModelsUsuario::where('nombre', $nombre)
+        $usuario = ModelsUsuario::where('email', $email)
                                  ->where('email', $email)
                                  ->first();
 

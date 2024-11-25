@@ -79,6 +79,7 @@
         <p><strong>Fecha de Ingreso:</strong> <span><input type="date" name="fechaingreso" value="{{ $activo->fechaingreso }}" /></span></p>
         <p><strong>Nro factura compra:</strong> <span><input class="diseño_input" type="text" name="facturacompra" value="{{ $activo->facturacompra }}" /></span></p>
         <p><strong>Fecha de Salida:</strong> <span><input class="diseño_input" type="date" name="fechasalida" value="{{ $activo->fechasalida }}" /></span></p>
+        <p><strong>Nro acta destrucción:</strong> <span><input class="diseño_input" type="text" name="actadestruccion" value="{{ $activo->actadestruccion }}" /></span></p>
         <p style="display: none;"><strong>Id:</strong> <span><input class="diseño_input" type="number" name="id" value="{{ $activo->ID }}" /></span></p>
         <p><strong>Código de Barras:</strong></p>
         <div id="barcode-container">
@@ -153,6 +154,7 @@
         @csrf
         @method('DELETE')
         <button type="submit" class="info-btn" style="cursor:pointer">Eliminar</button>
+
     </form>
 </div>
 

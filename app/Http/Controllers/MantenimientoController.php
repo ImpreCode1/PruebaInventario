@@ -47,11 +47,11 @@ class MantenimientoController extends Controller
         $mantenimiento = Mantenimiento::findOrFail($id);
         $activo = Activo::findOrFail($mantenimiento->id_activo);
 
-        
+
         $mantenimiento->fechafinmantenimiento = now();
         $mantenimiento->save();
 
-       
+
         $activo->estado = 'Buen estado';
         $activo->save();
 
@@ -59,4 +59,41 @@ class MantenimientoController extends Controller
             ->route('ver.mantenimiento', $activo->ID)
             ->with('success', 'Mantenimiento finalizado correctamente.');
     }
+
+
+    public function updateFactura(Request $request, $id)
+{
+    $request->validate([
+        'factura' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+    ]);
+
+    // Obtener el mantenimiento
+    $mantenimiento = Mantenimiento::findOrFail($id);
+
+    if ($request->hasFile('factura')) {
+        // Manejar la subida de la nueva factura
+        $archivo = $request->file('factura');
+        $filename = time() . '_' . $archivo->getClientOriginalName();
+        $archivo->move(public_path('facturas'), $filename);
+
+        // Si ya había una factura, podrías considerar eliminarla o cambiarla
+        // Si deseas eliminar la anterior, podrías hacerlo:
+        // if ($mantenimiento->factura) {
+        //     unlink(public_path($mantenimiento->factura));
+        // }
+
+        // Actualizar la factura en el mantenimiento
+        $mantenimiento->factura = 'facturas/' . $filename;
+        $mantenimiento->save();
+    }
+
+    return redirect()->back()->with('success', 'Factura actualizada con éxito.');
 }
+
+
+}
+
+
+
+
+// MantenimientoController.php

@@ -31,7 +31,7 @@
                     </div>
                 @endif
 
-                <input type="text" name="nombre" placeholder="User name" required autocomplete="nombre" value="{{ old('nombre') }}">
+                {{-- <input type="text" name="nombre" placeholder="User name" required autocomplete="nombre" value="{{ old('nombre') }}"> --}}
                 <input type="email" name="email" placeholder="Email" required autocomplete="email" value="{{ old('email') }}">
                 <input type="password" name="contrasena" placeholder="Password" required autocomplete="current-password">
                 <button type="submit">Entrar</button>

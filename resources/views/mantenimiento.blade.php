@@ -112,9 +112,15 @@
             <tbody>
                 @forelse ($activo->mantenimientos as $mantenimiento)
                     <tr>
-                        <td> @if($mantenimiento->factura) <img src="{{ asset($mantenimiento->factura) }}" alt="Imagen del activo" class="card-image" width="15%" height="15%">
-                            @else <input type="file" class="btn btn-primary">
-                            <button type="button" class="btn btn-danger">Guardar</button>
+                        <td>
+                            @if($mantenimiento->factura) <img src="{{ asset($mantenimiento->factura) }}" alt="Imagen del activo" class="card-image" width="45%" >
+                            @else
+                            <form action="{{ route('mantenimiento.updateFactura', $mantenimiento->ID) }}" method="POST" enctype="multipart/form-data" style="display: inline;">
+                                @csrf
+                                @method('PUT')
+                                <input type="file" id="factura" name="factura" class="btn btn-primary" required>
+                                <button type="submit" class="btn-terminar">Guardar</button>
+                            </form>
                             @endif </td>
 
                         <td>{{ $mantenimiento->descripcion }}</td>
@@ -180,6 +186,7 @@
     </section>
     </form>
     <script src="/assets/js/mantenimiento.js"></script>
+
 </body>
 
 

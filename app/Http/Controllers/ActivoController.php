@@ -56,7 +56,7 @@ class ActivoController extends Controller
         $Activo->fechasalida = $request->fechasalida;
         $Activo->fechamantenimiento = $request->fechamantenimiento;
         $Activo->costomantenimiento = $request->costomantenimiento;
-
+        $Activo->actadestruccion =$request->actadestruccion;
         // Guardar el activo
         $Activo->save();
         return redirect()->route('inicioadmin');
@@ -96,6 +96,7 @@ class ActivoController extends Controller
         $activo->fechaingreso = $request->fechaingreso;
         $activo->facturacompra = $request->facturacompra;
         $activo->fechasalida = $request->fechasalida;
+       $activo->actadestruccion =$request->actadestruccion;
         // $activo->estado = $request->estado;
          if ($request->estado != "seleccione estado") {
             $activo->estado = $request->estado;

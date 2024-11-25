@@ -55,7 +55,7 @@
                 <nav class="navegacion">
                     <ul class="menu">
                         <li>
-                            <a href="#" style="vertical-align: inherit;">
+                            <a href="#" style="font-family: sans-serif">
                                 <i class="fas fa-tag"></i>
                           Filtrar por categoria
                             </a>
@@ -74,7 +74,7 @@
 
 
 
-                            <a href="#" style="vertical-align: inherit;">
+                            <a href="#" style="font-family: sans-serif">
                                 <i class="fas fa-building"></i>
                                  Filtrar por lugar
                             </a>
@@ -92,7 +92,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" style="vertical-align: inherit;">
+                            <a href="#" style="font-family: sans-serif">
                                 <i class="fas fa-check-circle" ></i>
                                 Filtrar por estado
                             </a>
@@ -106,7 +106,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" id="limpiarFiltros" style="vertical-align: inherit;">
+                            <a href="#" id="limpiarFiltros" style="font-family: sans-serif">
                                 <i class="fas fa-times"></i>
                                 Limpiar Filtros
                             </a>

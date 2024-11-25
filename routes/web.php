@@ -30,17 +30,13 @@ Route::post('/usuarios/us', [UsuarioController::class, 'us'])->name('usuarios.us
 
 
 Route::get('/inicioadmin', [ActivoController::class, 'index'])->name('inicioadmin');
-// Route::get('/inicioadmin/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
+
 
 Route::post('/inicioadmin/login', [AuthController::class, 'login'])->name('inicioadmin.login');
 
-// Route::get('/informacionactiv/{activo}', [ActivoController::class, 'show'])->name('informacionactiv.activ');
-// Route::get('/activos', [ActivoController::class, 'index'])->name('activos.index');
 
 
-//traer enser por id
-// Route::get('/informacionactiv/{id}', 'ActivoController@verInfoActivo')->name('informacionactiv');
-// Route::get('/informacionactiv/{id}', 'ActivoController@verInfoActivo')->name('informacionactiv');
+
 Route::get('/activo/{ID}', [ActivoController::class, 'verInfoActivo'])->name('ver.activo');
 
 //obtener mantenimiento por id
@@ -59,6 +55,13 @@ Route::get('/crearactivo', [ActivoController::class, 'filtercategory'])->name('c
 // editar activo
 //Route::put('/activo/update/{activo}', [ActivoController::class, 'update'])->name('activo.update');
 Route::post('/activo/update', [ActivoController::class, 'update'])->name('activo.update');
+Route::post('/mantenimiento/{id}/upload-factura', [MantenimientoController::class, 'uploadFactura'])->name('mantenimiento.uploadFactura');
+// Route::post('/mantenimiento/{id}/', [MantenimientoController::class, 'up'])->name('mantenimiento.up');
+Route::get('/mantenimiento/{id}', function($id) {
+    $activo = Activo::findOrFail($id);
+    return view('mantenimiento.form', compact('activo'));
+})->name('mantenimiento.form');
 
-
-
+// Ruta para manejar el envío del formulario
+Route::post('/mantenimiento/{id}', [MantenimientoController::class, 'up'])->name('mantenimiento.up');
+Route::put('/mantenimiento/{id}/update-factura', [MantenimientoController::class, 'updateFactura'])->name('mantenimiento.updateFactura');
