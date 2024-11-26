@@ -41,6 +41,10 @@
                 <li><a href="" class="Registrador_Usuarios">registrar administrador <img
                             src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario"
                             width="20% "class="imageusuarios"></a></li>
+                            <li><a href="activosdestruidos"| class="Activos_Destruidos">activos destruidos<img
+                                src="/assets/Recursos/basura.png" alt="usuario"
+                                width="20% "class="imageusuarios"></a></li>
+
             </ul>
         </nav>
     </div>

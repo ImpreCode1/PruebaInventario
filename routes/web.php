@@ -14,7 +14,7 @@ Route::view('/crearactivo','crearactivo')->name('crearactivo');
 Route::view('/informacionactiv','informacionactiv')->name('informacionactiv');
 Route::view('/inicioadmin','inicioadmin')->name('inicioadmin');
 Route::view('/mantenimiento','mantenimiento')->name('mantenimiento');
-
+Route::view('/activosdestruidos','activosdestruidos')->name('activosdestruidos');
 
 
 
