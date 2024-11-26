@@ -49,7 +49,7 @@
 
     {{-- menu superior --}}
 
-       <div>
+    <div>
         <header>
             <div class="containers">
                 <nav class="navegacion">
@@ -57,7 +57,7 @@
                         <li>
                             <a href="#" style="font-family: sans-serif">
                                 <i class="fas fa-tag"></i>
-                          Filtrar por categoria
+                                Filtrar por categoria
                             </a>
                             <ul class="submenu">
                                 @foreach ($categoria as $filter)
@@ -76,24 +76,24 @@
 
                             <a href="#" style="font-family: sans-serif">
                                 <i class="fas fa-building"></i>
-                                 Filtrar por lugar
+                                Filtrar por lugar
                             </a>
                             <ul class="submenu">
-                                @foreach ( $activo as $lugar )
-                                <li>
-                                    <a href="#" class="filtro" data-tipo="lugar"
-                                    data-valor="{{ $lugar->lugar }}">
-                                    {{ $lugar->lugar }}
-                                </a>
+                                @foreach ($activo as $lugar)
+                                    <li>
+                                        <a href="#" class="filtro" data-tipo="lugar"
+                                            data-valor="{{ $lugar->lugar }}">
+                                            {{ $lugar->lugar }}
+                                        </a>
 
 
-                                </li>
+                                    </li>
                                 @endforeach
                             </ul>
                         </li>
                         <li>
                             <a href="#" style="font-family: sans-serif">
-                                <i class="fas fa-check-circle" ></i>
+                                <i class="fas fa-check-circle"></i>
                                 Filtrar por estado
                             </a>
                             <ul class="submenu">
@@ -118,34 +118,24 @@
         <br>
         <br>
 
-       </div>
+    </div>
 
 
     <!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
     <!-- Formulario -->
-    <form id="Crear_Categoria" method="POST" action="{{ route('categoria.store') }}">
-        @csrf
-        <section class="modal">
-
+    <form id="Crear_Categoria" method="POST" action="{{ route('categoria.store') }}"> @csrf <section class="modal">
             <div class="container">
-                <div class="0">
-                    <span> <a>
-                       <a href="" id="cerrar_boton" class="cerrar_boton"><img src="assets/Recursos/cerrar.png" width="10%"><span class="material-symbols-outlined">
-                   </span> </a>
-                       </div>
+                <div class="0"> <span><a href="" id="cerrar_boton" class="cerrar_boton"><img
+                                src="assets/Recursos/cerrar.png" width="10%"><span
+                                class="material-symbols-outlined"></span></a></span> </div>
                 <h1>impresistem</h1>
                 <h2>Agrega nueva categoría</h2>
                 <div class="formulario">
-                    <div class="input-group">
-                        <label for="codigo">Código categoría:</label>
-                        <input type="text" id="id_codigo" name="id_codigo" placeholder="nuevo código"
-                            max="5" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="nombre">Nombre categoría:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre categoría" required>
-                    </div>
-                    <button type="submit">Registrar categoría</button> <!-- Corrección en el botón -->
+                    <div class="input-group"> <label for="id_codigo">Código categoría:</label> <input type="text"
+                            id="id_codigo" name="id_codigo" placeholder="nuevo código" max="5" required> </div>
+                    <div class="input-group"> <label for="nombre">Nombre categoría:</label> <input type="text"
+                            id="nombre" name="nombre" placeholder="Nombre categoría" required> </div> <button
+                        id="create_category" type="submit">Registrar categoría</button>
                 </div>
             </div>
         </section>
@@ -169,17 +159,19 @@
             <tbody>
                 @foreach ($activo as $item)
                     <tr data-categoria="{{ $item->categoria }}">
-                        <td style="vertical-align: inherit;">{{$item->categoria}}-{{ $item->codigo }}</td>
+                        <td style="vertical-align: inherit;">{{ $item->categoria }}-{{ $item->codigo }}</td>
                         <td style="vertical-align: inherit;"><strong>{{ $item->nombre }}</strong></td>
                         <td style="vertical-align: inherit;"><strong>{{ $item->lugar }}</strong></td>
                         <td style="vertical-align: inherit;">{{ $item->estado }}</td>
-                        <td style="vertical-align: inherit;">{{$item->fechasalida}}</td>
+                        <td style="vertical-align: inherit;">{{ $item->fechasalida }}</td>
                         <td>
                             <a href="{{ route('ver.activo', $item->ID) }}" class="botoninfactivo">
                                 <div class="plusButton">
                                     <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                                         <g mask="url(#mask0_21_345)">
-                                            <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+                                            <path
+                                                d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
+                                            </path>
                                         </g>
                                     </svg>
                                 </div>
@@ -196,9 +188,10 @@
         <div class="contai">
             <div class="btn_salir_mo">
                 <span> <a>
-                   <a href="" id="cerrar_boton" class="close_user"><img src="assets/Recursos/cerrar.png" width="10%"><span class="material-symbols-outlined">
-               </span> </a>
-                   </div>
+                        <a href="" id="cerrar_boton" class="close_user"><img src="assets/Recursos/cerrar.png"
+                                width="10%"><span class="material-symbols-outlined">
+                            </span> </a>
+            </div>
             <h1>impresistem</h1>
             <h2>Registro de Usuario</h2>
             <form id="Crear_usuario" method="POST" action="{{ route('usuarios.us') }}">
@@ -236,12 +229,14 @@
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
     <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <!-- DataTables JS -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js">
+    </script>
 
     <script>
         $(document).ready(function() {

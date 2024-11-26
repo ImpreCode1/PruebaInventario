@@ -27,9 +27,19 @@ class ActivoController extends Controller
     }
 
     public function register(Request $request)
-    {
-        // Validar los datos del request aquí si es necesario
 
+    {
+
+// validacón de datos
+            $request->validate([
+            'nombre'=> 'required',
+            'categoria'=>'required',
+            'estado'=>'required',
+
+        ]);
+
+
+// fin validación de datos
         $Activo = new Activo();
 
         // Manejar la subida de imagen
@@ -44,6 +54,7 @@ class ActivoController extends Controller
         }
 
         // Asignar el resto de campos
+
         $Activo->ID = $request->id;
         $Activo->nombre = $request->nombre;
         $Activo->descripcion = $request->descripcion;
@@ -97,7 +108,9 @@ class ActivoController extends Controller
         $activo->facturacompra = $request->facturacompra;
         $activo->fechasalida = $request->fechasalida;
        $activo->actadestruccion =$request->actadestruccion;
-        // $activo->estado = $request->estado;
+
+
+       // $activo->estado = $request->estado;
          if ($request->estado != "seleccione estado") {
             $activo->estado = $request->estado;
          }
