@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Activo;
@@ -8,16 +7,40 @@ use App\Models\Categoria;
 use App\Models\Estado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class ActivoController extends Controller
 {
-    // fin ID
     public function index()
     {
+        // Solo cargar datos para vista 'inicioadmin'
         $activo = Activo::all();
         $categoria = Categoria::all();
 
         return view('inicioadmin', compact('activo', 'categoria'));
+    }
+
+    public function getActivos()
+    {
+        // Obtener datos para DataTable en 'inicioadmin'
+        $activos = Activo::select(['nombre', 'descripcion', 'codigo', 'categoria', 'estado', 'lugar', 'fechaingreso', 'facturacompra', 'fechasalida', 'fechamantenimiento', 'fechadestruccion', 'costomantenimiento', 'fotourl']);
+
+        return DataTables::of($activos)->make(true);
+    }
+
+    public function indexDestruidos()
+    {
+        // Cargar vista 'activosdestruidos'
+        return view('activosdestruidos');
+    }
+
+    public function getActivosDestruidos()
+    {
+        // Obtener datos para DataTable en 'activosdestruidos'
+        $activosDestruidos = Activo::whereNotNull('fechadestruccion')
+            ->select(['nombre', 'descripcion', 'codigo', 'categoria', 'estado', 'lugar', 'fechaingreso', 'facturacompra', 'fechasalida', 'fechamantenimiento', 'fechadestruccion', 'costomantenimiento', 'fotourl']);
+
+        return DataTables::of($activosDestruidos)->make(true);
     }
 
     public function filtercategory()
@@ -27,19 +50,14 @@ class ActivoController extends Controller
     }
 
     public function register(Request $request)
-
     {
-
-// validacón de datos
-            $request->validate([
-            'nombre'=> 'required',
-            'categoria'=>'required',
-            'estado'=>'required',
-
+        // Validación de datos
+        $request->validate([
+            'nombre' => 'required',
+            'categoria' => 'required',
+            'estado' => 'required',
         ]);
 
-
-// fin validación de datos
         $Activo = new Activo();
 
         // Manejar la subida de imagen
@@ -54,20 +72,8 @@ class ActivoController extends Controller
         }
 
         // Asignar el resto de campos
+        $Activo->fill($request->except(['fotourl']));
 
-        $Activo->ID = $request->id;
-        $Activo->nombre = $request->nombre;
-        $Activo->descripcion = $request->descripcion;
-        $Activo->codigo = $request->codigo;
-        $Activo->categoria = $request->categoria;
-        $Activo->estado = $request->estado;
-        $Activo->lugar = $request->lugar;
-        $Activo->fechaingreso = $request->fechaingreso;
-        $Activo->facturacompra = $request->facturacompra;
-        $Activo->fechasalida = $request->fechasalida;
-        $Activo->fechamantenimiento = $request->fechamantenimiento;
-        $Activo->costomantenimiento = $request->costomantenimiento;
-        $Activo->actadestruccion =$request->actadestruccion;
         // Guardar el activo
         $Activo->save();
         return redirect()->route('inicioadmin');
@@ -99,23 +105,11 @@ class ActivoController extends Controller
             $activo->fotourl = 'uploads/' . $filename;
         }
 
+        $activo->fill($request->except(['fotourl']));
 
-        $activo->nombre = $request->nombre;
-        $activo->descripcion = $request->descripcion;
-        $activo->codigo = $request->codigo;
-        $activo->lugar = $request->lugar;
-        $activo->fechaingreso = $request->fechaingreso;
-        $activo->facturacompra = $request->facturacompra;
-        $activo->fechasalida = $request->fechasalida;
-       $activo->actadestruccion =$request->actadestruccion;
-
-
-       // $activo->estado = $request->estado;
-         if ($request->estado != "seleccione estado") {
+        if ($request->estado != "seleccione estado") {
             $activo->estado = $request->estado;
-         }
-
-
+        }
 
         $activo->save();
 

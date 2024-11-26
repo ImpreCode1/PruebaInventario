@@ -65,3 +65,21 @@ Route::get('/mantenimiento/{id}', function($id) {
 // Ruta para manejar el envío del formulario
 Route::post('/mantenimiento/{id}', [MantenimientoController::class, 'up'])->name('mantenimiento.up');
 Route::put('/mantenimiento/{id}/update-factura', [MantenimientoController::class, 'updateFactura'])->name('mantenimiento.updateFactura');
+
+
+// ruta articulos eliminados
+
+
+
+
+
+
+Route::get('/activosdestruidos', [ActivoController::class, 'indexDestruidos'])->name('activosdestruidos.index');
+Route::get('/getActivosDestruidos', [ActivoController::class, 'getActivosDestruidos'])->name('activosdestruidos.data');
+
+// Rutas originales
+Route::get('/activos', [ActivoController::class, 'index'])->name('activos.index');
+Route::get('/getActivos', [ActivoController::class, 'getActivos'])->name('activos.data');
+
+
+

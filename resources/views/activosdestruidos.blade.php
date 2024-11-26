@@ -3,39 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/assets/css/activosdestruidos.css">
-    <link rel="stylesheet" href="/assets/css/mantenimiento.css">
-
-
-
-    <title>Activos Destruidos</title>
-</head>
-<body>
-   {{-- menu lateral --}}
-    <div class="menu_lateral">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars">></i></label>
-        <input type="checkbox" id="btn-nav">
-
-        <nav>
-            <ul class="navigation">
-                <li><a href="/inicioadmin"> Inicio <img src="/assets/Recursos/inicio.png" alt="registro activo"
-                            class="inicioadm" width="20%"> </a> </li>
-            </ul>
-        </nav>
-    </div>
-    <div>
-        <nav class="navegation">
-
-            <h1>INFORMACION COMPLETA DEL ACTIVO</h1>
-        </nav>
-    </div>
-    {{-- fin menu lateral --}}
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>DataTable de Activos</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
@@ -93,8 +60,5 @@
             });
         });
     </script>
-</body>
-</html>
-
 </body>
 </html>
