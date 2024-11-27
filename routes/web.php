@@ -78,8 +78,8 @@ Route::get('/activosdestruidos', [ActivoController::class, 'indexDestruidos'])->
 Route::get('/getActivosDestruidos', [ActivoController::class, 'getActivosDestruidos'])->name('activosdestruidos.data');
 
 // Rutas originales
-Route::get('/activos', [ActivoController::class, 'index'])->name('activos.index');
-Route::get('/getActivos', [ActivoController::class, 'getActivos'])->name('activos.data');
+Route::post('/activosdestruidos', [ActivoController::class, 'index'])->name('activos.index');
+Route::post('/getActivosDestruidos', [ActivoController::class, 'getActivos'])->name('activos.data');
 
 
 

@@ -1,64 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>DataTable de Activos</title>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/activosdestruidos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+
+    <title>Activos destruidos</title>
 </head>
+
 <body>
-    <div class="container mt-5">
-        <h2 class="mb-4">Lista de Activos</h2>
-        <table class="table table-bordered" id="activos-table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Código</th>
-                    <th>Categoría</th>
-                    <th>Estado</th>
-                    <th>Lugar</th>
-                    <th>Fecha de Ingreso</th>
-                    <th>Factura de Compra</th>
-                    <th>Fecha de Salida</th>
-                    <th>Fecha de Mantenimiento</th>
-                    <th>Fecha de Destrucción</th>
-                    <th>Costo de Mantenimiento</th>
-                    <th>Foto URL</th>
-                </tr>
-            </thead>
-        </table>
+
+    <div class="menu_lateral">
+        <label for="btn-nav" class="btn-nav"></label>
+        <input type="checkbox" id="btn-nav">
+        <nav class="navegador">
+            <ul class="navigation">
+                <li><a href="inicioadmin" class="Activos_Destruidos">inicio<img src="/assets/Recursos/inicio.png"
+                            alt="usuario" width="20%" class="imageusuarios"></a></li>
+                <li><a href="activosdestruidos" class="Inicioadmin">activos destruidos<img
+                            src="/assets/Recursos/basura.png" alt="usuario" width="20%" class="imageusuarios"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="supercontainer">
+        <div class="title"    >
+            <h1><strong> Activos destruidos</strong></h1>
+        </div>
+        <div class="contenedormayor">
+            <table id="table" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="background-color:#007bff">identificacion SAP</th>
+                        <th style="background-color:#007bff">codigo</th>
+                        <th style="background-color:#007bff">Nombre Activo</th>
+                        <th style="background-color:#007bff">Descripción</th>
+                        <th style="background-color:#007bff">Categoria</th>
+                        <th style="background-color:#007bff">Fecha Ingreso</th>
+                        <th style="background-color:#007bff">Fecha salida</th>
+                        <th style="background-color:#007bff">Nro Factura Compra</th>
+                         <th style="background-color:#007bff">Nro acta destrucción</th>
+                        <th style="background-color:#007bff">Fecha destrucción</th>
+
+                        {{-- <th style="background-color:#007bff">Fecha eliminación del activo</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{-- Aquí se insertarán las filas dinámicamente mediante DataTables --}}
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Incluye jQuery y DataTables -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Inicializa DataTable -->
     <script>
         $(document).ready(function() {
-            $('#activos-table').DataTable({
+            $('#table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route("activos.data") }}',
+                ajax: '{{ route('activosdestruidos.data') }}',
                 columns: [
+                    { data: 'sap', name: 'sap' },
+                    { data: 'codigo', name: 'codigo' },
                     { data: 'nombre', name: 'nombre' },
                     { data: 'descripcion', name: 'descripcion' },
-                    { data: 'codigo', name: 'codigo' },
                     { data: 'categoria', name: 'categoria' },
-                    { data: 'estado', name: 'estado' },
-                    { data: 'lugar', name: 'lugar' },
                     { data: 'fechaingreso', name: 'fechaingreso' },
-                    { data: 'facturacompra', name: 'facturacompra' },
                     { data: 'fechasalida', name: 'fechasalida' },
-                    { data: 'fechamantenimiento', name: 'fechamantenimiento' },
-                    { data: 'fechadestruccion', name: 'fechadestruccion' },
-                    { data: 'costomantenimiento', name: 'costomantenimiento' },
-                    { data: 'fotourl', name: 'fotourl' }
+                    { data: 'facturacompra', name: 'facturacompra' },
+                    // { data: 'fechadestruccion', name: 'fechadestruccion' },
+                    { data: 'actadestruccion', name: 'actadestruccion' },
+                    { data: 'deleted_at', name: 'deleted_at' }
                 ]
             });
         });
     </script>
 </body>
+
 </html>

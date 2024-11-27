@@ -1,12 +1,25 @@
-body{
+body {
     background: linear-gradient(to bottom, #11076b, #313131, #11076b);
+
 }
 .menu_lateral{
     position: relative;
     right: 10px;
-top: 11px;
+top: 0px;
     z-index: 50;
 }
+.navegador {
+    position: absolute;
+    left: 0;
+
+    width: 279px;
+    top: 52px;
+    height: calc(100vh - 50px);
+    background: #adaed1;
+    transform: translateX(-100%);
+    transition: .4s ease;
+    border-radius: 6px;
+  }
   :root{
     --main-color:#fff;
   }
@@ -26,7 +39,7 @@ top: 11px;
     height:50px;
   }
 
-  nav{
+  .navmenu{
     position: absolute;
     left:0;
     top:0;
@@ -84,4 +97,27 @@ top: 11px;
     background-size: 210px;
 
 }
+.contenedormayor{
+height:auto ;
+width: 90%;
+position: relative;
+left: 100px;
+top: 100px;
 
+border-radius: 50px;
+}
+.supercontainer{
+    width: 90%;
+    height: 700px;
+    background: #ffffff;
+    position: relative;
+    left: 50px;
+    top: 100px;
+    border-radius: 10px;
+}
+.title{
+    position: relative;
+
+    left: 500px;
+    top: 30px;
+}

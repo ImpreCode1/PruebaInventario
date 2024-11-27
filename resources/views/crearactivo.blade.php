@@ -44,11 +44,12 @@
                 @csrf
                 <div class="input-group">
                     <label for="imagen">Subir Imagen:</label>
-                    <input type="file" id="fotourl" name="fotourl" accept="image/*" value="{{old('fotourl')}}">
+                    <input type="file" id="fotourl" name="fotourl" accept="image/*" value="{{ old('fotourl') }}">
                 </div>
                 <div class="input-group">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ejemplo Nombre" value="{{old('nombre')}}">
+                    <input type="text" id="nombre" name="nombre" placeholder="Ejemplo Nombre"
+                        value="{{ old('nombre') }}">
                     @error('nombre')
                         <br>
                         <span> saddsdssaddsa{{ $message }}</span>
@@ -62,11 +63,12 @@
                 </div>
                 <div class="input-group">
                     <label for="codigo">Código:</label>
-                    <input type="text" id="codigo" name="codigo" placeholder="Ejemplo Código" value="{{old('codigo')}}" max="10">
+                    <input type="text" id="codigo" name="codigo" placeholder="Ejemplo Código"
+                        value="{{ old('codigo') }}" max="10">
                 </div>
                 <div class="input-group">
                     <label for="categoria">Categoría:</label>
-                    <select name="categoria" id="categoria" required="" value ="{{old('categoria')}}">
+                    <select name="categoria" id="categoria" required="" value ="{{ old('categoria') }}">
                         <option value="" disabled selected>Seleccionar categoría</option>
                         @foreach ($categoria as $category)
                             <option value="{{ $category->id_codigo }}">{{ $category->nombre }}</option>
@@ -75,10 +77,7 @@
                 </div>
                 <div class="input-group">
                     <label for="estado">Estado:</label>
-
-
-
-                    <select type="text" id="estado" name="estado" placeholder="Ejemplo Estado" required >
+                    <select type="text" id="estado" name="estado" placeholder="Ejemplo Estado" required>
                         {{-- <option>{{$activo->estado}}</option> --}}
                         <option>Buen estado</option>
                         <option>Mal estado</option>
@@ -89,26 +88,29 @@
                 </div>
                 <div class="input-group">
                     <label for="lugar">Lugar:</label>
-                    <input type="text" id="lugar" name="lugar" placeholder="Ejemplo Lugar"  required value="{{old('lugar')}}">
+                    <input type="text" id="lugar" name="lugar" placeholder="Ejemplo Lugar" required
+                        value="{{ old('lugar') }}">
                 </div>
                 <div class="input-group">
                     <label for="fechaIngreso">Fecha de Ingreso:</label>
-                    <input type="date" id="fechaingreso" name="fechaingreso" value="{{old('fechaingreso')}}">
+                    <input type="date" id="fechaingreso" required name="fechaingreso"
+                        value="{{ old('fechaingreso') }}">
                 </div>
                 <div class="input-group">
                     <label for="factura">Nro Factura de Compra:</label>
-                    <input type="text" id="facturacompra" name="facturacompra" placeholder="Ejemplo Factura" value="{{old('facturacompra')}}">
+                    <input type="text" id="facturacompra" name="facturacompra" required placeholder="Ejemplo Factura"
+                        value="{{ old('facturacompra') }}">
                 </div>
                 <div class="input-group">
                     <label for="fechaSalida">Fecha de Salida:</label>
-                    <input type="date" id="fechasalida" name="fechasalida" value="{{old('fechasalida')}}">
+                    <input type="date" id="fechasalida" name="fechasalida" value="{{ old('fechasalida') }}">
                 </div>
 
                 <button type="submit">Registrar Artículo</button>
             </form>
         </div>
 
-    </script>
+        </script>
     </body>
 
     </html>

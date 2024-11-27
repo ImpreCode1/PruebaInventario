@@ -65,7 +65,8 @@
 
         <body>
             <div class="card-content">
-
+                <p><strong>identificacion SAP:</strong> <span><input class="diseño_input" type="text" name="sap"
+                    value="{{ $activo->sap }}" /></span></p>
                 <p><strong>Nombre:</strong> <span><input class="diseño_input" type="text" name="nombre"
                             value="{{ $activo->nombre }}" /></span></p>
                 <p><strong>Código:</strong> <span><input class="diseño_input" type="text" name="codigo" max="10"
