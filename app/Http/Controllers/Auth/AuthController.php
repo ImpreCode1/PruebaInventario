@@ -18,20 +18,20 @@ class AuthController extends Controller
     public function register(Request $request)
 
     {
-       //dd($request);
+        //dd($request);
         $user = new ModelsUsuario();
 
-        $user->email=$request->email;
-        $user->email=$request->email;
+        $user->email = $request->email;
+        $user->email = $request->email;
 
-        $user->contrasena=Hash::make($request->contrasena);
-        $user->role=$request->role;
+        $user->contrasena = Hash::make($request->contrasena);
+        $user->role = $request->role;
 
         $user->save();
 
-      session()->success('success', 'El usuario se ha creado correctamente');
+        session()->success('success', 'El usuario se ha creado correctamente');
 
-        return redirect ()->route('inicioadmin');
+        return redirect()->route('inicioadmin');
 
         Auth::login($user);
 
@@ -42,7 +42,8 @@ class AuthController extends Controller
 
 
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         // Obtener valores de nombre y email desde el request
         $email = $request->input('email');
         $email = $request->input('email');
@@ -50,14 +51,14 @@ class AuthController extends Controller
 
         // Busca el usuario por su nombre y correo electrónico
         $usuario = ModelsUsuario::where('email', $email)
-                                 ->where('email', $email)
-                                 ->first();
+            ->where('email', $email)
+            ->first();
 
         // Si el usuario no existe
         if (!$usuario) {
-         return redirect()->back()
-         ->withErrors(['Usuario no encontrado.'])
-         ->withInput();//mantiene los datos de la entrada para que no se eliminen cuando la contraseña esta mal
+            return redirect()->back()
+                ->withErrors(['Usuario no encontrado.'])
+                ->withInput(); //mantiene los datos de la entrada para que no se eliminen cuando la contraseña esta mal
         }
 
         // Comprobar la contraseña
@@ -66,11 +67,11 @@ class AuthController extends Controller
 
             return redirect()->back()
 
-            ->withErrors(['Contraseña incorrecta.'])
+                ->withErrors(['Contraseña incorrecta.'])
 
-            ->withInput(); // Mantener los datos de entrada
+                ->withInput(); // Mantener los datos de entrada
 
-                            }
+        }
 
         // La contraseña es correcta, iniciar sesión
         // Auth::login($usuario);
@@ -82,11 +83,10 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-Auth::logout();
-$request->session()->invalidate();
-$request->session()->regenerateToken();
-return redirect(route('login'));
-    }
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect(route('login'));
 
-
+}
 }

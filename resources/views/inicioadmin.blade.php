@@ -113,7 +113,7 @@
                             <a href="#" id="limpiarFiltros" style="font-family: sans-serif">
                                 <i class="fas fa-times"></i>
                                 Limpiar Filtros
-                            </a>
+                             </a>
                         </li>
                     </ul>
                 </nav>
@@ -136,7 +136,7 @@
                 <h2>Agrega nueva categoría</h2>
                 <div class="formulario">
                     <div class="input-group"> <label for="id_codigo">Código categoría:</label> <input type="text"
-                            id="id_codigo" name="id_codigo" placeholder="nuevo código" max=5 required> </div>
+                            id="id_codigo" name="id_codigo" placeholder="nuevo código" maxlength="5" required> </div>
                     <div class="input-group"> <label for="nombre">Nombre categoría:</label> <input type="text"
                             id="nombre" name="nombre" placeholder="Nombre categoría" required> </div> <button
                         id="create_category" type="submit">Registrar categoría</button>

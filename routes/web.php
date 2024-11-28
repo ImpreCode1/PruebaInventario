@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\ActivoController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CategoriaController;
@@ -9,12 +10,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 
 //rutas de vistas
-Route::view('/','login');
-Route::view('/crearactivo','crearactivo')->name('crearactivo');
-Route::view('/informacionactiv','informacionactiv')->name('informacionactiv');
-Route::view('/inicioadmin','inicioadmin')->name('inicioadmin');
-Route::view('/mantenimiento','mantenimiento')->name('mantenimiento');
-Route::view('/activosdestruidos','activosdestruidos')->name('activosdestruidos');
+Route::view('/', 'login');
+Route::view('/crearactivo', 'crearactivo')->name('crearactivo');
+Route::view('/informacionactiv', 'informacionactiv')->name('informacionactiv');
+Route::view('/inicioadmin', 'inicioadmin')->name('inicioadmin');
+Route::view('/mantenimiento', 'mantenimiento')->name('mantenimiento');
+Route::view('/activosdestruidos', 'activosdestruidos')->name('activosdestruidos');
 
 
 
@@ -57,7 +58,7 @@ Route::get('/crearactivo', [ActivoController::class, 'filtercategory'])->name('c
 Route::post('/activo/update', [ActivoController::class, 'update'])->name('activo.update');
 Route::post('/mantenimiento/{id}/upload-factura', [MantenimientoController::class, 'uploadFactura'])->name('mantenimiento.uploadFactura');
 // Route::post('/mantenimiento/{id}/', [MantenimientoController::class, 'up'])->name('mantenimiento.up');
-Route::get('/mantenimiento/{id}', function($id) {
+Route::get('/mantenimiento/{id}', function ($id) {
     $activo = Activo::findOrFail($id);
     return view('mantenimiento.form', compact('activo'));
 })->name('mantenimiento.form');
