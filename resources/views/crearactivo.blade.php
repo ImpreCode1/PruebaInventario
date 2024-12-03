@@ -57,9 +57,9 @@
                         <br>
                     @enderror
                 </div>
-                <div class="input-group">
+                <div class="input-group fixed-textarea">
                     <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" placeholder="Ejemplo Descripción">{{ old('descripcion') }}</textarea>
+                    <input type="text" id="descripcion" name="descripcion" placeholder="Ejemplo Descripción">{{ old('descripcion') }}</input>
                 </div>
                 <div class="input-group">
                     <label for="codigo">Código:</label>

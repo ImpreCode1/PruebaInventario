@@ -62,16 +62,11 @@ class AuthController extends Controller
         }
 
         // Comprobar la contraseña
-        if (!Hash::check($contrasena, $usuario->contrasena)) {
-            // La contraseña es incorrecta
-
-            return redirect()->back()
-
-                ->withErrors(['Contraseña incorrecta.'])
-
-                ->withInput(); // Mantener los datos de entrada
-
-        }
+        if (!password_verify($contrasena, $usuario->contrasena))
+         {  return redirect()
+            ->back()
+            ->withErrors(['Contraseña incorrecta.'])
+            ->withInput(); }
 
         // La contraseña es correcta, iniciar sesión
         // Auth::login($usuario);
