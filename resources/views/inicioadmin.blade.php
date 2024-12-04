@@ -41,9 +41,9 @@
                 <li><a href="" class="Registrador_Usuarios">registrar administrador <img
                             src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario"
                             width="20% "class="imageusuarios"></a></li>
-                            <li><a href="activosdestruidos"| class="Activos_Destruidos">activos destruidos<img
-                                src="/assets/Recursos/basura.png" alt="usuario"
-                                width="20% "class="imageusuarios"></a></li>
+                <li><a href="activosdestruidos"| class="Activos_Destruidos">activos destruidos<img
+                            src="/assets/Recursos/basura.png" alt="usuario" width="20% "class="imageusuarios"></a>
+                </li>
 
             </ul>
         </nav>
@@ -113,7 +113,7 @@
                             <a href="#" id="limpiarFiltros" style="font-family: sans-serif">
                                 <i class="fas fa-times"></i>
                                 Limpiar Filtros
-                             </a>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -127,7 +127,9 @@
 
     <!-- implementacion de modal, se motrara en el apartado de inicio/administrador  esta modal es para crear una nueva categoria-->
     <!-- Formulario -->
-    <form id="Crear_Categoria" method="POST" action="{{ route('categoria.store') }}"> @csrf <section class="modal">
+    <form id="Crear_Categoria" method="POST" action="{{ route('categoria.store') }}">
+        @csrf
+        <section class="modal">
             <div class="container">
                 <div class="0"> <span><a href="" id="cerrar_boton" class="cerrar_boton"><img
                                 src="assets/Recursos/cerrar.png" width="10%"><span
@@ -135,12 +137,19 @@
                 <h1>impresistem</h1>
                 <h2>Agrega nueva categoría</h2>
                 <div class="formulario">
-                    <div class="input-group"> <label for="id_codigo">Código categoría:</label> <input type="text"
-                            id="id_codigo" name="id_codigo" placeholder="nuevo código" maxlength="5" required> </div>
-                    <div class="input-group"> <label for="nombre">Nombre categoría:</label> <input type="text"
-                            id="nombre" name="nombre" placeholder="Nombre categoría" required> </div> <button
-                        id="create_category" type="submit">Registrar categoría</button>
+                    <div class="input-group">
+                        <label for="id_codigo">Código de Categoría <a style="color: gray">(max:5):</a></label>
+                        <input type="text" id="id_codigo" name="id_codigo" maxlength="5">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="nombre">Nombre de Categoría:</label>
+                        <input type="text" id="nombre" name="nombre" >
+                    </div>
+                    <button id="create_category" type="submit">Registrar categoría</button>
                 </div>
+
+
             </div>
         </section>
     </form>

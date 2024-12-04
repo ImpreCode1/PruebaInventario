@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         Swal.fire({
                             icon: 'error',
                             title: 'Error',
-                            text: 'Ocurrió un error al enviar el formulario. Por favor, intenta nuevamente.',
+                            text: 'El código de categoría ya existe. Por favor, introduce uno diferente..',
                             confirmButtonColor: '#c0392b',
                             confirmButtonText: 'Volver al formulario',
                         });
