@@ -15,7 +15,10 @@ Route::view('/crearactivo', 'crearactivo')->name('crearactivo');
 Route::view('/informacionactiv', 'informacionactiv')->name('informacionactiv');
 Route::view('/inicioadmin', 'inicioadmin')->name('inicioadmin');
 Route::view('/mantenimiento', 'mantenimiento')->name('mantenimiento');
+Route::view('/activoseliminados', 'activoseliminados')->name('activoseliminados');
 Route::view('/activosdestruidos', 'activosdestruidos')->name('activosdestruidos');
+
+
 
 
 
@@ -75,12 +78,18 @@ Route::put('/mantenimiento/{id}/update-factura', [MantenimientoController::class
 
 
 
-Route::get('/activosdestruidos', [ActivoController::class, 'indexDestruidos'])->name('activosdestruidos.index');
+Route::get('/activoseliminados', [ActivoController::class, 'indexDestruidos'])->name('activosdestruidos.index');
 Route::get('/getActivosDestruidos', [ActivoController::class, 'getActivosDestruidos'])->name('activosdestruidos.data');
 
 // Rutas originales
-Route::post('/activosdestruidos', [ActivoController::class, 'index'])->name('activos.index');
+Route::post('/activoseliminados', [ActivoController::class, 'index'])->name('activos.index');
 Route::post('/getActivosDestruidos', [ActivoController::class, 'getActivos'])->name('activos.data');
+
+
+
+
+
+    // routes/web.php
 
 
 

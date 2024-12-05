@@ -1,5 +1,6 @@
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,19 +33,21 @@
         <input type="checkbox" id="btn-nav">
         <nav>
             <ul class="navigation">
-                <li><a href="" class="Crear__Categoria"> crear categoria <img
-                            src="/assets/Recursos/crearactivo.png" alt="registro activo" class="cre_cat" width="13%">
+                <li><a href="" class="Crear__Categoria"> Crear Categoria <img
+                            src="/assets/Recursos/crearactivo.png" alt="registro activo" class="cre_cat" width="18%">
                     </a> </li>
-                <li><a href="crearactivo">registro activo <img
+                <li><a href="crearactivo">Registro Activo <img
                             src="/assets/Recursos/registrar_activo-removebg-preview.png" alt="registro activo"
-                            class="registactivo" width="20%"></a></li>
-                <li><a href="" class="Registrador_Usuarios">registrar administrador <img
+                            class="registactivo" width="26%"></a></li>
+                <li><a href="" class="Registrador_Usuarios">Registrar Administrador <img
                             src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario"
                             width="20% "class="imageusuarios"></a></li>
-                <li><a href="activosdestruidos"| class="Activos_Destruidos">activos destruidos<img
+                <li><a href="activoseliminados"| class="Activos_Destruidos">Activos Eliminados<img
                             src="/assets/Recursos/basura.png" alt="usuario" width="20% "class="imageusuarios"></a>
                 </li>
-
+                <li><a href="activosdestruidos"| class="Activos_Destruidos">Activos Destruidos<img
+                    src="/assets/Recursos/mesa.png" alt="usuario" width="20% "class="imageusuarios"></a>
+        </li>
             </ul>
         </nav>
     </div>
@@ -59,14 +62,14 @@
                 <nav class="navegacion">
                     <ul class="menu">
                         <li>
-                            <a href="#" style="font-family: sans-serif">
+                            <a href="#" class="filter-link" style="font-family: sans-serif">
                                 <i class="fas fa-tag"></i>
-                                Filtrar por categoria
+                                Filtrar por Categoria
                             </a>
                             <ul class="submenu">
                                 @foreach ($categoria as $filter)
                                     <li>
-                                        <a href="#" class="filtro" data-tipo="categoria"
+                                        <a href="#"  class="filtro" data-tipo="categoria"
                                             data-valor="{{ $filter->id_codigo }}">
                                             {{ $filter->nombre }}
                                         </a>
@@ -75,12 +78,46 @@
                             </ul>
                         </li>
                         <li>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    const filterLinks = document.querySelectorAll('.filter-link');
+                                    filterLinks.forEach(link => {
+                                        const submenu = link.nextElementSibling;
+                                        if (submenu && submenu.classList.contains('submenu')) {
+                                            link.addEventListener("click", function(event) {
+                                                event.preventDefault(); // Alternar la visibilidad del submenú clicado
+                                                submenu.classList.toggle('open');
+                                            });
+                                        }
+                                    }); // Cerrar submenú al seleccionar una opción
+                                    const submenuLinks = document.querySelectorAll('.submenu li a');
+                                    submenuLinks.forEach(link => {
+                                        link.addEventListener("click", function() {
+                                            const submenu = link.closest('.submenu');
+                                            if (submenu) {
+                                                submenu.classList.remove('open');
+                                            }
+                                        });
+                                    }); // Cerrar submenú al hacer clic fuera del menú
+                                    document.addEventListener("click", function(event) {
+                                        filterLinks.forEach(link => {
+                                            const submenu = link.nextElementSibling;
+                                            if (submenu && submenu.classList.contains('submenu') && !link.contains(event
+                                                    .target) && !submenu.contains(event.target)) {
+                                                submenu.classList.remove('open');
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
 
 
 
-                            <a href="#" style="font-family: sans-serif">
+
+
+                            <a href="#" class="filter-link" style="font-family: sans-serif">
                                 <i class="fas fa-building"></i>
-                                Filtrar por lugar
+                                Filtrar por Lugar
                             </a>
                             <ul class="submenu">
                                 @foreach ($activo as $lugar)
@@ -95,10 +132,13 @@
                                 @endforeach
                             </ul>
                         </li>
+                        {{-- botones --}}
+
+                        {{-- finbotones --}}
                         <li>
-                            <a href="#" style="font-family: sans-serif">
+                            <a href="#" class="filter-link" style="font-family: sans-serif">
                                 <i class="fas fa-check-circle"></i>
-                                Filtrar por estado
+                                Filtrar por Estado
                             </a>
                             <ul class="submenu">
                                 <li><a href="#" class="filtro" data-tipo="estado" data-valor="buen estado">Buen
@@ -144,7 +184,7 @@
 
                     <div class="input-group">
                         <label for="nombre">Nombre de Categoría:</label>
-                        <input type="text" id="nombre" name="nombre" >
+                        <input type="text" id="nombre" name="nombre">
                     </div>
                     <button id="create_category" type="submit">Registrar categoría</button>
                 </div>
@@ -165,7 +205,7 @@
                     <th>Nombre del Activo</th>
                     <th>Lugar</th>
                     <th>Estado</th>
-                    <th>Fecha de salida</th>
+            <th>Fecha de Ingreso</th>
                     <th>Información</th>
                 </tr>
             </thead>
@@ -176,7 +216,7 @@
                         <td style="vertical-align: inherit;"><strong>{{ $item->nombre }}</strong></td>
                         <td style="vertical-align: inherit;"><strong>{{ $item->lugar }}</strong></td>
                         <td style="vertical-align: inherit;">{{ $item->estado }}</td>
-                        <td style="vertical-align: inherit;">{{ $item->fechasalida }}</td>
+                        <td style="vertical-align: inherit;">{{ $item->fechaingreso }}</td>
                         <td>
                             <a href="{{ route('ver.activo', $item->ID) }}" class="botoninfactivo">
                                 <div class="plusButton">

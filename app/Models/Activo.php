@@ -24,6 +24,7 @@ class Activo extends Model
 // $hidden para proteger los datos en usuarios
 
 
+
     // Relaciones
     // Relación con la tabla Categorias (asumiendo que el modelo es Categoria)
     public function categoria()

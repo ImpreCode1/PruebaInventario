@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Información activo</title>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/infoactivo.css">
     {{-- link barcode --}}
@@ -29,7 +29,7 @@
 <div>
     <nav class="navegation">
 
-        <h1>INFORMACION COMPLETA DEL ACTIVO</h1>
+        <h1>INFORMACIÓN COMPLETA DEL ACTIVO</h1>
     </nav>
 </div>
 {{-- fin menu lateral --}}
@@ -65,13 +65,13 @@
 
         <body>
             <div class="card-content">
-                <p><strong>identificacion SAP:</strong> <span><input class="diseño_input" type="text" name="sap"
+                <p><strong>Codigo Interno SAP:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text" name="sap"
                     value="{{ $activo->sap }}" /></span></p>
-                <p><strong>Nombre:</strong> <span><input class="diseño_input" type="text" name="nombre"
+                <p><strong>Nombre:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text" name="nombre"
                             value="{{ $activo->nombre }}" /></span></p>
-                <p><strong>Código:</strong> <span><input class="diseño_input" type="text" name="codigo" max="10"
+                <p><strong>Código:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text" name="codigo" max="10"
                             value="{{ $activo->codigo }}" id="codigo" /></span></p>
-                <p><strong>Descripción:</strong> <span><input class="diseño_input" type="text" name="descripcion"
+                <p><strong>Descripción:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text" name="descripcion"
                             value="{{ $activo->descripcion }}" /></span></p>
                 <p><strong>Categoría:</strong> <span><input class="diseño_input" disabled type="text"
                             name="categoria" value="{{ $activo->categoria }}" /></span></p>
@@ -79,9 +79,9 @@
                     <label for="estado">Estado:</label>
                     <select id="estado" name="estado" class="diseño_input">
                         <option value="estado">{{ $activo->estado }}</option>
-                        <option value="buen estado" {{ $activo->estado == 'buen estado' ? 'selected' : '' }}>Buen estado
+                        <option value="buen estado" {{ $activo->estado == 'buen estado' ? 'selected' : '' }}>Buen Estado
                         </option>
-                        <option value="mal estado" {{ $activo->estado == 'mal estado' ? 'selected' : '' }}>Mal estado
+                        <option value="mal estado" {{ $activo->estado == 'mal estado' ? 'selected' : '' }}>Mal Estado
                         </option>
                         <option value="en mantenimiento" {{ $activo->estado == 'en mantenimiento' ? 'selected' : '' }}>
                             En mantenimiento</option>
@@ -89,15 +89,25 @@
                             Destrucción</option>
                     </select>
                 </div>
-                <p><strong>Lugar:</strong> <span><input class="diseño_input" type="text" name="lugar"
-                            value="{{ $activo->lugar }}" id="lugar" /></span></p>
-                <p><strong>Fecha de Ingreso:</strong> <span><input type="date" name="fechaingreso"
-                            value="{{ $activo->fechaingreso }}" /></span></p>
-                <p><strong>Nro factura compra:</strong> <span><input class="diseño_input" type="text"
+            <p><strong>Lugar:</strong> <span><select class="diseño_input"  name="lugar" id=""
+                            value="{{ $activo->lugar }}" id="lugar" >
+
+                            <option value="Cota">Cota</option>
+                                <option value="Despachos">Despachos</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Post Venta">Post Venta</option>
+                                <option value="San Fernando">San Fernando</option>
+                                <option value="Click 80">Click 80</option>
+                                <option value="Otro">Otro</option>
+                                    </select></span></p>
+
+                                    <p><strong>Fecha de Ingreso:</strong> <span><input type="date" name="fechaingreso"
+                            value="{{ $activo->fechaingreso }}" /> </span></p>
+                <p><strong>Nro Factura Compra:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text"
                             name="facturacompra" value="{{ $activo->facturacompra }}" /></span></p>
                 <p><strong>Fecha de Salida:</strong> <span><input class="diseño_input" type="date" name="fechasalida"
                             value="{{ $activo->fechasalida }}" /></span></p>
-                <p><strong>Nro acta destrucción:</strong> <span><input class="diseño_input" type="text"
+                <p><strong>Nro Acta Destrucción:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text"
                             name="actadestruccion" value="{{ $activo->actadestruccion }}" /></span></p>
                 <p style="display: none;"><strong>Id:</strong> <span><input class="diseño_input" type="number"
                             name="id" value="{{ $activo->ID }}" /></span></p>
@@ -116,7 +126,7 @@
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     const codigo = document.querySelector('input[name="codigo"]').value;
-                    const lugar = document.querySelector('input[name="lugar"]').value;
+                    const lugar = document.querySelector('select[name="lugar"]').value;
 
                     JsBarcode("#barcode", codigo, {
                         format: "CODE128",

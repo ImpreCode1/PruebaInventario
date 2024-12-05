@@ -42,13 +42,19 @@
             <h1>Registro de Artículo</h1>
             <form method="POST" action="{{ route('activo.register') }}" enctype="multipart/form-data">
                 @csrf
+
+
                 <div class="input-group">
                     <label for="imagen">Subir Imagen:</label>
                     <input type="file" id="fotourl" name="fotourl" accept="image/*" value="{{ old('fotourl') }}">
                 </div>
                 <div class="input-group">
+                    <label for="imagen">Codigo Interno:</label>
+                    <input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" type="text" id="sap" name="sap"  value="{{ old('sap') }}">
+                </div>
+                <div class="input-group">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ejemplo Nombre"
+                    <input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" type="text" id="nombre" name="nombre" placeholder="Ejemplo Nombre"
                         value="{{ old('nombre') }}">
                     @error('nombre')
                         <br>
@@ -59,17 +65,17 @@
                 </div>
                 <div class="input-group fixed-textarea">
                     <label for="descripcion">Descripción:</label>
-                    <input type="text" id="descripcion" name="descripcion" placeholder="Ejemplo Descripción">{{ old('descripcion') }}</input>
+                    <input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" type="text" id="descripcion" name="descripcion" placeholder="Ejemplo Descripción">{{ old('descripcion') }}</input>
                 </div>
                 <div class="input-group">
                     <label for="codigo">Código:</label>
-                    <input type="text" id="codigo" name="codigo" placeholder="Ejemplo Código"
+                    <input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" type="text" id="codigo" name="codigo" placeholder="Ejemplo Código"
                         value="{{ old('codigo') }}" max="10">
                 </div>
                 <div class="input-group">
                     <label for="categoria">Categoría:</label>
                     <select name="categoria" id="categoria" required="" value ="{{ old('categoria') }}">
-                        <option value="" disabled selected>Seleccionar categoría</option>
+                        <option value="" disabled selected>Seleccionar Categoría</option>
                         @foreach ($categoria as $category)
                             <option value="{{ $category->id_codigo }}">{{ $category->nombre }}</option>
                         @endforeach
@@ -79,17 +85,25 @@
                     <label for="estado">Estado:</label>
                     <select type="text" id="estado" name="estado" placeholder="Ejemplo Estado" required>
                         {{-- <option>{{$activo->estado}}</option> --}}
-                        <option>Buen estado</option>
-                        <option>Mal estado</option>
-                        <option>En mantenimiento</option>
+                        <option>Buen Estado</option>
+                        <option>Mal Estado</option>
+                        <option>En Mantenimiento</option>
                         <option>Destruccion</option>
                     </select>
 
                 </div>
                 <div class="input-group">
                     <label for="lugar">Lugar:</label>
-                    <input type="text" id="lugar" name="lugar" placeholder="Ejemplo Lugar" required
+                    <select type="text" id="lugar" name="lugar" placeholder="Ejemplo Lugar" required
                         value="{{ old('lugar') }}">
+                        <option >Seleccione el Lugar</option>
+                        <option >cota</option>
+                        <option >Despachados</option>
+                        <option >Cat</option>
+                        <option >Post Venta</option>
+                        <option >Click 80</option>
+                        <option >Otro</option>
+</select>
                 </div>
                 <div class="input-group">
                     <label for="fechaIngreso">Fecha de Ingreso:</label>
@@ -97,8 +111,8 @@
                         value="{{ old('fechaingreso') }}">
                 </div>
                 <div class="input-group">
-                    <label for="factura">Nro Factura de Compra:</label>
-                    <input type="text" id="facturacompra" name="facturacompra" required placeholder="Ejemplo Factura"
+                    <label  for="factura">Nro Factura de Compra:</label>
+                    <input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" type="text" id="facturacompra" name="facturacompra" required placeholder="Ejemplo Factura"
                         value="{{ old('facturacompra') }}">
                 </div>
                 <div class="input-group">

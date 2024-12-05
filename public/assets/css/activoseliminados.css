@@ -1,42 +1,6 @@
-
-
 body {
     background: linear-gradient(to bottom, #11076b, #313131, #11076b);
 
-}
-.container {
-    margin-top: 50px;
-
-
-}
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #e9ecef;
-}
-.table th, .table td {
-    text-align: center;
-    vertical-align: middle;
-
-}
-.table th{
-    background-color: blue;
-}
-.table td {
-
-    background-color:white ;
-}
-.font_table{
-    height: 770px;
-    width: 90%;
-background-color:  aliceblue;
-position: relative;
-left: 6rem;
-top: 3rem;
-border-radius: 50px;
-}
-.title_dist{
-position: relative;
-left: 450px;
-margin-bottom: 40px;
 }
 .menu_lateral{
     position: relative;
@@ -49,7 +13,7 @@ top: 0px;
     left: 0;
 
     width: 279px;
-    top: 14px;
+    top: 52px;
     height: calc(100vh - 50px);
     background: #adaed1;
     transform: translateX(-100%);
@@ -121,7 +85,7 @@ top: 0px;
     font-size:30px;
     position: absolute;
     left:0;
-    bottom:-19px;
+    top:-11px;
     cursor:pointer;
     padding:6.5px 15px;
     transition:.2s ease;
@@ -132,4 +96,30 @@ top: 0px;
     background-position: center;
     background-size: 210px;
 
+}
+.contenedormayor{
+height:auto ;
+width: 90%;
+position: relative;
+left: 100px;
+top: 100px;
+
+border-radius: 50px;
+}
+.supercontainer{
+    width: 90%;
+    height: 700px;
+    background: #ffffff;
+    position: relative;
+    left: 50px;
+
+    top: 100px;
+    border-radius: 50px;
+
+}
+.tituloeliminar{
+    position: relative;
+
+    left: 40%;
+    top: 30px;
 }

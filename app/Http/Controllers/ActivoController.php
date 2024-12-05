@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Activo;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\delete;
+
 class ActivoController extends Controller
 {
     public function index()
@@ -16,7 +18,7 @@ class ActivoController extends Controller
 
 
     {
-         // Solo cargar datos para vista 'inicioadmin'
+        // Solo cargar datos para vista 'inicioadmin'
         $activo = Activo::all();
         $categoria = Categoria::all();
 
@@ -26,7 +28,13 @@ class ActivoController extends Controller
     public function getActivos()
     {
         // Obtener datos para DataTable en 'inicioadmin'
-        $activos = Activo::select(['sap','nombre', 'descripcion', 'codigo', 'categoria', 'estado', 'lugar', 'fechaingreso', 'facturacompra', 'fechasalida', 'fechamantenimiento', 'fechadestruccion', 'costomantenimiento', 'actadestruccion','fotourl']);
+        $activos = Activo::select(['sap', 'nombre',
+        'descripcion', 'codigo',
+         'categoria', 'estado', 'lugar',
+          'fechaingreso', 'facturacompra',
+           'fechasalida', 'fechamantenimiento',
+            'fechadestruccion', 'costomantenimiento',
+             'actadestruccion', 'fotourl', 'deleted_at']);
 
         return DataTables::of($activos)->make(true);
     }
@@ -34,16 +42,20 @@ class ActivoController extends Controller
     public function indexDestruidos()
     {
         // Cargar vista 'activosdestruidos'
-        return view('activosdestruidos');
+        return view('activoseliminados');
     }
 
     public function getActivosDestruidos()
     {
         // Obtener datos para DataTable en 'activosdestruidos'
         $activosDestruidos = Activo::onlyTrashed('deleted_at')
-        ->whereNotNull('deleted_at')
-        ->select(['sap','nombre','actadestruccion','descripcion', 'codigo', 'categoria', 'estado', 'lugar', 'fechaingreso', 'facturacompra', 'fechasalida', 'fechamantenimiento', 'fechadestruccion', 'costomantenimiento', 'fotourl','deleted_at'])
-        ->get();
+            ->whereNotNull('deleted_at')
+            ->select(['sap', 'nombre', 'actadestruccion',
+             'descripcion', 'codigo', 'categoria', 'estado',
+             'lugar', 'fechaingreso', 'facturacompra', 'fechasalida',
+              'fechamantenimiento', 'fechadestruccion', 'costomantenimiento',
+              'fotourl', 'deleted_at'])
+            ->get();
         return DataTables::of($activosDestruidos)->make(true);
     }
 

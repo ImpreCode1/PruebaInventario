@@ -16,9 +16,10 @@ body {
   position: relative;
   left: 1200px;
   width: 65%;
+  bottom: 200px;
   z-index: 1;
   height: 50px;
-  background:  #adaed1;
+  background:  #11548f;
   border: 1px solid rgba(255, 255, 255, 0.1);
   /* border-radius: 8px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -66,7 +67,10 @@ nav {
   width: 279px;
   top: 70px;
   height: calc(100vh - 50px);
-  background: #adaed1;
+  background: #0f4c81
+
+
+  ;
   transform: translateX(-100%);
   transition: .4s ease;
   border-radius: 6px;
@@ -299,7 +303,7 @@ right: 200px;
   background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-
+margin-top: 50px;
 }
 
 #miTabla {
@@ -313,7 +317,9 @@ right: 200px;
 }
 
 #miTabla thead {
-  background: linear-gradient(90deg, #4f46e5 0%, #3b82f6 100%);
+  background: linear-gradient(90deg, #0f4c81
+  0%, #11548f
+  100%);
   color: white;
 }
 
@@ -334,7 +340,7 @@ right: 200px;
 }
 
 #miTabla tr:hover {
-  background-color:(90deg, #4f46e5 0%, #3b82f6 100%);
+  background-color:(90deg, #000000 0%, #3b82f6 100%);
   transition: background-color 0.2s ease;
 }
 
@@ -526,126 +532,33 @@ td:first-child {
 }
 
 
-.submenu li {
-  position: relative;
-  transition: all 0.3s ease;
+
+
+.submenu {
+    display: none; /* Ocultar el submenú por defecto */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu.open {
+    display: block; /* Mostrar el submenú cuando tenga la clase 'open' */
 }
 
 .submenu li a {
-  display: block;
-  padding: 12px 20px;
-  color: #333333;
-  font-family: Arial, Helvetica, sans-serif;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 14px;
-  position: relative;
-  z-index: 2;
-}
-
-
-.submenu li:hover {
-  background: #f8f9fa;
-}
-
-.submenu li:hover a {
-  color: #2962ff;
-  padding-left: 25px;
-}
-
-
-.submenu li a::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  background: #2962ff;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.submenu li:hover a::before {
-  opacity: 1;
-}
-
-
-.submenu li a.activo {
-  background: #f0f7ff;
-  color: #2962ff;
-  font-weight: 500;
-  padding-left: 25px;
-}
-
-.submenu li a.activo::before {
-  opacity: 1;
-}
-
-
-.menu li:hover .submenu {
-  display: block;
-}
-
-
-.submenu[data-tipo="categoria"] li:hover a,
-.submenu[data-tipo="categoria"] li a.activo {
-  color: #FF6B6B;
-}
-
-.submenu[data-tipo="categoria"] li a::before {
-  background: #FF6B6B;
-}
-
-
-.submenu[data-tipo="area"] li:hover a,
-.submenu[data-tipo="area"] li a.activo {
-  color: #4ECDC4;
-}
-
-.submenu[data-tipo="area"] li a::before {
-  background: #4ECDC4;
-}
-
-
-.submenu[data-tipo="estado"] li:hover a,
-.submenu[data-tipo="estado"] li a.activo {
-  color: #7367F0;
-}
-
-.submenu[data-tipo="estado"] li a::before {
-  background: #7367F0;
-}
-
-
-.submenu,
-.submenu li,
-.submenu li a,
-.submenu li a::before {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-.submenu li:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-
-@media (max-width: 768px) {
-  .submenu {
-    width: 100%;
+    display: block;
+    padding: 12px 20px;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
     position: relative;
-    box-shadow: none;
-    border: none;
-    background: #f8f9fa;
-  }
-
-  .submenu li a {
-    padding: 10px 15px;
-  }
-
-  .submenu li:hover a {
-    padding-left: 20px;
-  }
+    z-index: 2;
 }
+.submenu li a:hover{
+ color: #11076b;
+}
+
+
 
