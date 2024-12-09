@@ -2,7 +2,8 @@
   body {
     height: 100vh;
     display: flex;
-    background: linear-gradient(to bottom, #11076b, #313131, #11076b);
+    background: linear-gradient(to bottom, #082742,#082742,#082742);
+
     font-family:'Roboto' , 'sans-serif';
     overflow:scroll;
 

@@ -115,9 +115,9 @@
 
 
 
-                            <a href="#" class="filter-link" style="font-family: sans-serif">
+                            <a href="#" class="filter-link"  style="font-family: sans-serif">
                                 <i class="fas fa-building"></i>
-                                Filtrar por Lugar
+                                 Filtrar por Lugar
                             </a>
                             <ul class="submenu">
                                 @foreach ($activo as $lugar)
@@ -135,9 +135,9 @@
                         {{-- botones --}}
 
                         {{-- finbotones --}}
-                        <li>
-                            <a href="#" class="filter-link" style="font-family: sans-serif">
-                                <i class="fas fa-check-circle"></i>
+                        <li >
+                            <a href="#" class="filter-link" style="font-family: sans-serifc "  >
+                                <i class="fas fa-check-circle" ></i>
                                 Filtrar por Estado
                             </a>
                             <ul class="submenu">

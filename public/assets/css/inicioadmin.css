@@ -3,7 +3,7 @@
 body {
   /* height: 100vh; */
   /* display: flex; */
-  background: linear-gradient(to bottom, #11076b, #313131, #11076b);
+  background: linear-gradient(to bottom, #082742,#082742,#082742);
   font-family: 'Roboto', 'sans-serif';
   /* overflow: scroll; */
 
@@ -19,8 +19,9 @@ body {
   bottom: 200px;
   z-index: 1;
   height: 50px;
-  background:  #11548f;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to bottom, #11548f,#11548f,#082742);
+
+  border: 1px solid #082742 ;
   /* border-radius: 8px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -31,10 +32,12 @@ body {
 .menu > li > a {
   display: block;
   padding: 15px 20px;
-  color: #353535;
+  color: whitesmoke;
   font-family: 'sans-serif';
   text-decoration: none;
+
   text-align: left;
+  margin-bottom: 4px;
 }
 .menulia:hover {
   color: #28923f;
@@ -67,10 +70,10 @@ nav {
   width: 279px;
   top: 70px;
   height: calc(100vh - 50px);
-  background: #0f4c81
+  background: linear-gradient(to bottom, #11548f,#11548f,#082742);
 
 
-  ;
+
   transform: translateX(-100%);
   transition: .4s ease;
   border-radius: 6px;
@@ -88,7 +91,11 @@ nav {
   text-decoration: none;
   transition: .4s ease;
 }
-.navigation a:hover { transform: translateX(10%); }
+
+.navigation a:hover { transform: translateX(10%);
+
+ }
+
 #btn-nav { display: none; }
 #btn-nav:checked ~ nav { transform: translateX(0); }
 .btn-nav {
@@ -140,6 +147,7 @@ button:hover {
   opacity: 1;
   pointer-events: auto;
   background-color: rgba(0, 0, 0, .55);
+
 }
 .input {
   max-width: 190px;
@@ -317,8 +325,7 @@ margin-top: 50px;
 }
 
 #miTabla thead {
-  background: linear-gradient(90deg, #0f4c81
-  0%, #11548f
+  background: linear-gradient(90deg, #0f4c81 0%, #11548f
   100%);
   color: white;
 }
@@ -352,7 +359,8 @@ margin-top: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #e5af2f 4%, #fbce43
+ 100%);
   color: white;
   width: 45px;
   height: 45px;

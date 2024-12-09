@@ -53,18 +53,18 @@
                     <li><a href="inicioadmin" class="Activos_Destruidos">inicio<img src="/assets/Recursos/inicio.png"
                                 alt="usuario" width="20%" class="imageusuarios"></a></li>
                     <li><a href="activoseliminados" class="Inicioadmin">activos destruidos<img
-                                src="/assets/Recursos/basura.png" alt="usuario" width="20%" class="imageusuarios"></a>
+                                src="/assets/Recursos/mesa.png" alt="usuario" width="20%" class="imageusuarios"></a>
                     </li>
                 </ul>
             </nav>
         </div>
         <div class="font_table">
     <div class="container">
-        <h2 class="title_dist">Listado de Productos</h2>
+        <h2 class="title_dist">Activos Destruidos</h2>
         <table id="productosTable" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
             <thead>
                 <tr>
-                    <th>Identificación Sap</th>
+                    <th style="">Identificación Sap</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Codigo</th>

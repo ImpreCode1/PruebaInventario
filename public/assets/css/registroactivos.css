@@ -7,7 +7,8 @@
 body {
     height: 100%;
     display: flex;
-    background: linear-gradient(to bottom, #11076b, #313131, #11076b);
+    background: linear-gradient(to bottom, #082742,#082742,#082742);
+
     overflow-y: auto;
 }
 .menu_lateral{
@@ -15,6 +16,7 @@ body {
     right: 10px;
 top: 11px;
     z-index: 50;
+
 }
   :root{
     --main-color:#fff;
@@ -41,7 +43,8 @@ top: 11px;
     width: 300px;
     top:50px;
     height:calc(100vh - 50px);
-    background:#adaed1;
+  background: linear-gradient(to bottom, #11548f,#11548f,#082742);
+
     transform:translateX(-100%);
     transition:.4s ease;
 

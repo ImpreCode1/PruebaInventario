@@ -39,7 +39,7 @@
             <h1><strong class="tituloeliminar"> Activos Eliminados</strong></h1>
 
         <div class="contenedormayor">
-            <table id="table" class="table table-striped" style="width:100%">
+            <table id="table" class="table table-striped" style="width:100%" >
                 <thead>
                     <tr>
                         <th style="background-color:#007bff">identificacion SAP</th>
