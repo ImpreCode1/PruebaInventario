@@ -150,7 +150,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" id="limpiarFiltros" style="font-family: sans-serif">
+                            <a href="#" class="limpiarFiltros" id="limpiarFiltros" style="font-family: sans-serif">
                                 <i class="fas fa-times"></i>
                                 Limpiar Filtros
                             </a>
