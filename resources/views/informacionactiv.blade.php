@@ -65,14 +65,18 @@
 
         <body>
             <div class="card-content">
-                <p><strong>Codigo Interno SAP:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text" name="sap"
-                    value="{{ $activo->sap }}" /></span></p>
-                <p><strong>Nombre:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text" name="nombre"
+                <p><strong>Codigo Interno SAP:</strong> <span><input pattern="[A-Za-z0-9]+"
+                            title="Solo se permiten letras y números" class="diseño_input" type="text" name="sap"
+                            value="{{ $activo->sap }}" /></span></p>
+                <p><strong>Nombre:</strong> <span><input pattern="[A-Za-z0-9]+"
+                            title="Solo se permiten letras y números" class="diseño_input" type="text" name="nombre"
                             value="{{ $activo->nombre }}" /></span></p>
-                <p><strong>Código:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text" name="codigo" max="10"
-                            value="{{ $activo->codigo }}" id="codigo" /></span></p>
-                <p><strong>Descripción:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text" name="descripcion"
-                            value="{{ $activo->descripcion }}" /></span></p>
+                <p><strong>Código:</strong> <span><input pattern="[A-Za-z0-9]+"
+                            title="Solo se permiten letras y números" class="diseño_input" type="text" name="codigo"
+                            max="10" value="{{ $activo->codigo }}" id="codigo" /></span></p>
+                <p><strong>Descripción:</strong> <span><input pattern="[A-Za-z0-9]+"
+                            title="Solo se permiten letras y números" class="diseño_input" type="text"
+                            name="descripcion" value="{{ $activo->descripcion }}" /></span></p>
                 <p><strong>Categoría:</strong> <span><input class="diseño_input" disabled type="text"
                             name="categoria" value="{{ $activo->categoria }}" /></span></p>
                 <div class="input-group">
@@ -89,25 +93,27 @@
                             Destrucción</option>
                     </select>
                 </div>
-            <p><strong>Lugar:</strong> <span><select class="diseño_input"  name="lugar" id=""
-                            value="{{ $activo->lugar }}" id="lugar" >
+                <p><strong>Lugar:</strong> <span><select class="diseño_input" name="lugar" id=""
+                            value="{{ $activo->lugar }}" id="lugar">
 
                             <option value="Cota">Cota</option>
-                                <option value="Despachos">Despachos</option>
-                                <option value="Cat">Cat</option>
-                                <option value="Post Venta">Post Venta</option>
-                                <option value="San Fernando">San Fernando</option>
-                                <option value="Click 80">Click 80</option>
-                                <option value="Otro">Otro</option>
-                                    </select></span></p>
+                            <option value="Despachos">Despachos</option>
+                            <option value="Cat">Cat</option>
+                            <option value="Post Venta">Post Venta</option>
+                            <option value="San Fernando">San Fernando</option>
+                            <option value="Click 80">Click 80</option>
+                            <option value="Otro">Otro</option>
+                        </select></span></p>
 
-                                    <p><strong>Fecha de Ingreso:</strong> <span><input type="date" name="fechaingreso"
+                <p><strong>Fecha de Ingreso:</strong> <span><input type="date" name="fechaingreso"
                             value="{{ $activo->fechaingreso }}" /> </span></p>
-                <p><strong>Nro Factura Compra:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text"
+                <p><strong>Nro Factura Compra:</strong> <span><input pattern="[A-Za-z0-9]+"
+                            title="Solo se permiten letras y números" class="diseño_input" type="text"
                             name="facturacompra" value="{{ $activo->facturacompra }}" /></span></p>
-                <p><strong>Fecha de Salida:</strong> <span><input class="diseño_input" type="date" name="fechasalida"
-                            value="{{ $activo->fechasalida }}" /></span></p>
-                <p><strong>Nro Acta Destrucción:</strong> <span><input pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números" class="diseño_input" type="text"
+                <p><strong>Fecha de Salida:</strong> <span><input class="diseño_input" type="date"
+                            name="fechasalida" value="{{ $activo->fechasalida }}" /></span></p>
+                <p><strong>Nro Acta Destrucción:</strong> <span><input pattern="[A-Za-z0-9]+"
+                            title="Solo se permiten letras y números" class="diseño_input" type="text"
                             name="actadestruccion" value="{{ $activo->actadestruccion }}" /></span></p>
                 <p style="display: none;"><strong>Id:</strong> <span><input class="diseño_input" type="number"
                             name="id" value="{{ $activo->ID }}" /></span></p>
@@ -173,6 +179,9 @@
             <button type="submit" id="guardarCambiosBtn" class="info-btn" style="cursor: pointer">Guardar
                 Cambios</button>
     </form>
+
+
+    {{-- destruccion btn --}}
 
 
 

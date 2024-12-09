@@ -10,6 +10,16 @@
 </head>
 
 <body>
+    <style>
+        .input-group {
+          margin: 20px;
+        }
+
+        .nuevo-lugar {
+          display: none; /* Inicialmente oculto */
+          margin-top: 10px;
+        }
+      </style>
     {{-- inicio menu --}}
     <div class="menu_lateral">
         <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
@@ -84,27 +94,74 @@
                 <div class="input-group">
                     <label for="estado">Estado:</label>
                     <select type="text" id="estado" name="estado" placeholder="Ejemplo Estado" required>
-                        {{-- <option>{{$activo->estado}}</option> --}}
+
                         <option>Buen Estado</option>
                         <option>Mal Estado</option>
                         <option>En Mantenimiento</option>
                         <option>Destruccion</option>
+                        <option>Otro</option>
+
                     </select>
 
                 </div>
                 <div class="input-group">
                     <label for="lugar">Lugar:</label>
-                    <select type="text" id="lugar" name="lugar" placeholder="Ejemplo Lugar" required
-                        value="{{ old('lugar') }}">
-                        <option >Seleccione el Lugar</option>
-                        <option >cota</option>
-                        <option >Despachados</option>
-                        <option >Cat</option>
-                        <option >Post Venta</option>
-                        <option >Click 80</option>
-                        <option >Otro</option>
-</select>
-                </div>
+                    <select id="lugar" name="lugar" required>
+                      <option>Seleccione el Lugar</option>
+                      <option>cota</option>
+                      <option>Despachados</option>
+                      <option>Cat</option>
+                      <option>Post Venta</option>
+                      <option>Click 80</option>
+                      <option>Otro</option>
+                    </select>
+                  </div>
+
+                  <!-- Campo para introducir el nuevo lugar -->
+                  <div class="nuevo-lugar">
+                    <label for="nuevoLugar">Especificar otro lugar:</label>
+                    <input type="text" id="nuevoLugar" placeholder="Escribe tu lugar">
+                    <button onclick="agregarLugar()">Agregar</button>
+                  </div>
+
+                  <script>
+                    // Obtener los elementos del DOM
+                    const selectLugar = document.getElementById("lugar");
+                    const nuevoLugarInput = document.getElementById("nuevoLugar");
+                    const nuevoLugarDiv = document.querySelector(".nuevo-lugar");
+
+                    // Detectar cuando se selecciona "Otro" en el select
+                    selectLugar.addEventListener("change", function() {
+                      if (selectLugar.value === "Otro") {
+                        // Mostrar el campo para escribir una nueva opción
+                        nuevoLugarDiv.style.display = "block";
+                      } else {
+                        // Ocultar el campo si no se selecciona "Otro"
+                        nuevoLugarDiv.style.display = "none";
+                      }
+                    });
+
+                    // Función para agregar el nuevo lugar al select
+                    function agregarLugar() {
+                      const nuevoLugar = nuevoLugarInput.value.trim();
+
+                      if (nuevoLugar) {
+                        // Crear la nueva opción y agregarla al select
+                        const nuevaOpcion = document.createElement("option");
+                        nuevaOpcion.textContent = nuevoLugar;
+                        selectLugar.appendChild(nuevaOpcion);
+
+                        // Establecer la nueva opción seleccionada
+                        selectLugar.value = nuevoLugar;
+
+                        // Limpiar el campo de texto y ocultar el campo de entrada
+                        nuevoLugarInput.value = "";
+                        nuevoLugarDiv.style.display = "none";
+                      } else {
+                        alert("Por favor, ingresa un lugar válido.");
+                      }
+                    }
+                  </script>
                 <div class="input-group">
                     <label for="fechaIngreso">Fecha de Ingreso:</label>
                     <input type="date" id="fechaingreso" required name="fechaingreso"

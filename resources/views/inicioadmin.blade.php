@@ -196,8 +196,10 @@
     <!-- final modal de crear categoria -->
     {{-- fin menu superior --}}
 
+
     <div class="ContenedorGrande">
         <div id="filtrosActivos"></div>
+        <button onclick="exportToExcel()">Exportar a Excel</button>
         <table id="miTabla">
             <thead>
                 <tr>
@@ -207,6 +209,7 @@
                     <th>Estado</th>
             <th>Fecha de Ingreso</th>
                     <th>Información</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -407,6 +410,20 @@
             }
         });
     </script>
+{{-- elex --}}
+<script>
+    function exportToExcel() {
+      // Obtener la tabla por su ID
+      const table = document.getElementById("miTabla");
+
+      // Crear un objeto de libro de Excel
+      const wb = XLSX.utils.table_to_book(table, { sheet: "Hoja1" });
+
+      // Exportar el libro a un archivo Excel
+      XLSX.writeFile(wb, "datos.xlsx");
+    }
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 
 </body>
 
