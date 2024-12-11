@@ -25,6 +25,9 @@ class ActivoController extends Controller
         return view('inicioadmin', compact('activo', 'categoria'));
     }
 
+
+
+
     public function getActivos()
     {
         // Obtener datos para DataTable en 'inicioadmin'
@@ -34,30 +37,11 @@ class ActivoController extends Controller
           'fechaingreso', 'facturacompra',
            'fechasalida', 'fechamantenimiento',
             'fechadestruccion', 'costomantenimiento',
-             'actadestruccion', 'fotourl', 'deleted_at']);
+             'actadestruccion', 'fotourl','deleted_at']);
 
         return DataTables::of($activos)->make(true);
     }
 
-    public function indexDestruidos()
-    {
-        // Cargar vista 'activosdestruidos'
-        return view('activoseliminados');
-    }
-
-    public function getActivosDestruidos()
-    {
-        // Obtener datos para DataTable en 'activosdestruidos'
-        $activosDestruidos = Activo::onlyTrashed('deleted_at')
-            ->whereNotNull('deleted_at')
-            ->select(['sap', 'nombre', 'actadestruccion',
-             'descripcion', 'codigo', 'categoria', 'estado',
-             'lugar', 'fechaingreso', 'facturacompra', 'fechasalida',
-              'fechamantenimiento', 'fechadestruccion', 'costomantenimiento',
-              'fotourl', 'deleted_at'])
-            ->get();
-        return DataTables::of($activosDestruidos)->make(true);
-    }
 
     public function filtercategory()
     {
@@ -104,7 +88,8 @@ class ActivoController extends Controller
     public function delete(Activo $activo)
     {
         $activo->delete();
-        return redirect()->route('inicioadmin');
+
+        return redirect()->route('inicioadmin','activoseliminados');
     }
 
     public function update(Request $request)
@@ -133,5 +118,34 @@ class ActivoController extends Controller
     }
 
 
+
+
+   // app/Http/Controllers/ActivoController.php
+
+
+
+
+
+    public function indexDestruidos()
+    {
+        // Cargar vista 'activosdestruidos'
+        return view('activoseliminados');
+    }
+
+    public function getActivosDestruidos()
+    {
+        // Obtener datos para DataTable en 'activosdestruidos'
+        $activosDestruidos = Activo::onlyTrashed('deleted_at')
+            ->whereNotNull('deleted_at')
+            ->select(['sap', 'nombre', 'actadestruccion',
+             'descripcion', 'codigo', 'categoria', 'estado',
+             'lugar', 'fechaingreso', 'facturacompra', 'fechasalida',
+              'fechamantenimiento', 'fechadestruccion', 'costomantenimiento',
+              'fotourl', 'deleted_at'])
+            ->get();
+
+            return view('activoseliminados', compact('activosDestruidos'));
+
+    }
 
 }

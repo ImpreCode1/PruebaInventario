@@ -53,7 +53,7 @@
                     <li><a href="inicioadmin" class="Activos_Destruidos">inicio<img src="/assets/Recursos/inicio.png"
                                 alt="usuario" width="20%" class="imageusuarios"></a></li>
                     <li><a href="activoseliminados" class="Inicioadmin">activos destruidos<img
-                                src="/assets/Recursos/mesa.png" alt="usuario" width="20%" class="imageusuarios"></a>
+                                src="/assets/Recursos/basura.png" alt="usuario" width="20%" class="imageusuarios"></a>
                     </li>
                 </ul>
             </nav>
@@ -81,7 +81,18 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- Aquí se insertarán las filas dinámicamente mediante DataTables --}}
+                <td>tergfsd</td>
+                <td>fgdv</td>
+                <td>terfd</td>
+                <td>trefds</td>
+                <td>tgerfds</td>
+                <td>rgefsd</td>
+                <td>rgewfsd</td>
+                <td>rgef</td>
+                <td>refds</td>
+                <td>rewfdsa</td>
+                <td>rewfdas</td>
+
             </tbody>
         </table>
     </div>
@@ -90,30 +101,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#productosTable').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{{ route('activosdestruidos.data') }}',
-                columns: [
-                    { data: 'sap', name: 'sap' },
-                    { data: 'nombre', name: 'nombre' },
-                    { data: 'descripcion', name: 'descripcion' },
-                    { data: 'codigo', name: 'codigo' },
-                    { data: 'categoria', name: 'categoria' },
-                    { data: 'estado', name: 'estado' },
-                    { data: 'lugar', name: 'lugar' },
-                    { data: 'fechaingreso', name: 'fechaingreso' },
-                    { data: 'fechasalida', name: 'fechasalida' },
-                    { data: 'fechadestruccion', name: 'fechadestruccion' },
-                    { data: 'actadestruccion', name: 'actadestruccion' },
 
-
-                ]
-            });
-        });
-    </script>
 </div>
     </body>
     </html>

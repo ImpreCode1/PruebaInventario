@@ -13,9 +13,9 @@ top: 0px;
 .navegador {
     position: absolute;
     left: 0;
-
+top: 10px;
     width: 279px;
-    top: 52px;
+
     height: calc(100vh - 50px);
     background: linear-gradient(to bottom, #11548f,#11548f,#082742);
 
@@ -88,7 +88,8 @@ top: 0px;
     font-size:30px;
     position: absolute;
     left:0;
-    top:-11px;
+bottom: -15px;
+
     cursor:pointer;
     padding:6.5px 15px;
     transition:.2s ease;
@@ -118,7 +119,7 @@ th{
     }
 .supercontainer{
     width: 90%;
-    height: 700px;
+    height: auto;
     background: #ffffff;
     position: relative;
     left: 50px;

@@ -14,6 +14,7 @@ class Activo extends Model
     use SoftDeletes;
     use HasFactory;
 
+    protected $dates = ['deleted_at'];
     protected $table = 'activos';
     protected $primaryKey = 'ID';
     public $timestamps = false;

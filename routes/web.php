@@ -72,24 +72,19 @@ Route::put('/mantenimiento/{id}/update-factura', [MantenimientoController::class
 
 
 // ruta articulos eliminados
+// Route::get('/activoseliminados', [ActivoController::class, 'activosEliminados'])->name('activos.eliminados');
+
+
+
+ Route::get('/activoseliminados', [ActivoController::class, 'indexDestruidos'])->name('activos.eliminados');
+ Route::get('/activoseliminados',[ActivoController::class, 'getActivosDestruidos'])->name('activos.eliminados.data');
+
+ Route::get('/activoseliminados', [ActivoController::class, 'indexDestruidos'])->name('activos.eliminados');
+  Route::get('/activoseliminados',[ActivoController::class, 'getActivosDestruidos'])->name('activos.eliminados.data');
 
 
 
 
-
-
-Route::get('/activoseliminados', [ActivoController::class, 'indexDestruidos'])->name('activosdestruidos.index');
-Route::get('/getActivosDestruidos', [ActivoController::class, 'getActivosDestruidos'])->name('activosdestruidos.data');
-
-// Rutas originales
-Route::post('/activoseliminados', [ActivoController::class, 'index'])->name('activos.index');
-Route::post('/getActivosDestruidos', [ActivoController::class, 'getActivos'])->name('activos.data');
-
-
-
-
-
-    // routes/web.php
 
 
 
