@@ -86,5 +86,9 @@ Route::put('/mantenimiento/{id}/update-factura', [MantenimientoController::class
 
 
 
+// Route::put('activoseliminados/{id}/reparar', [ActivoController::class, 'repararElemento'])->name('elemento.reparar');
+Route::put('/activoseliminados/{id}/reparar', [ActivoController::class, 'repararElemento'])
+     ->where('id', '[0-9]+')
+     ->name('elemento.reparar');
 
 

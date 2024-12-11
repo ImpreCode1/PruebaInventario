@@ -14,9 +14,6 @@ use App\Models\delete;
 class ActivoController extends Controller
 {
     public function index()
-
-
-
     {
         // Solo cargar datos para vista 'inicioadmin'
         $activo = Activo::all();
@@ -25,23 +22,13 @@ class ActivoController extends Controller
         return view('inicioadmin', compact('activo', 'categoria'));
     }
 
-
-
-
     public function getActivos()
     {
         // Obtener datos para DataTable en 'inicioadmin'
-        $activos = Activo::select(['sap', 'nombre',
-        'descripcion', 'codigo',
-         'categoria', 'estado', 'lugar',
-          'fechaingreso', 'facturacompra',
-           'fechasalida', 'fechamantenimiento',
-            'fechadestruccion', 'costomantenimiento',
-             'actadestruccion', 'fotourl','deleted_at']);
+        $activos = Activo::select(['sap', 'nombre', 'descripcion', 'codigo', 'categoria', 'estado', 'lugar', 'fechaingreso', 'facturacompra', 'fechasalida', 'fechamantenimiento', 'fechadestruccion', 'costomantenimiento', 'actadestruccion', 'fotourl', 'deleted_at']);
 
         return DataTables::of($activos)->make(true);
     }
-
 
     public function filtercategory()
     {
@@ -89,13 +76,12 @@ class ActivoController extends Controller
     {
         $activo->delete();
 
-        return redirect()->route('inicioadmin','activoseliminados');
+        return redirect()->route('inicioadmin', 'activoseliminados');
     }
 
     public function update(Request $request)
     {
         $activo = Activo::findOrFail($request->id);
-
         if ($request->hasFile('fotourl')) {
             if ($activo->fotourl != 'uploads/ejemplo.png') {
                 Storage::delete(str_replace('uploads/', '', $activo->fotourl));
@@ -108,7 +94,7 @@ class ActivoController extends Controller
 
         $activo->fill($request->except(['fotourl']));
 
-        if ($request->estado != "seleccione estado") {
+        if ($request->estado != 'seleccione estado') {
             $activo->estado = $request->estado;
         }
 
@@ -116,15 +102,6 @@ class ActivoController extends Controller
 
         return redirect()->route('inicioadmin');
     }
-
-
-
-
-   // app/Http/Controllers/ActivoController.php
-
-
-
-
 
     public function indexDestruidos()
     {
@@ -135,17 +112,26 @@ class ActivoController extends Controller
     public function getActivosDestruidos()
     {
         // Obtener datos para DataTable en 'activosdestruidos'
-        $activosDestruidos = Activo::onlyTrashed('deleted_at')
-            ->whereNotNull('deleted_at')
-            ->select(['sap', 'nombre', 'actadestruccion',
-             'descripcion', 'codigo', 'categoria', 'estado',
-             'lugar', 'fechaingreso', 'facturacompra', 'fechasalida',
-              'fechamantenimiento', 'fechadestruccion', 'costomantenimiento',
-              'fotourl', 'deleted_at'])
-            ->get();
+        // $activosDestruidos = Activo::onlyTrashed('deleted_at')
+        //     ->whereNotNull('deleted_at')
+        //     ->select(['sap', 'nombre', 'actadestruccion', 'descripcion', 'codigo', 'categoria', 'estado', 'lugar', 'fechaingreso', 'facturacompra', 'fechasalida', 'fechamantenimiento', 'fechadestruccion', 'costomantenimiento', 'fotourl', 'deleted_at'])
+        //     ->get();
 
-            return view('activoseliminados', compact('activosDestruidos'));
+        $activosDestruidos = Activo::onlyTrashed()->get();
 
+        return view('activoseliminados', compact('activosDestruidos'));
     }
 
+    public function repararElemento($id)
+    {
+        try {
+            $activo = Activo::withTrashed()->findOrFail($id);
+            $activo->restore();
+            return redirect()->back()->with('success', 'El activo ha sido restaurado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('error', 'Hubo un error al intentar restaurar el activo: ' . $e->getMessage());
+        }
+    }
 }
