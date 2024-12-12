@@ -46,8 +46,8 @@
                             src="/assets/Recursos/basura.png" alt="usuario" width="20% "class="imageusuarios"></a>
                 </li>
                 <li><a href="activosdestruidos"| class="Activos_Destruidos">Activos Destruidos<img
-                    src="/assets/Recursos/mesa.png" alt="usuario" width="20% "class="imageusuarios"></a>
-        </li>
+                            src="/assets/Recursos/mesa.png" alt="usuario" width="20% "class="imageusuarios"></a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -69,7 +69,7 @@
                             <ul class="submenu">
                                 @foreach ($categoria as $filter)
                                     <li>
-                                        <a href="#"  class="filtro" data-tipo="categoria"
+                                        <a href="#" class="filtro" data-tipo="categoria"
                                             data-valor="{{ $filter->id_codigo }}">
                                             {{ $filter->nombre }}
                                         </a>
@@ -78,46 +78,9 @@
                             </ul>
                         </li>
                         <li>
-                            <script>
-                                document.addEventListener("DOMContentLoaded", function() {
-                                    const filterLinks = document.querySelectorAll('.filter-link');
-                                    filterLinks.forEach(link => {
-                                        const submenu = link.nextElementSibling;
-                                        if (submenu && submenu.classList.contains('submenu')) {
-                                            link.addEventListener("click", function(event) {
-                                                event.preventDefault(); // Alternar la visibilidad del submenú clicado
-                                                submenu.classList.toggle('open');
-                                            });
-                                        }
-                                    }); // Cerrar submenú al seleccionar una opción
-                                    const submenuLinks = document.querySelectorAll('.submenu li a');
-                                    submenuLinks.forEach(link => {
-                                        link.addEventListener("click", function() {
-                                            const submenu = link.closest('.submenu');
-                                            if (submenu) {
-                                                submenu.classList.remove('open');
-                                            }
-                                        });
-                                    }); // Cerrar submenú al hacer clic fuera del menú
-                                    document.addEventListener("click", function(event) {
-                                        filterLinks.forEach(link => {
-                                            const submenu = link.nextElementSibling;
-                                            if (submenu && submenu.classList.contains('submenu') && !link.contains(event
-                                                    .target) && !submenu.contains(event.target)) {
-                                                submenu.classList.remove('open');
-                                            }
-                                        });
-                                    });
-                                });
-                            </script>
-
-
-
-
-
-                            <a href="#" class="filter-link"  style="font-family: sans-serif">
+                            <a href="#" class="filter-link" style="font-family: sans-serif">
                                 <i class="fas fa-building"></i>
-                                 Filtrar por Lugar
+                                Filtrar por Lugar
                             </a>
                             <ul class="submenu">
                                 @foreach ($activo as $lugar)
@@ -135,9 +98,9 @@
                         {{-- botones --}}
 
                         {{-- finbotones --}}
-                        <li >
-                            <a href="#" class="filter-link" style="font-family: sans-serifc "  >
-                                <i class="fas fa-check-circle" ></i>
+                        <li>
+                            <a href="#" class="filter-link" style="font-family: sans-serifc ">
+                                <i class="fas fa-check-circle"></i>
                                 Filtrar por Estado
                             </a>
                             <ul class="submenu">
@@ -150,7 +113,8 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="limpiarFiltros" id="limpiarFiltros" style="font-family: sans-serif">
+                            <a href="#" class="limpiarFiltros" id="limpiarFiltros"
+                                style="font-family: sans-serif">
                                 <i class="fas fa-times"></i>
                                 Limpiar Filtros
                             </a>
@@ -207,7 +171,7 @@
                     <th>Nombre del Activo</th>
                     <th>Lugar</th>
                     <th>Estado</th>
-            <th>Fecha de Ingreso</th>
+                    <th>Fecha de Ingreso</th>
                     <th>Información</th>
 
                 </tr>
@@ -410,20 +374,73 @@
             }
         });
     </script>
-{{-- elex --}}
-<script>
-    function exportToExcel() {
-      // Obtener la tabla por su ID
-      const table = document.getElementById("miTabla");
+    {{-- elex --}}
+    <script>
+        function exportToExcel() {
+            // Obtener la tabla por su ID
+            const table = document.getElementById("miTabla");
 
-      // Crear un objeto de libro de Excel
-      const wb = XLSX.utils.table_to_book(table, { sheet: "Hoja1" });
+            // Crear un objeto de libro de Excel
+            const wb = XLSX.utils.table_to_book(table, {
+                sheet: "Hoja1"
+            });
 
-      // Exportar el libro a un archivo Excel
-      XLSX.writeFile(wb, "datos.xlsx");
-    }
-  </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+            // Exportar el libro a un archivo Excel
+            XLSX.writeFile(wb, "datos.xlsx");
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterLinks = document.querySelectorAll('.filter-link');
+            const submenuLinks = document.querySelectorAll('.submenu li a');
+
+            // Filtrar y eliminar duplicados
+            const uniquePlaces = new Set();
+            submenuLinks.forEach(link => {
+                const place = link.dataset.valor; // Obtiene el valor del lugar
+                if (uniquePlaces.has(place)) {
+                    // Si ya existe, oculta este elemento
+                    link.closest('li').style.display = 'none';
+                } else {
+                    uniquePlaces.add(place); // Agrega al conjunto
+                }
+            });
+
+            // Abrir y cerrar submenús
+            filterLinks.forEach(link => {
+                const submenu = link.nextElementSibling;
+                if (submenu && submenu.classList.contains('submenu')) {
+                    link.addEventListener("click", function(event) {
+                        event.preventDefault();
+                        submenu.classList.toggle('open');
+                    });
+                }
+            });
+
+            // Cerrar submenú al seleccionar una opción
+            submenuLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    const submenu = link.closest('.submenu');
+                    if (submenu) {
+                        submenu.classList.remove('open');
+                    }
+                });
+            });
+
+            // Cerrar submenú al hacer clic fuera del menú
+            document.addEventListener("click", function(event) {
+                filterLinks.forEach(link => {
+                    const submenu = link.nextElementSibling;
+                    if (submenu && submenu.classList.contains('submenu') && !link.contains(event
+                            .target) && !submenu.contains(event.target)) {
+                        submenu.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 
 </body>
 
