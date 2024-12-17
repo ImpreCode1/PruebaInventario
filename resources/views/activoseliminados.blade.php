@@ -65,9 +65,7 @@
             <ul class="navigation">
                 <li><a href="inicioadmin" class="Activos_Destruidos">inicio<img src="/assets/Recursos/inicio.png"
                             alt="usuario" width="20%" class="imageusuarios"></a></li>
-                <li><a href="activosdestruidos" class="Inicioadmin">activos destruidos<img
-                            src="/assets/Recursos/mesa.png" alt="usuario" width="20%" class="imageusuarios"></a>
-                </li>
+
             </ul>
         </nav>
     </div>

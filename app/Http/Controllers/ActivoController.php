@@ -111,11 +111,6 @@ class ActivoController extends Controller
 
     public function getActivosDestruidos()
     {
-        // Obtener datos para DataTable en 'activosdestruidos'
-        // $activosDestruidos = Activo::onlyTrashed('deleted_at')
-        //     ->whereNotNull('deleted_at')
-        //     ->select(['sap', 'nombre', 'actadestruccion', 'descripcion', 'codigo', 'categoria', 'estado', 'lugar', 'fechaingreso', 'facturacompra', 'fechasalida', 'fechamantenimiento', 'fechadestruccion', 'costomantenimiento', 'fotourl', 'deleted_at'])
-        //     ->get();
 
         $activosDestruidos = Activo::onlyTrashed()->get();
 

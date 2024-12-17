@@ -42,12 +42,10 @@
                 <li><a href="" class="Registrador_Usuarios">Registrar Administrador <img
                             src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario"
                             width="20% "class="imageusuarios"></a></li>
-                <li><a href="activoseliminados"| class="Activos_Destruidos">Activos Eliminados<img
+                <li><a href="activoseliminados"| class="Activos_Destruidos " >Activos Eliminados<img
                             src="/assets/Recursos/basura.png" alt="usuario" width="20% "class="imageusuarios"></a>
                 </li>
-                <li><a href="activosdestruidos"| class="Activos_Destruidos">Activos Destruidos<img
-                            src="/assets/Recursos/mesa.png" alt="usuario" width="20% "class="imageusuarios"></a>
-                </li>
+
             </ul>
         </nav>
     </div>
