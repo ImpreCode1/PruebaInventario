@@ -12,22 +12,38 @@ body {
   min-height: 100vh;
 }
 
+
+/* posicion y estilos de las imagenes del nav */
+
+.img_CreCat{
+    position:relative;
+    top: 5px;
+}
+
+
+
+/* fin de estilos de las imagenes del nav */
+
 .navegacion {
   position: relative;
-  left: 1200px;
+  left: 800px;
   width: 65%;
   bottom: 200px;
   z-index: 1;
   height: 50px;
-  background: linear-gradient(to bottom, #11548f,#11548f,#082742);
+  background-color: #333;
+
 
   border: 1px solid #11548f;
   /* border-radius: 8px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.navegacion ul { list-style: none;
+.navegacion ul {
+     list-style: none;
  }
-.menu > li { position: relative; display: inline-block;
+.menu > li {
+     position: relative;
+      display: inline-block;
 }
 .filter-link{
 position: relative;
@@ -79,12 +95,70 @@ nav {
   width: 279px;
   top: 70px;
   height: calc(100vh - 50px);
-  background: #0f4c81;
+  background: white;
 
   transform: translateX(-100%);
   transition: .4s ease;
   border-radius: 6px;
 }
+
+
+
+/* nuevo sidervar */
+
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px; /* Ancho fijo */
+    background-color: #333;
+    color: #fff;
+    height: 100cm; /* Altura completa de la ventana */
+    padding: 50px;
+}
+
+.sidebar h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    position: relative;
+    right: 30px;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+.sidebar a{
+    width: 120px;
+
+}
+.sidebar ul li a {
+    /* Sin cambios de tamaño al pasar el ratón */
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757; /* Cambia el fondo solo al pasar el ratón */
+}
+
+.content {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+
 .navigation li {
   list-style: none;
   width: 100%;
@@ -92,7 +166,7 @@ nav {
 
 }
 .navigation a {
-  color: var(--main-color);
+  color: black;
   display: block;
   line-height: 3.5;
   padding: 0 10px;
@@ -119,8 +193,13 @@ nav {
   background-size: 210px;
 border-radius: 8px;
 }
-.imageusuarios { position: relative; top: 10px; }
-.registactivo { position: relative; top: 25px; }
+.imageusuarios {
+    position: relative;
+    top: 10px; }
+.registactivo {
+     position: relative;
+     top: 25px;
+    }
 .cre_cat { position: relative; top: 10px; }
 button:hover {
   color: rgb(255, 255, 255);
@@ -364,7 +443,7 @@ margin-top: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #c8d513 20%, #bac614 80%);
   color: white;
   width: 45px;
   height: 45px;
@@ -514,6 +593,22 @@ td:first-child {
 
 
 /* parte del submenu */
+#miTabla {
+    width: 100%; /* La tabla ocupará todo el ancho disponible */
+    border-collapse: collapse; /* Para unir los bordes de las celdas */
+}
+
+th, td {
+     /* Bordes para las celdas */
+    padding: 4px; /* Espacio dentro de las celdas */
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+th {
+    background: linear-gradient(to bottom, #082742,#082742,#082742);
+
+    color: white; /* Color del texto del encabezado */
+}
 
 .submenu {
   position: absolute;
@@ -571,6 +666,5 @@ td:first-child {
 .submenu li a:hover{
  color: #11076b;
 }
-
 
 

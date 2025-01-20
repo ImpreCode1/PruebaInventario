@@ -54,21 +54,93 @@
             transform: rotate(250deg);
             transition-duration: 1.5s;
         }
-    </style>
+
+
+
+
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    overflow:scroll;
+
+}
+
+.sidebar {
+    width: 250px; /* Ancho fijo */
+    background-color: #333;
+    color: #fff;
+    height: 100vh; /* Altura completa de la ventana */
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    position: relative;
+    left: 30px;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    /* Sin cambios de tamaño al pasar el ratón */
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    width: 180px;
+    position: relative;
+    right: 35px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757; /* Cambia el fondo solo al pasar el ratón */
+}
+
+.content {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow: auto;
+}
+
+.icon {
+    position: absolute; /* Coloca el SVG detrás del texto */
+    left:-25px; /* Ajusta la posición horizontal */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta para centrar correctamente */
+    width: 20px; /* Tamaño más pequeño */
+    height: 20px; /* Tamaño más pequeño */
+    opacity: 0.5; /* Opcional: hace que el SVG sea más transparente */
+}
+
+.devol{
+    position: relative; /* Para que el SVG se posicione relativo a este contenedor */
+    padding-left: 30px; /* Espacio para que el texto no se superponga al SVG */
+}
+</style>
+
+
 </head>
 
 <body>
-    <div class="menu_lateral">
-        <label for="btn-nav" class="btn-nav"></label>
-        <input type="checkbox" id="btn-nav">
-        <nav class="navegador">
-            <ul class="navigation">
-                <li><a href="inicioadmin" class="Activos_Destruidos">inicio<img src="/assets/Recursos/inicio.png"
-                            alt="usuario" width="20%" class="imageusuarios"></a></li>
+    <div class="sidebar">
+        <h2>Activos Impresistem</h2>
+        <ul>
 
-            </ul>
-        </nav>
+    <li><a href="/inicioadmin" class="devol"> <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M1 11C.08 11-.352 9.863.336 9.253l9-8a1 1 0 0 1 1.328 0l9 8C20.352 9.863 19.92 11 19 11h-1v7a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-7zm6 6v-5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5h3v-7a1 1 0 0 1 .512-.873L10 3.337l-6.512 5.79A1 1 0 0 1 4 10v7zm2 0v-4h2v4z" clip-rule="evenodd"/></svg>
+        Regresar al Inicio </a></li>
+
+        </ul>
     </div>
+    <div class="content">
     <div class="supercontainer">
         <div class="container mt-5">
             <h2 class="mb-4">Activos Eliminados</h2>
@@ -131,7 +203,7 @@
             $('#tablaaa').DataTable();
         });
     </script>
-
+</div>
 </body>
 
 </html>

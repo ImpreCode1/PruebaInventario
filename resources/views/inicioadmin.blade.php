@@ -22,33 +22,61 @@
                 'GRAD' 0,
                 'opsz' 24
         }
+
+        .Crear__Categoria {
+    position: relative; /* Para que el SVG se posicione relativo a este contenedor */
+    padding-left: 30px; /* Espacio para que el texto no se superponga al SVG */
+}
+.Regis {
+    position: relative; /* Para que el SVG se posicione relativo a este contenedor */
+    padding-left: 30px; /* Espacio para que el texto no se superponga al SVG */
+}
+.Registrador_Usuarios{
+    position: relative; /* Para que el SVG se posicione relativo a este contenedor */
+    padding-left: 30px; /* Espacio para que el texto no se superponga al SVG */
+}
+.Activos_Destruidos {
+    position: relative; /* Para que el SVG se posicione relativo a este contenedor */
+    padding-left: 30px; /* Espacio para que el texto no se superponga al SVG */
+}
+.icon {
+    position: absolute; /* Coloca el SVG detrás del texto */
+    left: -14px;/* Ajusta la posición horizontal */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta para centrar correctamente */
+    width: 20px; /* Tamaño más pequeño */
+    height: 20px; /* Tamaño más pequeño */
+    opacity: 0.5; /* Opcional: hace que el SVG sea más transparente */
+}
+
     </style>
 
 </head>
 
 <body>
     {{-- menu lateral --}}
-    <div class="menu_lateral">
-        <label for="btn-nav" class="btn-nav"></label>
-        <input type="checkbox" id="btn-nav">
-        <nav>
-            <ul class="navigation">
-                <li><a href="" class="Crear__Categoria"> Crear Categoria <img
-                            src="/assets/Recursos/crearactivo.png" alt="registro activo" class="cre_cat" width="18%">
-                    </a> </li>
-                <li><a href="crearactivo">Registro Activo <img
-                            src="/assets/Recursos/registrar_activo-removebg-preview.png" alt="registro activo"
-                            class="registactivo" width="26%"></a></li>
-                <li><a href="" class="Registrador_Usuarios">Registrar Administrador <img
-                            src="/assets/Recursos/usuarios-removebg-preview.png" alt="usuario"
-                            width="20% "class="imageusuarios"></a></li>
-                <li><a href="activoseliminados"| class="Activos_Destruidos " >Activos Eliminados<img
-                            src="/assets/Recursos/basura.png" alt="usuario" width="20% "class="imageusuarios"></a>
-                </li>
+    <div class="sidebar">
+        <h2>Activos Impresistem</h2>
+        <ul>
+            <li>
+                <a href="" class="Crear__Categoria">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1m10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1M4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1m13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4s-4 1.794-4 4s1.794 4 4 4"/>
+                    </svg>
+                    Crear Categoria
+                </a>
+            </li>
+    <li><a href="crearactivo" class="Regis"> <svg xmlns="http://www.w3.org/2000/svg"  class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M5 19V5v11.35v-2.125zm-2 2V3h18v10h-2V5H5v14h7v2zm14.35 1l-3.55-3.55l1.425-1.4l2.125 2.125l4.25-4.25L23 16.35zM11 13h6v-2h-6zm0-4h6V7h-6zm-4 4h2v-2H7zm0-4h2V7H7z"/></svg>Registro Activo
+                </a></li>
+    <li><a href="" class="Registrador_Usuarios"> <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512"><path fill="currentColor" d="M213.3 384c0-87 65.2-158.7 149.3-169.2v-1.5c5.5-8 21.3-21.3 21.3-42.7s-21.3-42.7-21.3-53.3C362.7 32 319.2 0 256 0c-60.5 0-106.7 32-106.7 117.3c0 10.7-21.3 32-21.3 53.3s15.2 35.4 21.3 42.7c0 0 0 21.3 10.7 53.3c0 10.7 21.3 21.3 32 32c0 10.7 0 21.3-10.7 42.7L64 362.7C21.3 373.3 0 448 0 512h271.4c-35.5-31.3-58.1-77-58.1-128M384 256c-70.7 0-128 57.3-128 128s57.3 128 128 128s128-57.3 128-128s-57.3-128-128-128m85.3 149.3h-64v64h-42.7v-64h-64v-42.7h64v-64h42.7v64h64z"/></svg> Registrar Administrador</a></li>
 
-            </ul>
-        </nav>
+    <li><a href="activoseliminados"| class="Activos_Destruidos "><svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M17 5V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V7h1a1 1 0 1 0 0-2zm-2-1H9v1h6zm2 3H7v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1z" clip-rule="evenodd"/><path d="M9 9h2v8H9zm4 0h2v8h-2z"/></g></svg> Activos Eliminados </a>
+    </li>
+        </ul>
     </div>
+    <div class="content">
+
+
     {{-- fin menu lateral --}}
     {{-- </header> --}}
 
@@ -237,6 +265,7 @@
                 <button type="submit">Enviar</button>
             </form>
         </div>
+
     </section>
     <!-- final de modal de registro de administrador -->
     <script src="/assets/js/inicioadm.js"></script>
@@ -439,7 +468,7 @@
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-
+</div>
 </body>
 
 </html>
