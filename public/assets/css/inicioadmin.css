@@ -157,7 +157,26 @@ body {
     padding: 20px;
     background-color: #f4f4f4;
 }
+.btn_cerrarSE {
+    background-color: #ff4d4d; /* Color de fondo (rojo claro) */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar cursor hacia "puntero" */
+    transition: background-color 0.3s ease, transform 0.2s; /* Animaciones para efectos */
+    
+}
 
+.btn_cerrarSE:hover {
+    background-color: #ff1a1a; /* Color de fondo al pasar el ratón (rojo más oscuro) */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+.btn_cerrarSE:active {
+    transform: scale(0.98); /* Reducir el tamaño al hacer clic */
+}
 
 .navigation li {
   list-style: none;

@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/activo/{ID}', 'verInfoActivo')->name('ver.activo');
         Route::delete('/activo/{activo}', 'delete')->name('activo.delete');
         Route::post('/activo/update', 'update')->name('activo.update');
+
     });
 
     // Rutas de Categorías
@@ -51,7 +52,7 @@ Route::middleware(['auth'])->group(function () {
     // Rutas de Activos Eliminados
     Route::controller(ActivoController::class)->group(function () {
         Route::get('/activoseliminados', 'indexDestruidos')->name('activos.eliminados');
-        Route::get('/activosdestruidos', 'getActivosDestruidos')->name('activosdestruidos');
+        Route::get('/activoseliminados', 'getActivosDestruidos')->name('activos.eliminados.data');
         Route::put('/activoseliminados/{id}/reparar', 'repararElemento')
             ->where('id', '[0-9]+')
             ->name('elemento.reparar');

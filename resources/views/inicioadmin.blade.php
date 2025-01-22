@@ -79,7 +79,7 @@
             @csrf
         </form>
 
-        <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <button class="btn_cerrarSE" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             {{ __('Cerrar Sesión') }}
         </button>
 
