@@ -9,86 +9,51 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 
-//rutas de vistas
-Route::view('/', 'login');
-Route::view('/crearactivo', 'crearactivo')->name('crearactivo');
-Route::view('/informacionactiv', 'informacionactiv')->name('informacionactiv');
-Route::view('/inicioadmin', 'inicioadmin')->name('inicioadmin');
-Route::view('/mantenimiento', 'mantenimiento')->name('mantenimiento');
-Route::view('/activoseliminados', 'activoseliminados')->name('activoseliminados');
-Route::view('/activosdestruidos', 'activosdestruidos')->name('activosdestruidos');
 
-
-
-
-
-// Peticiones de logica
-//categoria
-Route::post('/categoria/store', [CategoriaController::class, 'store'])->name('categoria.store');
-// Rutas
-Route::post('/activo/register', [ActivoController::class, 'register'])->name('activo.register');
-//activo
-// usuarios
-Route::post('/usuarios/us', [UsuarioController::class, 'us'])->name('usuarios.us');
-// metodo get activos inicio admin
-
-
-Route::get('/inicioadmin', [ActivoController::class, 'index'])->name('inicioadmin');
-
-
+// Rutas de autenticación
+Route::get('/', [AuthController::class, 'showLogin'])->name('login');
+// Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/inicioadmin/login', [AuthController::class, 'login'])->name('inicioadmin.login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Rutas protegidas
+Route::middleware(['auth'])->group(function () {
+    // Rutas principales
+    Route::get('/inicioadmin', [ActivoController::class, 'index'])->name('inicioadmin');
+    Route::get('/crearactivo', [ActivoController::class, 'filtercategory'])->name('crearactivo');
+    Route::get('/informacionactiv', [ActivoController::class, 'index'])->name('informacionactiv');
 
+    // Rutas de Activos
+    Route::controller(ActivoController::class)->group(function () {
+        Route::post('/activo/register', 'register')->name('activo.register');
+        Route::get('/activo/{ID}', 'verInfoActivo')->name('ver.activo');
+        Route::delete('/activo/{activo}', 'delete')->name('activo.delete');
+        Route::post('/activo/update', 'update')->name('activo.update');
+    });
 
+    // Rutas de Categorías
+    Route::post('/categoria/store', [CategoriaController::class, 'store'])->name('categoria.store');
 
-Route::get('/activo/{ID}', [ActivoController::class, 'verInfoActivo'])->name('ver.activo');
+    // Rutas de Usuarios
+    Route::post('/usuarios/us', [UsuarioController::class, 'us'])->name('usuarios.us');
 
-//obtener mantenimiento por id
-Route::get('/mantenimiento/{ID}', [MantenimientoController::class, 'verMantenimiento'])->name('ver.mantenimiento');
+    // Rutas de Mantenimiento
+    Route::controller(MantenimientoController::class)->group(function () {
+        Route::get('/mantenimiento', 'index')->name('mantenimiento');
+        Route::get('/mantenimiento/{ID}', 'verMantenimiento')->name('ver.mantenimiento');
+        Route::post('/mantenimiento/{activo}/store', 'store')->name('mantenimiento.store');
+        Route::put('/mantenimiento/{id}/terminar', 'terminarMantenimiento')->name('mantenimiento.terminar');
+        Route::post('/mantenimiento/{id}/upload-factura', 'uploadFactura')->name('mantenimiento.uploadFactura');
+        Route::post('/mantenimiento/{id}', 'up')->name('mantenimiento.up');
+        Route::put('/mantenimiento/{id}/update-factura', 'updateFactura')->name('mantenimiento.updateFactura');
+    });
 
-//crear mantenimiento
-Route::post('/mantenimiento/{activo}/store', [MantenimientoController::class, 'store'])->name('mantenimiento.store');
-Route::put('/mantenimiento/{id}/terminar', [MantenimientoController::class, 'terminarMantenimiento'])->name('mantenimiento.terminar');
-//listar mantenimientos de cada activo
-// Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento.index');
-Route::delete('activo/{activo}', [ActivoController::class, 'delete'])->name('activo.delete');
-
-Route::get('/crearactivo', [ActivoController::class, 'filtercategory'])->name('crearactivo');
-
-
-// editar activo
-//Route::put('/activo/update/{activo}', [ActivoController::class, 'update'])->name('activo.update');
-Route::post('/activo/update', [ActivoController::class, 'update'])->name('activo.update');
-Route::post('/mantenimiento/{id}/upload-factura', [MantenimientoController::class, 'uploadFactura'])->name('mantenimiento.uploadFactura');
-// Route::post('/mantenimiento/{id}/', [MantenimientoController::class, 'up'])->name('mantenimiento.up');
-Route::get('/mantenimiento/{id}', function ($id) {
-    $activo = Activo::findOrFail($id);
-    return view('mantenimiento.form', compact('activo'));
-})->name('mantenimiento.form');
-
-// Ruta para manejar el envío del formulario
-Route::post('/mantenimiento/{id}', [MantenimientoController::class, 'up'])->name('mantenimiento.up');
-Route::put('/mantenimiento/{id}/update-factura', [MantenimientoController::class, 'updateFactura'])->name('mantenimiento.updateFactura');
-
-
-// ruta articulos eliminados
-// Route::get('/activoseliminados', [ActivoController::class, 'activosEliminados'])->name('activos.eliminados');
-
-
-
- Route::get('/activoseliminados', [ActivoController::class, 'indexDestruidos'])->name('activos.eliminados');
- Route::get('/activoseliminados',[ActivoController::class, 'getActivosDestruidos'])->name('activos.eliminados.data');
-
- Route::get('/activoseliminados', [ActivoController::class, 'indexDestruidos'])->name('activos.eliminados');
-  Route::get('/activoseliminados',[ActivoController::class, 'getActivosDestruidos'])->name('activos.eliminados.data');
-
-
-
-
-
-// Route::put('activoseliminados/{id}/reparar', [ActivoController::class, 'repararElemento'])->name('elemento.reparar');
-Route::put('/activoseliminados/{id}/reparar', [ActivoController::class, 'repararElemento'])
-     ->where('id', '[0-9]+')
-     ->name('elemento.reparar');
-
-
+    // Rutas de Activos Eliminados
+    Route::controller(ActivoController::class)->group(function () {
+        Route::get('/activoseliminados', 'indexDestruidos')->name('activos.eliminados');
+        Route::get('/activosdestruidos', 'getActivosDestruidos')->name('activosdestruidos');
+        Route::put('/activoseliminados/{id}/reparar', 'repararElemento')
+            ->where('id', '[0-9]+')
+            ->name('elemento.reparar');
+    });
+});
