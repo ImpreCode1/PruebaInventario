@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `activos` (
   PRIMARY KEY (`ID`),
   KEY `Categoria` (`categoria`) USING BTREE,
   CONSTRAINT `activos_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categorias` (`ID_Codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla inventoryimpre.activos: ~0 rows (aproximadamente)
+-- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla inventoryimpre.categorias
 CREATE TABLE IF NOT EXISTS `categorias` (
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `categorias` (
   PRIMARY KEY (`id_codigo`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla inventoryimpre.categorias: ~0 rows (aproximadamente)
+-- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla inventoryimpre.mantenimientos
 CREATE TABLE IF NOT EXISTS `mantenimientos` (
@@ -74,9 +74,9 @@ CREATE TABLE IF NOT EXISTS `mantenimientos` (
   PRIMARY KEY (`ID`),
   KEY `ID_activo` (`id_activo`) USING BTREE,
   CONSTRAINT `mantenimientos_ibfk_1` FOREIGN KEY (`id_activo`) REFERENCES `activos` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla inventoryimpre.mantenimientos: ~0 rows (aproximadamente)
+-- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla inventoryimpre.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -86,12 +86,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla inventoryimpre.migrations: ~4 rows (aproximadamente)
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-	(1, '2014_10_12_000000_create_users_table', 1),
-	(2, '2019_08_19_000000_create_failed_jobs_table', 1),
-	(3, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-	(4, '2014_10_12_100000_create_password_reset_tokens_table', 2);
+-- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla inventoryimpre.password_reset_tokens
 CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
@@ -101,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla inventoryimpre.password_reset_tokens: ~0 rows (aproximadamente)
+-- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla inventoryimpre.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -117,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla inventoryimpre.users: ~0 rows (aproximadamente)
+-- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla inventoryimpre.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
@@ -131,11 +126,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Email` (`email`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla inventoryimpre.usuarios: ~1 rows (aproximadamente)
-INSERT INTO `usuarios` (`ID`, `nombre`, `email`, `contrasena`, `role`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(53, 'luis.impresistem', 'luis.puentes@impresistem.com', '$2y$10$oKPB5URLAoycc0IiZXDhnOPl8jj7MLAoy2F/dYUJwMXR3Q1EI..xS', 'superadmin', '2024-11-13 20:17:29', '2024-11-13 20:17:29', NULL);
+-- La exportación de datos fue deseleccionada.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
